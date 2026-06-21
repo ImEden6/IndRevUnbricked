@@ -2,6 +2,7 @@ package me.mervyn.indrev.registry
 
 import me.mervyn.indrev.utils.identifier
 import me.mervyn.indrev.utils.itemSettings
+import me.mervyn.indrev.utils.item
 import net.fabricmc.api.EnvType
 import net.fabricmc.fabric.api.`object`.builder.v1.block.FabricBlockSettings
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap
@@ -20,13 +21,13 @@ class MaterialHelper(private val id: String, private val block: MaterialHelper.(
     fun withItems(vararg variants: String): MaterialHelper {
         variants.forEach { variant ->
             val identifier = identifier("${id}_$variant")
-            map[identifier] = { Registry.register(Registries.ITEM, identifier, Item(itemSettings())) }
+            map[identifier] = { identifier.item(Item(itemSettings())) }
         }
         return this
     }
 
     fun withItem(): MaterialHelper {
-        Registry.register(Registries.ITEM, identifier(id), Item(itemSettings()))
+        identifier(id).item(Item(itemSettings()))
         return this
     }
 
@@ -35,14 +36,14 @@ class MaterialHelper(private val id: String, private val block: MaterialHelper.(
         val identifier = identifier("${id}_ore")
         map[identifier] = {
             Registry.register(Registries.BLOCK, identifier, ore)
-            Registry.register(Registries.ITEM, identifier, BlockItem(ore, itemSettings()))
+            identifier.item(BlockItem(ore, itemSettings()))
         }
 
         val deepslateOre = supplier(FabricBlockSettings.copyOf(Blocks.DEEPSLATE_COAL_ORE).requiresTool().strength(3f, 3f))
         val deepslateId = identifier("deepslate_${id}_ore")
         map[deepslateId] = {
             Registry.register(Registries.BLOCK, deepslateId, deepslateOre)
-            Registry.register(Registries.ITEM, deepslateId, BlockItem(deepslateOre, itemSettings()))
+            deepslateId.item(BlockItem(deepslateOre, itemSettings()))
         }
 
         if (rawOre) {
@@ -51,8 +52,8 @@ class MaterialHelper(private val id: String, private val block: MaterialHelper.(
             val rawOreBlockId = identifier("raw_${id}_block")
             map[rawOreId] = {
                 Registry.register(Registries.BLOCK, rawOreBlockId, rawOreBlock)
-                Registry.register(Registries.ITEM, rawOreBlockId, BlockItem(rawOreBlock, itemSettings()))
-                Registry.register(Registries.ITEM, rawOreId, Item(itemSettings()))
+                rawOreBlockId.item(BlockItem(rawOreBlock, itemSettings()))
+                rawOreId.item(Item(itemSettings()))
             }
         }
 
@@ -61,34 +62,34 @@ class MaterialHelper(private val id: String, private val block: MaterialHelper.(
 
     fun withTools(pickaxe: PickaxeItem, axe: AxeItem, shovel: ShovelItem, sword: SwordItem, hoe: HoeItem) {
         map[identifier("${id}_pickaxe")] = {
-            Registry.register(Registries.ITEM, identifier("${id}_pickaxe"), pickaxe)
+            identifier("${id}_pickaxe").item(pickaxe)
         }
         map[identifier("${id}_axe")] = {
-            Registry.register(Registries.ITEM, identifier("${id}_axe"), axe)
+            identifier("${id}_axe").item(axe)
         }
         map[identifier("${id}_shovel")] = {
-            Registry.register(Registries.ITEM, identifier("${id}_shovel"), shovel)
+            identifier("${id}_shovel").item(shovel)
         }
         map[identifier("${id}_sword")] = {
-            Registry.register(Registries.ITEM, identifier("${id}_sword"), sword)
+            identifier("${id}_sword").item(sword)
         }
         map[identifier("${id}_hoe")] = {
-            Registry.register(Registries.ITEM, identifier("${id}_hoe"), hoe)
+            identifier("${id}_hoe").item(hoe)
         }
     }
 
     fun withArmor(material: ArmorMaterial) {
         map[identifier("${id}_helmet")] = {
-            Registry.register(Registries.ITEM, identifier("${id}_helmet"), ArmorItem(material, ArmorItem.Type.HELMET, itemSettings()))
+            identifier("${id}_helmet").item(ArmorItem(material, ArmorItem.Type.HELMET, itemSettings()))
         }
         map[identifier("${id}_chestplate")] = {
-            Registry.register(Registries.ITEM, identifier("${id}_chestplate"), ArmorItem(material, ArmorItem.Type.CHESTPLATE, itemSettings()))
+            identifier("${id}_chestplate").item(ArmorItem(material, ArmorItem.Type.CHESTPLATE, itemSettings()))
         }
         map[identifier("${id}_leggings")] = {
-            Registry.register(Registries.ITEM, identifier("${id}_leggings"), ArmorItem(material, ArmorItem.Type.LEGGINGS, itemSettings()))
+            identifier("${id}_leggings").item(ArmorItem(material, ArmorItem.Type.LEGGINGS, itemSettings()))
         }
         map[identifier("${id}_boots")] = {
-            Registry.register(Registries.ITEM, identifier("${id}_boots"), ArmorItem(material, ArmorItem.Type.BOOTS, itemSettings()))
+            identifier("${id}_boots").item(ArmorItem(material, ArmorItem.Type.BOOTS, itemSettings()))
         }
     }
 
@@ -98,7 +99,7 @@ class MaterialHelper(private val id: String, private val block: MaterialHelper.(
         val id = identifier("${id}_block")
         map[id] = {
             Registry.register(Registries.BLOCK, id, block)
-            Registry.register(Registries.ITEM, id, BlockItem(block, itemSettings()))
+            id.item(BlockItem(block, itemSettings()))
         }
         if (FabricLoader.getInstance().environmentType == EnvType.CLIENT) {
             BlockRenderLayerMap.INSTANCE.putBlock(block, RenderLayer.getCutout())

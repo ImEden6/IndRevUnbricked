@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#c:tin_ores",
+    "#c:lead_ores",
+    "#c:silver_ores",
+    "#c:tungsten_ores",
+    "#c:nikolite_ores"
+  ]
+}
