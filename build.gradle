@@ -128,20 +128,32 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
-    dependencies.ext.lib("teamreborn:energy:${project.tr_energy_version}")
-    dependencies.ext.lib("io.github.cottonmc:LibGui:${project.libgui_version}")
-    dependencies.ext.lib("vazkii.patchouli:Patchouli:${project.patchouli_version}")
-    dependencies.ext.lib("dev.draylar:magna:${project.magna_version}")
-    dependencies.ext.lib("com.github.emilyploszaj:step-height-entity-attribute:v1.2.0")
+    modImplementation(files("libs/energy-${project.tr_energy_version}.jar"))
+    include(files("libs/energy-${project.tr_energy_version}.jar"))
+
+    modImplementation(files("libs/LibGui-${project.libgui_version}.jar"))
+    include(files("libs/LibGui-${project.libgui_version}.jar"))
+
+    modImplementation(files("libs/Patchouli-${project.patchouli_version}.jar"))
+    include(files("libs/Patchouli-${project.patchouli_version}.jar"))
+
+    modImplementation(files("libs/magna-${project.magna_version}.jar"))
+    include(files("libs/magna-${project.magna_version}.jar"))
+
+    modImplementation(files("libs/step-height-entity-attribute-v1.2.0.jar"))
+    include(files("libs/step-height-entity-attribute-v1.2.0.jar"))
+
     dependencies.ext.lib("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}", true)
-    dependencies.ext.lib("me.luligabi:NoIndium:1.1.0+1.19")
+
+    modImplementation(files("libs/NoIndium-1.1.0+1.19.jar"))
+    include(files("libs/NoIndium-1.1.0+1.19.jar"))
 
     modRuntimeOnly("com.terraformersmc:modmenu:${project.modmenu_version}") {
         exclude group: "net.fabricmc.fabric-api", module: "fabric-api"
     }
 
     // DashLoader Stuff
-    modCompileOnly("net.oskarstrom:DashLoader:2.0-dev12")
+    modCompileOnly(files("libs/dashloader-5.0.0-beta.2+1.20.0.jar"))
     dependencies.ext.lib("io.activej:activej-serializer:${project.activej_version}", true)
     modRuntimeOnly("org.yaml:snakeyaml:1.27")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
@@ -222,4 +234,8 @@ compileTestKotlin {
     kotlinOptions {
         jvmTarget = "17"
     }
+}
+
+compileJava {
+    classpath += files(compileKotlin.destinationDirectory)
 }

@@ -1,37 +1,25 @@
 package me.mervyn.indrev.compat.dashloader.models
 
-import io.activej.serializer.annotations.Deserialize
-import io.activej.serializer.annotations.Serialize
+import dev.notalpha.dashloader.api.DashObject
+import dev.notalpha.dashloader.api.registry.RegistryReader
+import dev.notalpha.dashloader.api.registry.RegistryWriter
 import me.mervyn.indrev.blocks.models.MinerBakedModel
 import me.mervyn.indrev.utils.blockSpriteId
-import net.minecraft.client.render.model.BakedModel
-import net.oskarstrom.dashloader.DashRegistry
-import net.oskarstrom.dashloader.api.annotation.DashObject
-import net.oskarstrom.dashloader.model.DashModel
+import net.minecraft.client.texture.Sprite
 
-
-@DashObject(MinerBakedModel::class) class DashMinerModel : DashModel {
-
-    var id: String @Serialize(order = 0) get
-    var defaultSprite: Int @Serialize(order = 1) get
-    var overlays: IntArray @Serialize(order = 2) get
-    var workingOverlays: IntArray @Serialize(order = 3) get
-    var screenSprite: Int @Serialize(order = 4) get
-
-    constructor(model: MinerBakedModel, registry: DashRegistry) {
-        this.id = model.id
-        this.defaultSprite = registry.createSpritePointer(model.baseSprite)
-        this.overlays = model.overlays.map { registry.createSpritePointer(it) }.toIntArray()
-        this.workingOverlays = model.workingOverlays.map { registry.createSpritePointer(it) }.toIntArray()
-        this.screenSprite = registry.createSpritePointer(model.screenSprite)
-    }
+class DashMinerModel : DashObject<MinerBakedModel> {
+    val id: String
+    val defaultSprite: Int
+    val overlays: IntArray
+    val workingOverlays: IntArray
+    val screenSprite: Int
 
     constructor(
-        @Deserialize("id") id: String,
-        @Deserialize("defaultSprite") defaultSprite: Int,
-        @Deserialize("overlays") overlays: IntArray,
-        @Deserialize("workingOverlays") workingOverlays: IntArray,
-        @Deserialize("screenSprite") screenSprite: Int
+        id: String,
+        defaultSprite: Int,
+        overlays: IntArray,
+        workingOverlays: IntArray,
+        screenSprite: Int
     ) {
         this.id = id
         this.defaultSprite = defaultSprite
@@ -40,29 +28,32 @@ import net.oskarstrom.dashloader.model.DashModel
         this.screenSprite = screenSprite
     }
 
+    constructor(model: MinerBakedModel, writer: RegistryWriter) {
+        this.id = model.id
+        this.defaultSprite = writer.add(model.baseSprite)
+        this.overlays = model.overlays.map { writer.add(it) }.toIntArray()
+        this.workingOverlays = model.workingOverlays.map { writer.add(it) }.toIntArray()
+        this.screenSprite = writer.add(model.screenSprite)
+    }
 
-    override fun toUndash(registry: DashRegistry): BakedModel {
+    override fun export(reader: RegistryReader): MinerBakedModel {
         val model = MinerBakedModel(id)
-        model.baseSprite = registry.getSprite(defaultSprite)
-        model.screenSprite = registry.getSprite(screenSprite)
+        model.baseSprite = reader.get(defaultSprite)
+        model.screenSprite = reader.get(screenSprite)
         overlays.indices.forEach { _ -> model.overlayIds.add(blockSpriteId("")) }
         workingOverlays.indices.forEach { _ -> model.workingOverlayIds.add(blockSpriteId("")) }
         model.overlays.indices.forEach { index ->
-            val sprite = registry.getSprite(overlays[index])
+            val sprite: Sprite = reader.get(overlays[index])
             model.overlays[index] = sprite
             if (model.isEmissive(sprite)) model.emissives.add(sprite)
         }
         model.workingOverlays.indices.forEach { index ->
-            val sprite = registry.getSprite(workingOverlays[index])
+            val sprite: Sprite = reader.get(workingOverlays[index])
             model.workingOverlays[index] = sprite
             if (model.isEmissive(sprite)) model.emissives.add(sprite)
         }
-
-
         model.buildDefaultMesh()
         model.buildWorkingStateMesh()
         return model
     }
-
-    override fun getStage(): Int = 0
 }

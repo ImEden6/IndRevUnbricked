@@ -40,18 +40,15 @@
         "adapter": "kotlin",
         "value": "me.mervyn.indrev.datagen.IndustrialRevolutionDatagen"
       }
+    ],
+    "dashloader": [
+      {
+        "adapter": "kotlin",
+        "value": "me.mervyn.indrev.compat.dashloader.IndRevDashLoaderPlugin"
+      }
     ]
   },
   "custom": {
-    "dashloader:customobject":  [
-      "me.mervyn.indrev.compat.dashloader.models.DashCableModel",
-      "me.mervyn.indrev.compat.dashloader.models.DashFluidPipeModel",
-      "me.mervyn.indrev.compat.dashloader.models.DashItemPipeModel",
-      "me.mervyn.indrev.compat.dashloader.models.DashLazuliFluxContainerModel",
-      "me.mervyn.indrev.compat.dashloader.models.DashMachineModel",
-      "me.mervyn.indrev.compat.dashloader.models.DashMinerModel",
-      "me.mervyn.indrev.compat.dashloader.models.DashTankModel"
-    ]
   },
   "mixins": [
     "indrev.mixins.json"

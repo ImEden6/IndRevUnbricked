@@ -1,48 +1,41 @@
 package me.mervyn.indrev.compat.dashloader.models
 
-import io.activej.serializer.annotations.Deserialize
-import io.activej.serializer.annotations.Serialize
+import dev.notalpha.dashloader.api.DashObject
+import dev.notalpha.dashloader.api.registry.RegistryReader
+import dev.notalpha.dashloader.api.registry.RegistryWriter
 import me.mervyn.indrev.blocks.models.LazuliFluxContainerBakedModel
-import net.minecraft.client.render.model.BakedModel
-import net.oskarstrom.dashloader.DashRegistry
-import net.oskarstrom.dashloader.api.annotation.DashObject
-import net.oskarstrom.dashloader.model.DashModel
+import net.minecraft.client.texture.Sprite
 
-
-@DashObject(LazuliFluxContainerBakedModel::class) class DashLazuliFluxContainerModel : DashModel {
-    var id: String @Serialize(order = 0) get
-    var defaultSprite: Int @Serialize(order = 1) get
-    var overlays: IntArray @Serialize(order = 2) get
-
-    constructor(model: LazuliFluxContainerBakedModel, registry: DashRegistry) {
-        this.id = model.id
-        this.defaultSprite = registry.createSpritePointer(model.baseSprite)
-        this.overlays = model.overlays.map { registry.createSpritePointer(it) }.toIntArray()
-    }
+class DashLazuliFluxContainerModel : DashObject<LazuliFluxContainerBakedModel> {
+    val id: String
+    val defaultSprite: Int
+    val overlays: IntArray
 
     constructor(
-        @Deserialize("id") id: String,
-        @Deserialize("defaultSprite") defaultSprite: Int,
-        @Deserialize("overlays") overlays: IntArray
+        id: String,
+        defaultSprite: Int,
+        overlays: IntArray
     ) {
         this.id = id
         this.defaultSprite = defaultSprite
         this.overlays = overlays
     }
 
+    constructor(model: LazuliFluxContainerBakedModel, writer: RegistryWriter) {
+        this.id = model.id
+        this.defaultSprite = writer.add(model.baseSprite)
+        this.overlays = model.overlays.map { writer.add(it) }.toIntArray()
+    }
 
-    override fun toUndash(registry: DashRegistry): BakedModel {
+    override fun export(reader: RegistryReader): LazuliFluxContainerBakedModel {
         val model = LazuliFluxContainerBakedModel(id)
-        model.baseSprite = registry.getSprite(defaultSprite)
+        model.baseSprite = reader.get(defaultSprite)
         model.overlays.indices.forEach { index ->
-            val sprite = registry.getSprite(overlays[index])
+            val sprite: Sprite = reader.get(overlays[index])
             model.overlays[index] = sprite
             if (model.isEmissive(sprite)) model.emissives.add(sprite)
         }
-
         model.buildDefaultMesh()
         return model
     }
-
-    override fun getStage(): Int = 0
 }

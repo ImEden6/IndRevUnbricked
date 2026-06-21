@@ -1,20 +1,17 @@
 package me.mervyn.indrev.compat.dashloader.models
 
+import dev.notalpha.dashloader.api.DashObject
+import dev.notalpha.dashloader.api.registry.RegistryReader
+import dev.notalpha.dashloader.api.registry.RegistryWriter
 import me.mervyn.indrev.items.models.TankItemBakedModel
-import net.minecraft.client.render.model.BakedModel
-import net.oskarstrom.dashloader.DashRegistry
-import net.oskarstrom.dashloader.api.annotation.DashConstructor
-import net.oskarstrom.dashloader.api.annotation.DashObject
-import net.oskarstrom.dashloader.api.enums.ConstructorMode
-import net.oskarstrom.dashloader.model.DashModel
 
+class DashTankModel : DashObject<TankItemBakedModel> {
 
-@DashObject(TankItemBakedModel::class) class DashTankModel @DashConstructor(ConstructorMode.EMPTY) constructor() : DashModel {
+    constructor()
 
+    constructor(model: TankItemBakedModel, writer: RegistryWriter)
 
-    override fun toUndash(registry: DashRegistry): BakedModel {
+    override fun export(reader: RegistryReader): TankItemBakedModel {
         return TankItemBakedModel()
     }
-
-    override fun getStage(): Int = 3
 }

@@ -1,36 +1,24 @@
 package me.mervyn.indrev.compat.dashloader.models
 
-import io.activej.serializer.annotations.Deserialize
-import io.activej.serializer.annotations.Serialize
+import dev.notalpha.dashloader.api.DashObject
+import dev.notalpha.dashloader.api.registry.RegistryReader
+import dev.notalpha.dashloader.api.registry.RegistryWriter
 import me.mervyn.indrev.api.machines.Tier
 import me.mervyn.indrev.blocks.models.pipes.FluidPipeModel
-import net.minecraft.client.render.model.BakedModel
-import net.oskarstrom.dashloader.DashRegistry
-import net.oskarstrom.dashloader.api.annotation.DashObject
-import net.oskarstrom.dashloader.model.DashModel
 
-@DashObject(FluidPipeModel::class) class DashFluidPipeModel : DashModel {
-
-    var tier: Int @Serialize(order = 0) get
-    var models: IntArray @Serialize(order = 1) get
-    var sprites: IntArray @Serialize(order = 2) get
-    var retrieverServos: IntArray @Serialize(order = 3) get
-    var outputServos: IntArray @Serialize(order = 4) get
-
-    constructor(model: FluidPipeModel, registry: DashRegistry) {
-        this.tier = model.tier.ordinal
-        this.models = model.modelArray.map { m -> registry.createModelPointer(m) }.toIntArray()
-        this.sprites = model.spriteArray.map { s -> registry.createSpritePointer(s) }.toIntArray()
-        this.retrieverServos = model.retrieverServoModels.map { m -> registry.createModelPointer(m) }.toIntArray()
-        this.outputServos = model.outputServoModels.map { m -> registry.createModelPointer(m) }.toIntArray()
-    }
+class DashFluidPipeModel : DashObject<FluidPipeModel> {
+    val tier: Int
+    val models: IntArray
+    val sprites: IntArray
+    val retrieverServos: IntArray
+    val outputServos: IntArray
 
     constructor(
-        @Deserialize("tier") tier: Int,
-        @Deserialize("models") models: IntArray,
-        @Deserialize("sprites") sprites: IntArray,
-        @Deserialize("retrieverServos") retrieverServos: IntArray,
-        @Deserialize("outputServos") outputServos: IntArray
+        tier: Int,
+        models: IntArray,
+        sprites: IntArray,
+        retrieverServos: IntArray,
+        outputServos: IntArray
     ) {
         this.tier = tier
         this.models = models
@@ -39,16 +27,38 @@ import net.oskarstrom.dashloader.model.DashModel
         this.outputServos = outputServos
     }
 
-    override fun toUndash(registry: DashRegistry): BakedModel {
+    constructor(model: FluidPipeModel, writer: RegistryWriter) {
+        this.tier = model.tier.ordinal
+        this.models = model.modelArray.map { m -> if (m != null) writer.add(m) else -1 }.toIntArray()
+        this.sprites = model.spriteArray.map { s -> if (s != null) writer.add(s) else -1 }.toIntArray()
+        this.retrieverServos = model.retrieverServoModels.map { m -> if (m != null) writer.add(m) else -1 }.toIntArray()
+        this.outputServos = model.outputServoModels.map { m -> if (m != null) writer.add(m) else -1 }.toIntArray()
+    }
+
+    override fun export(reader: RegistryReader): FluidPipeModel {
         val model = FluidPipeModel(Tier.ALL_VALUES[tier])
-        this.models.forEachIndexed { index, pointer -> model.modelArray[index] = registry.getModel(pointer) }
-        this.sprites.forEachIndexed { index, pointer -> model.spriteArray[index] = registry.getSprite(pointer) }
-        this.retrieverServos.forEachIndexed { index, pointer -> model.retrieverServoModels[index] = registry.getModel(pointer) }
-        this.outputServos.forEachIndexed { index, pointer -> model.outputServoModels[index] = registry.getModel(pointer) }
+        this.models.forEachIndexed { index, pointer ->
+            if (pointer != -1) {
+                model.modelArray[index] = reader.get(pointer)
+            }
+        }
+        this.sprites.forEachIndexed { index, pointer ->
+            if (pointer != -1) {
+                model.spriteArray[index] = reader.get(pointer)
+            }
+        }
+        this.retrieverServos.forEachIndexed { index, pointer ->
+            if (pointer != -1) {
+                model.retrieverServoModels[index] = reader.get(pointer)
+            }
+        }
+        this.outputServos.forEachIndexed { index, pointer ->
+            if (pointer != -1) {
+                model.outputServoModels[index] = reader.get(pointer)
+            }
+        }
         model.transform = model.modelArray[0]!!.transformation
         model.buildMeshes()
         return model
     }
-
-    override fun getStage(): Int = 3
 }

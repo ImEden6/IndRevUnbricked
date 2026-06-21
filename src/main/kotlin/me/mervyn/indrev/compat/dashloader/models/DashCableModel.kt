@@ -1,46 +1,46 @@
 package me.mervyn.indrev.compat.dashloader.models
 
-import io.activej.serializer.annotations.Deserialize
-import io.activej.serializer.annotations.Serialize
+import dev.notalpha.dashloader.api.DashObject
+import dev.notalpha.dashloader.api.registry.RegistryReader
+import dev.notalpha.dashloader.api.registry.RegistryWriter
 import me.mervyn.indrev.api.machines.Tier
 import me.mervyn.indrev.blocks.models.pipes.CableModel
-import net.minecraft.client.render.model.BakedModel
-import net.oskarstrom.dashloader.DashRegistry
-import net.oskarstrom.dashloader.api.annotation.DashObject
-import net.oskarstrom.dashloader.model.DashModel
 
-
-
-@DashObject(CableModel::class) class DashCableModel : DashModel {
-
-    var tier: Int @Serialize(order = 0) get
-    var models: IntArray @Serialize(order = 1) get
-    var sprites: IntArray @Serialize(order = 2) get
-
-    constructor(model: CableModel, registry: DashRegistry) {
-        this.tier = model.tier.ordinal
-        this.models = model.modelArray.map { m -> registry.createModelPointer(m) }.toIntArray()
-        this.sprites = model.spriteArray.map { s -> registry.createSpritePointer(s) }.toIntArray()
-    }
+class DashCableModel : DashObject<CableModel> {
+    val tier: Int
+    val models: IntArray
+    val sprites: IntArray
 
     constructor(
-        @Deserialize("tier") tier: Int,
-        @Deserialize("models") models: IntArray,
-        @Deserialize("sprites") sprites: IntArray
+        tier: Int,
+        models: IntArray,
+        sprites: IntArray
     ) {
         this.tier = tier
         this.models = models
         this.sprites = sprites
     }
 
-    override fun toUndash(registry: DashRegistry): BakedModel {
+    constructor(model: CableModel, writer: RegistryWriter) {
+        this.tier = model.tier.ordinal
+        this.models = model.modelArray.map { m -> if (m != null) writer.add(m) else -1 }.toIntArray()
+        this.sprites = model.spriteArray.map { s -> if (s != null) writer.add(s) else -1 }.toIntArray()
+    }
+
+    override fun export(reader: RegistryReader): CableModel {
         val model = CableModel(Tier.ALL_VALUES[tier])
-        this.models.forEachIndexed { index, pointer -> model.modelArray[index] = registry.getModel(pointer) }
-        this.sprites.forEachIndexed { index, pointer -> model.spriteArray[index] = registry.getSprite(pointer) }
+        this.models.forEachIndexed { index, pointer ->
+            if (pointer != -1) {
+                model.modelArray[index] = reader.get(pointer)
+            }
+        }
+        this.sprites.forEachIndexed { index, pointer ->
+            if (pointer != -1) {
+                model.spriteArray[index] = reader.get(pointer)
+            }
+        }
         model.transform = model.modelArray[0]!!.transformation
         model.buildMeshes()
         return model
     }
-
-    override fun getStage(): Int = 3
 }
