@@ -36,7 +36,7 @@ class DrainBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : MachineBl
     override fun machineTick() {
         val world = world ?: return
         val fluidComponent = fluidComponent ?: return
-        if (ticks % 20 == 0 || !fluidComponent[0].isEmpty) return
+        if (ticks % 20 != 0 || !fluidComponent[0].isEmpty) return
 
         val fluidState = world.getFluidState(pos.up())
         if (fluidState?.isEmpty == false) {

@@ -51,6 +51,7 @@ class RancherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
         val animals = world?.getEntitiesByClass(AnimalEntity::class.java, getWorkingArea()) { true } ?: emptyList()
         if (animals.isEmpty() || !canUse(getEnergyCost())) {
             workingState = false
+            cooldown = 0.0
             return
         } else workingState = true
         val swordStack = inventory.inputSlots.map { inventory.getStack(it) }.firstOrNull { it.item is SwordItem }

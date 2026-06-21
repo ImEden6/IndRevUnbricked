@@ -47,7 +47,10 @@ class FarmerBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
         if (cooldown < config.processSpeed) return
         val world = world as ServerWorld
         val energyCost = config.energyCost
-        if (!canUse(energyCost)) return
+        if (!canUse(energyCost)) {
+            cooldown = 0.0
+            return
+        }
         if (nextBlocks.hasNext()) {
             while (nextBlocks.hasNext()) {
                 val pos = nextBlocks.next()

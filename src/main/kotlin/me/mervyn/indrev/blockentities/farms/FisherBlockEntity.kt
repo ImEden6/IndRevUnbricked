@@ -43,9 +43,10 @@ class FisherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
     override fun machineTick() {
         if (!canUse(getEnergyCost())) return
         val rodStack = inventoryComponent!!.inventory.getStack(1)
-        if (rodStack.isEmpty || rodStack.item !is FishingRodItem || !use(getEnergyCost())) return
+        if (rodStack.isEmpty || rodStack.item !is FishingRodItem) return
         cooldown += getProcessingSpeed()
         if (cooldown < config.processSpeed) return
+        if (!use(getEnergyCost())) return
         cooldown = 0.0
         var damagedRod = false
         Direction.values().forEach { direction ->
