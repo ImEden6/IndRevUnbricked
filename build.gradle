@@ -157,6 +157,7 @@ dependencies {
     dependencies.ext.lib("io.activej:activej-serializer:${project.activej_version}", true)
     modRuntimeOnly("org.yaml:snakeyaml:1.27")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compileOnly files("build/classes/kotlin/main")
 }
 
 loom {

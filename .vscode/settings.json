@@ -1,9 +1,14 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.project.excludePaths": [
-        "**/references/**"
+        "**/references/**",
+        "**/bin/**"
     ],
     "files.exclude": {
-        "**/references/**": true
+        "**/references/**": true,
+        "**/bin/": true
+    },
+    "search.exclude": {
+        "**/bin/": true
     }
 }

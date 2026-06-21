@@ -81,10 +81,8 @@ private fun getAvailableSlots(inventory: Inventory, side: Direction): IntArray =
     else (0 until inventory.size()).map { it }.toIntArray()
 
 private fun canMergeItems(first: ItemStack, second: ItemStack): Boolean =
-    first.item == second.item
-            && first.damage == second.damage
-            && first.count < first.maxCount
-            && ItemStack.areEqual(first, second)
+    first.count < first.maxCount
+            && ItemStack.canCombine(first, second)
 
 private fun getInvAt(world: World, pos: BlockPos): Inventory? {
     val blockState = world.getBlockState(pos)

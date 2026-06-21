@@ -17,4 +17,7 @@ run/
 
 # dashloader sources and references
 references/
-dashloader-sources/
+dashloader-sources/
+
+# IDE outputs
+bin/

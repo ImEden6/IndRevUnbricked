@@ -27,6 +27,7 @@ import net.minecraft.client.util.SpriteIdentifier
 import net.minecraft.item.ItemStack
 import net.minecraft.screen.PlayerScreenHandler
 import net.minecraft.util.Identifier
+import net.minecraft.util.BlockRotation
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
 import net.minecraft.util.math.RotationAxis
@@ -221,8 +222,20 @@ open class MachineBakedModel(val id: String) : UnbakedModel, BakedModel, FabricB
                 q.normal(i, tmp)
             }
         }
-        q.cullFace(null)
-        q.nominalFace(direction)
+        val blockRotation = when (direction) {
+            Direction.EAST -> BlockRotation.COUNTERCLOCKWISE_90
+            Direction.SOUTH -> BlockRotation.CLOCKWISE_180
+            Direction.WEST -> BlockRotation.CLOCKWISE_90
+            else -> BlockRotation.NONE
+        }
+        val nominalFace = q.nominalFace()
+        if (nominalFace != null) {
+            q.nominalFace(blockRotation.rotate(nominalFace))
+        }
+        val cullFace = q.cullFace()
+        if (cullFace != null) {
+            q.cullFace(blockRotation.rotate(cullFace))
+        }
         true
     }
 
