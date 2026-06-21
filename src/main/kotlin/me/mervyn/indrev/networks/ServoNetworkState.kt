@@ -1,5 +1,6 @@
 package me.mervyn.indrev.networks
 
+import me.mervyn.indrev.blocks.machine.pipes.BasePipeBlock
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap
 import it.unimi.dsi.fastutil.objects.Object2ObjectFunction
@@ -55,8 +56,10 @@ abstract class ServoNetworkState<T : Network>(type: Network.Type<T>, world: Serv
     override fun onRemoved(pos: BlockPos) {
         version++
         super.onRemoved(pos)
-        if (endpointData.containsKey(pos.asLong()))
-            recentlyRemoved[pos.asLong()] = endpointData.remove(pos.asLong())
+        if (world.getBlockState(pos).block !is BasePipeBlock) {
+            if (endpointData.containsKey(pos.asLong()))
+                recentlyRemoved[pos.asLong()] = endpointData.remove(pos.asLong())
+        }
     }
 
     override fun onSet(blockPos: BlockPos, network: T) {
@@ -87,6 +90,7 @@ abstract class ServoNetworkState<T : Network>(type: Network.Type<T>, world: Serv
         val datas = endpointData.get(pos.asLong()) ?: return null
         val d = datas.remove(direction)
         if (datas.isEmpty()) endpointData.remove(pos.asLong())
+        markDirty()
         return d
     }
 
