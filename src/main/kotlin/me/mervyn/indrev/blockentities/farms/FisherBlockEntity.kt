@@ -60,8 +60,8 @@ class FisherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
                     .build(null)
                 lootTable.generateLoot(ctx) { stack -> inventoryComponent?.inventory?.output(stack) }
                 rodStack?.apply {
-                    if (maxDamage > 0) {
-                        damage++
+                    if (isDamageable) {
+                        damage(1, world?.random, null)
                         if (damage >= maxDamage) decrement(1)
                     }
                 }
