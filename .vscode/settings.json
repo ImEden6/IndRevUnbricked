@@ -1,3 +1,9 @@
 {
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.project.excludePaths": [
+        "**/references/**"
+    ],
+    "files.exclude": {
+        "**/references/**": true
+    }
 }
