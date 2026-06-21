@@ -33,6 +33,7 @@ class DataCardWriterBlockEntity (tier: Tier, pos: BlockPos, state: BlockState)
  
     private val modifiersToAdd = mutableMapOf<OreDataCards.Modifier, Int>()
     private val toWrite = mutableListOf<ItemStack>()
+    private val consumedModifiers = mutableListOf<ItemStack>()
  
     override fun machineTick() {
         if (totalProcessTime > 0 && use(getEnergyCost())) {
@@ -80,22 +81,27 @@ class DataCardWriterBlockEntity (tier: Tier, pos: BlockPos, state: BlockState)
             val stack = inventory.getStack(slot)
             val modifier = OreDataCards.Modifier.byItem(stack.item) ?: return@forEach
             var level = (modifiersToAdd[modifier] ?: 0) + (oldData?.modifiersUsed?.get(modifier) ?: 0)
+            var consumedCount = 0
+            val modifierItem = stack.item
             when (modifier) {
                 OreDataCards.Modifier.RICHNESS -> {
                     while (stack.count >= 16 && level < 40) {
                         stack.decrement(16)
                         level++
+                        consumedCount += 16
                     }
                 }
                 OreDataCards.Modifier.SPEED, OreDataCards.Modifier.SIZE -> {
                     while (stack.count >= 64) {
                         stack.decrement(64)
                         level++
+                        consumedCount += 64
                     }
                 }
                 OreDataCards.Modifier.RNG -> {
                     if (level == 0) {
                         stack.decrement(1)
+                        consumedCount += 1
                         val r = world!!.random.nextDouble()
                         if (r > 0.95 && r <= 0.98) {
                             level = -1
@@ -104,6 +110,9 @@ class DataCardWriterBlockEntity (tier: Tier, pos: BlockPos, state: BlockState)
                         }
                     }
                 }
+            }
+            if (consumedCount > 0) {
+                consumedModifiers.add(ItemStack(modifierItem, consumedCount))
             }
             modifiersToAdd[modifier] = level - (oldData?.modifiersUsed?.get(modifier) ?: 0)
         }
@@ -117,8 +126,10 @@ class DataCardWriterBlockEntity (tier: Tier, pos: BlockPos, state: BlockState)
         val cardStack = inventory.getStack(0)
  
         if (cardStack.isEmpty || cardStack.item != IRItemRegistry.ORE_DATA_CARD || cardStack.count != 1) {
+            refundInputs()
             modifiersToAdd.clear()
             toWrite.clear()
+            consumedModifiers.clear()
             processTime = 0
             totalProcessTime = 0
             return
@@ -161,8 +172,81 @@ class DataCardWriterBlockEntity (tier: Tier, pos: BlockPos, state: BlockState)
  
         modifiersToAdd.clear()
         toWrite.clear()
+        consumedModifiers.clear()
         processTime = 0
         totalProcessTime = 0
+    }
+ 
+    private fun refundInputs() {
+        val inventory = inventoryComponent!!.inventory
+ 
+        // Refund ores
+        for (stack in toWrite) {
+            var remaining = stack
+            remaining = insertIntoSlots(inventory, ORES_SLOTS, remaining)
+            if (!remaining.isEmpty) {
+                spawnItemEntity(remaining)
+            }
+        }
+ 
+        // Refund modifiers
+        for (stack in consumedModifiers) {
+            var remaining = stack
+            remaining = insertIntoSlots(inventory, MODIFIERS_SLOTS, remaining)
+            if (!remaining.isEmpty) {
+                spawnItemEntity(remaining)
+            }
+        }
+    }
+ 
+    private fun insertIntoSlots(inventory: net.minecraft.inventory.Inventory, slots: IntRange, stack: ItemStack): ItemStack {
+        val remaining = stack.copy()
+ 
+        // First pass: try to merge with existing stacks
+        for (slot in slots) {
+            val existing = inventory.getStack(slot)
+            if (!existing.isEmpty && ItemStack.canCombine(existing, remaining)) {
+                val maxCount = Math.min(existing.maxCount, inventory.maxCountPerStack)
+                val toAdd = Math.min(maxCount - existing.count, remaining.count)
+                if (toAdd > 0) {
+                    existing.increment(toAdd)
+                    remaining.decrement(toAdd)
+                    if (remaining.isEmpty) {
+                        return ItemStack.EMPTY
+                    }
+                }
+            }
+        }
+ 
+        // Second pass: put into empty slots
+        for (slot in slots) {
+            val existing = inventory.getStack(slot)
+            if (existing.isEmpty) {
+                val maxCount = Math.min(remaining.maxCount, inventory.maxCountPerStack)
+                if (remaining.count <= maxCount) {
+                    inventory.setStack(slot, remaining)
+                    return ItemStack.EMPTY
+                } else {
+                    inventory.setStack(slot, remaining.split(maxCount))
+                }
+            }
+        }
+ 
+        return remaining
+    }
+ 
+    private fun spawnItemEntity(stack: ItemStack) {
+        val world = this.world ?: return
+        if (world.isClient) return
+        val itemEntity = net.minecraft.entity.ItemEntity(
+            world,
+            pos.x + 0.5,
+            pos.y + 1.0,
+            pos.z + 0.5,
+            stack
+        )
+        itemEntity.setToDefaultPickupDelay()
+        world.spawnEntity(itemEntity)
     }
  
     override fun getEnergyCost(): Long {
@@ -176,6 +260,13 @@ class DataCardWriterBlockEntity (tier: Tier, pos: BlockPos, state: BlockState)
             toWrite.clear()
             toWriteList.forEach { element ->
                 toWrite.add(ItemStack.fromNbt(element as NbtCompound))
+            }
+        }
+        if (tag.contains("consumedModifiers")) {
+            val consumedModifiersList = tag.getList("consumedModifiers", 10)
+            consumedModifiers.clear()
+            consumedModifiersList.forEach { element ->
+                consumedModifiers.add(ItemStack.fromNbt(element as NbtCompound))
             }
         }
         if (tag.contains("modifiersToAdd")) {
@@ -202,6 +293,12 @@ class DataCardWriterBlockEntity (tier: Tier, pos: BlockPos, state: BlockState)
             toWriteList.add(stack.writeNbt(NbtCompound()))
         }
         tag.put("toWrite", toWriteList)
+ 
+        val consumedModifiersList = NbtList()
+        consumedModifiers.forEach { stack ->
+            consumedModifiersList.add(stack.writeNbt(NbtCompound()))
+        }
+        tag.put("consumedModifiers", consumedModifiersList)
  
         val modifiersList = NbtList()
         modifiersToAdd.forEach { (modifier, level) ->
