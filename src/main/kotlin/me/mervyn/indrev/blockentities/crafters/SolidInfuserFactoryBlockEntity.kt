@@ -15,6 +15,8 @@ import me.mervyn.indrev.recipes.machines.IRRecipeType
 import me.mervyn.indrev.recipes.machines.InfuserRecipe
 import me.mervyn.indrev.registry.MachineRegistry
 import net.minecraft.block.BlockState
+import me.mervyn.indrev.utils.getRecipes
+import net.minecraft.item.ItemStack
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
@@ -28,7 +30,7 @@ class SolidInfuserFactoryBlockEntity(tier: Tier, pos: BlockPos, state: BlockStat
         this.inventoryComponent = inventory(this) {
             input {
                 slots = intArrayOf(6, 7, 9, 10, 12, 13, 15, 16, 18, 19)
-                filter { _, dir, slot -> canInput(dir, slot) }
+                filter { stack, dir, slot -> canInput(dir, slot, stack) }
             }
             output { slots = intArrayOf(8, 11, 14, 17, 20) }
         }
@@ -50,11 +52,21 @@ class SolidInfuserFactoryBlockEntity(tier: Tier, pos: BlockPos, state: BlockStat
         splitStacks(BOTTOM_SLOTS)
     }
 
-    private fun canInput(side: Direction?, slot: Int): Boolean {
-        if (side == null) return true
-        return when (inventoryComponent!!.itemConfig[side]) {
-            TransferMode.INPUT_FIRST -> TOP_SLOTS.contains(slot)
-            TransferMode.INPUT_SECOND -> BOTTOM_SLOTS.contains(slot)
+    private fun canInput(side: Direction?, slot: Int, stack: ItemStack): Boolean {
+        if (stack.isEmpty) return true
+        if (side != null) {
+            val isFirstSlot = when (inventoryComponent!!.itemConfig[side]) {
+                TransferMode.INPUT_FIRST -> TOP_SLOTS.contains(slot)
+                TransferMode.INPUT_SECOND -> BOTTOM_SLOTS.contains(slot)
+                else -> true
+            }
+            if (!isFirstSlot) return false
+        }
+        val world = world ?: return true
+        val recipes = world.recipeManager.getRecipes(InfuserRecipe.TYPE).values
+        return when {
+            TOP_SLOTS.contains(slot) -> recipes.any { recipe -> recipe.input.isNotEmpty() && recipe.input[0].ingredient.test(stack) }
+            BOTTOM_SLOTS.contains(slot) -> recipes.any { recipe -> recipe.input.size > 1 && recipe.input[1].ingredient.test(stack) }
             else -> true
         }
     }

@@ -12,6 +12,8 @@ import me.mervyn.indrev.recipes.machines.IRRecipeType
 import me.mervyn.indrev.recipes.machines.InfuserRecipe
 import me.mervyn.indrev.registry.MachineRegistry
 import net.minecraft.block.BlockState
+import me.mervyn.indrev.utils.getRecipes
+import net.minecraft.item.ItemStack
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
 
@@ -24,7 +26,7 @@ class SolidInfuserBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) :
         this.inventoryComponent = inventory(this) {
             input {
                 slots = intArrayOf(2, 3)
-                filter { _, dir, slot -> canInput(dir, slot) }
+                filter { stack, dir, slot -> canInput(dir, slot, stack) }
             }
             output { slot = 4 }
         }
@@ -32,11 +34,21 @@ class SolidInfuserBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) :
         trackObject(CRAFTING_COMPONENT_ID, craftingComponents[0])
     }
 
-    private fun canInput(side: Direction?, slot: Int): Boolean {
-        if (side == null) return true
-        return when (inventoryComponent!!.itemConfig[side]) {
-            TransferMode.INPUT_FIRST -> slot == 2
-            TransferMode.INPUT_SECOND -> slot == 3
+    private fun canInput(side: Direction?, slot: Int, stack: ItemStack): Boolean {
+        if (stack.isEmpty) return true
+        if (side != null) {
+            val isFirstSlot = when (inventoryComponent!!.itemConfig[side]) {
+                TransferMode.INPUT_FIRST -> slot == 2
+                TransferMode.INPUT_SECOND -> slot == 3
+                else -> true
+            }
+            if (!isFirstSlot) return false
+        }
+        val world = world ?: return true
+        val recipes = world.recipeManager.getRecipes(InfuserRecipe.TYPE).values
+        return when (slot) {
+            2 -> recipes.any { recipe -> recipe.input.isNotEmpty() && recipe.input[0].ingredient.test(stack) }
+            3 -> recipes.any { recipe -> recipe.input.size > 1 && recipe.input[1].ingredient.test(stack) }
             else -> true
         }
     }
