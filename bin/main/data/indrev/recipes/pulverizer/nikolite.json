@@ -1,0 +1,11 @@
+{
+  "type": "indrev:pulverize",
+  "ingredients": {
+    "tag": "c:nikolite_ores"
+  },
+  "output": {
+    "item": "indrev:nikolite_dust",
+    "count": 7
+  },
+  "processTime": 200
+}

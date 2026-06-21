@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "indrev:farmer_mk1"
+    },
+    "title": {
+      "translate": "advancements.indrev.farmer_mk1"
+    },
+    "description": {
+      "translate": "advancements.indrev.farmer_mk1.description"
+    }
+  },
+  "parent": "indrev:machine_block",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["indrev:farmer_mk1"]
+          }
+        ]
+      }
+    }
+  }
+}

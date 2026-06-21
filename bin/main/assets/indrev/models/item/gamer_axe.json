@@ -1,0 +1,144 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "indrev:item/gamer_axe"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        30
+      ],
+      "translation": [
+        0,
+        7.0,
+        2.0
+      ],
+      "scale": [
+        1.7,
+        1.7,
+        1.7
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -55
+      ],
+      "translation": [
+        0,
+        4.0,
+        0.5
+      ],
+      "scale": [
+        1.7,
+        1.7,
+        1.7
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        1.36,
+        1.36,
+        1.36
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -25
+      ],
+      "translation": [
+        1.13,
+        3.2,
+        1.13
+      ],
+      "scale": [
+        1.36,
+        1.36,
+        1.36
+      ]
+    }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "indrev:activate": 0.0
+      },
+      "model": "indrev:item/gamer_axe10"
+    },
+    {
+      "predicate": {
+        "indrev:activate": 0.1
+      },
+      "model": "indrev:item/gamer_axe9"
+    },
+    {
+      "predicate": {
+        "indrev:activate": 0.2
+      },
+      "model": "indrev:item/gamer_axe8"
+    },
+    {
+      "predicate": {
+        "indrev:activate": 0.3
+      },
+      "model": "indrev:item/gamer_axe7"
+    },
+    {
+      "predicate": {
+        "indrev:activate": 0.4
+      },
+      "model": "indrev:item/gamer_axe6"
+    },
+    {
+      "predicate": {
+        "indrev:activate": 0.5
+      },
+      "model": "indrev:item/gamer_axe5"
+    },
+    {
+      "predicate": {
+        "indrev:activate": 0.6
+      },
+      "model": "indrev:item/gamer_axe4"
+    },
+    {
+      "predicate": {
+        "indrev:activate": 0.7
+      },
+      "model": "indrev:item/gamer_axe3"
+    },
+    {
+      "predicate": {
+        "indrev:activate": 0.8
+      },
+      "model": "indrev:item/gamer_axe2"
+    },
+    {
+      "predicate": {
+        "indrev:activate": 0.9
+      },
+      "model": "indrev:item/gamer_axe1"
+    },
+    {
+      "predicate": {
+        "indrev:activate": 1.0
+      },
+      "model": "indrev:item/gamer_axe"
+    }
+  ]
+}

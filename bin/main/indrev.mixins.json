@@ -1,0 +1,31 @@
+{
+  "required": true,
+  "package": "me.mervyn.indrev.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "plugin": "me.mervyn.indrev.mixin.aprilfools.AprilFoolsMixinConfigPlugin",
+  "mixins": [
+    "common.MixinAbstractCookingRecipe",
+    "common.MixinEnchantmentHelper",
+    "common.MixinEntity",
+    "common.MixinItemPredicate",
+    "common.MixinItemStack",
+    "common.MixinLivingEntity",
+    "common.MixinPiglinBrain",
+    "common.MixinPlayerEntity",
+    "common.MixinPlayerInventory",
+    "common.MixinServerPlayerEntity",
+    "common.MixinServerWorld"
+  ],
+  "client": [
+    "client.MixinBuiltChunk",
+    "client.MixinClientPlayerInteractionManager",
+    "client.MixinGameRenderer",
+    "client.MixinItemRenderer",
+    "client.MixinLivingEntityClient",
+    "client.MixinMinecraftClient",
+    "client.MixinWItemSlot"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

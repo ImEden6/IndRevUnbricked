@@ -1,0 +1,21 @@
+{
+  "type": "indrev:fluid_infuse",
+  "ingredients": [
+    {
+      "item": "minecraft:ancient_debris"
+    }
+  ],
+  "fluidInput": {
+    "fluid": "indrev:sulfuric_acid_still",
+    "amount": 81000
+  },
+  "fluidOutput": {
+    "fluid": "indrev:toxic_mud_still",
+    "amount": 1000
+  },
+  "output": {
+    "item": "indrev:netherite_scrap_purified_ore",
+    "count": 1
+  },
+  "processTime": 700
+}

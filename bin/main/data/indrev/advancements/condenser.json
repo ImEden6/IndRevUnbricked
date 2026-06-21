@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "indrev:condenser_mk4"
+    },
+    "title": {
+      "translate": "advancements.indrev.condenser"
+    },
+    "description": {
+      "translate": "advancements.indrev.condenser"
+    }
+  },
+  "parent": "indrev:circuit_mk4",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["indrev:condenser_mk4"]
+          }
+        ]
+      }
+    }
+  }
+}

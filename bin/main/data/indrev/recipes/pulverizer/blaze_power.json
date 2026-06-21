@@ -1,0 +1,12 @@
+{
+  "type": "indrev:pulverize",
+  "ingredients": {
+    "item": "minecraft:blaze_rod"
+  },
+  "output":
+    {
+      "item": "minecraft:blaze_powder",
+      "count": 4
+    },
+  "processTime": 200
+}

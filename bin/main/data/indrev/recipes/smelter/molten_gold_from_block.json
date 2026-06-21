@@ -1,0 +1,11 @@
+{
+  "type": "indrev:smelter",
+  "ingredients": {
+    "item": "minecraft:gold_block"
+  },
+  "fluidOutput": {
+    "fluid": "indrev:molten_gold_still",
+    "amount": 81000
+  },
+  "processTime": 600
+}

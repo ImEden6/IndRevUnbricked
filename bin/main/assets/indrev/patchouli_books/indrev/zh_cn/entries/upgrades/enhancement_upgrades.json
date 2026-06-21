@@ -1,0 +1,32 @@
+{
+  "name": "机器增益",
+  "category": "indrev:upgrades",
+  "sortnum": 0,
+  "icon": "indrev:speed_enhancer",
+  "pages": [
+    {
+      "type": "text",
+      "text": "机器增益可提升机器的运行速度、改善能耗等等。$(br2)在机器界面右侧4个方格放入增益部件。"
+    },
+    {
+      "type": "crafting",
+      "recipe": "indrev:shaped/speed_enhancer",
+      "text": "这个增益以能耗为代价增加机器的运行速率。"
+    },
+    {
+      "type": "crafting",
+      "recipe": "indrev:shaped/buffer_enhancer",
+      "text": "这个增益可增加机器的能量容量。"
+    },
+    {
+      "type": "crafting",
+      "recipe": "indrev:shaped/blast_furnace_enhancer",
+      "text": "这个增益允许电炉处理高炉配方。"
+    },
+    {
+      "type": "crafting",
+      "recipe": "indrev:shaped/smoker_enhancer",
+      "text": "这个增益允许电炉处理烟熏炉配方。"
+    }
+  ]
+}

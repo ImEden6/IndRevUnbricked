@@ -1,0 +1,60 @@
+package me.mervyn.indrev.blocks.machine
+
+import me.mervyn.indrev.api.machines.Tier
+import me.mervyn.indrev.blockentities.miningrig.MiningRigBlockEntity
+import me.mervyn.indrev.config.IRConfig
+import me.mervyn.indrev.gui.screenhandlers.machines.MiningRigComputerScreenHandler
+import me.mervyn.indrev.registry.MachineRegistry
+import me.mervyn.indrev.utils.*
+import net.minecraft.block.Block
+import net.minecraft.block.BlockState
+import net.minecraft.client.item.TooltipContext
+import net.minecraft.entity.LivingEntity
+import net.minecraft.item.ItemStack
+import net.minecraft.server.world.ServerWorld
+import net.minecraft.text.Text
+import net.minecraft.util.Formatting
+import net.minecraft.util.math.BlockPos
+import net.minecraft.util.math.Direction
+import net.minecraft.world.BlockView
+import net.minecraft.world.World
+
+class MiningRigBlock(registry: MachineRegistry, settings: Settings, tier: Tier) : HorizontalFacingMachineBlock(
+    registry,
+    settings,
+    tier,
+    IRConfig.machines.miner,
+    ::MiningRigComputerScreenHandler,
+) {
+    override fun appendTooltip(
+        stack: ItemStack?,
+        view: BlockView?,
+        tooltip: MutableList<Text>?,
+        options: TooltipContext?
+    ) {
+        super.appendTooltip(stack, view, tooltip, options)
+        tooltip?.add(
+            translatable("block.indrev.mining_rig.tooltip").formatted(Formatting.BLUE, Formatting.ITALIC)
+        )
+    }
+
+    override fun neighborUpdate(
+        state: BlockState?,
+        world: World?,
+        pos: BlockPos?,
+        block: Block?,
+        fromPos: BlockPos?,
+        notify: Boolean
+    ) {
+        super.neighborUpdate(state, world, pos, block, fromPos, notify)
+
+        if (world is ServerWorld) {
+            val (x,y, z) = fromPos!!.subtract(pos)
+            val dir = Direction.fromVector(x,y, z) ?: return
+            if (itemStorageOf(world, fromPos, dir) != null) {
+                val blockEntity = world.getBlockEntity(pos) as? MiningRigBlockEntity ?: return
+                blockEntity.storageDirections.addAll(Direction.values())
+            }
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "group": "copper_ingots",
+  "ingredient": {
+    "tag": "c:copper_dusts"
+  },
+  "result": "minecraft:copper_ingot",
+  "cookingTime": 200
+}

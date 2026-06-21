@@ -1,0 +1,11 @@
+{
+  "type": "indrev:pulverize",
+  "ingredients": {
+    "item": "indrev:gold_chunk"
+  },
+  "output": {
+    "item": "indrev:gold_dust",
+    "count": 1
+  },
+  "processTime": 200
+}
