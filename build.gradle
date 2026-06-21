@@ -180,7 +180,7 @@ jar {
 		rename { "${it}_${project.archivesBaseName}"}
 	}
 
-    exclude("me/steven/indrev/datagen")
+    exclude("me/mervyn/indrev/datagen")
 }
 
 // configure the maven publication

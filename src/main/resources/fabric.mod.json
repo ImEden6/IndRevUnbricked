@@ -20,37 +20,37 @@
     "main": [
       {
         "adapter": "kotlin",
-        "value": "me.steven.indrev.IndustrialRevolution"
+        "value": "me.mervyn.indrev.IndustrialRevolution"
       }
     ],
     "client": [
       {
         "adapter": "kotlin",
-        "value": "me.steven.indrev.IndustrialRevolutionClient"
+        "value": "me.mervyn.indrev.IndustrialRevolutionClient"
       }
     ],
     "rei_client": [
       {
         "adapter": "kotlin",
-        "value": "me.steven.indrev.compat.rei.REIPlugin"
+        "value": "me.mervyn.indrev.compat.rei.REIPlugin"
       }
     ],
     "fabric-datagen": [
       {
         "adapter": "kotlin",
-        "value": "me.steven.indrev.datagen.IndustrialRevolutionDatagen"
+        "value": "me.mervyn.indrev.datagen.IndustrialRevolutionDatagen"
       }
     ]
   },
   "custom": {
     "dashloader:customobject":  [
-      "me.steven.indrev.compat.dashloader.models.DashCableModel",
-      "me.steven.indrev.compat.dashloader.models.DashFluidPipeModel",
-      "me.steven.indrev.compat.dashloader.models.DashItemPipeModel",
-      "me.steven.indrev.compat.dashloader.models.DashLazuliFluxContainerModel",
-      "me.steven.indrev.compat.dashloader.models.DashMachineModel",
-      "me.steven.indrev.compat.dashloader.models.DashMinerModel",
-      "me.steven.indrev.compat.dashloader.models.DashTankModel"
+      "me.mervyn.indrev.compat.dashloader.models.DashCableModel",
+      "me.mervyn.indrev.compat.dashloader.models.DashFluidPipeModel",
+      "me.mervyn.indrev.compat.dashloader.models.DashItemPipeModel",
+      "me.mervyn.indrev.compat.dashloader.models.DashLazuliFluxContainerModel",
+      "me.mervyn.indrev.compat.dashloader.models.DashMachineModel",
+      "me.mervyn.indrev.compat.dashloader.models.DashMinerModel",
+      "me.mervyn.indrev.compat.dashloader.models.DashTankModel"
     ]
   },
   "mixins": [
