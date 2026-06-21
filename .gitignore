@@ -14,3 +14,7 @@ out/
 # fabric
 
 run/
+
+# dashloader sources and references
+references/
+dashloader-sources/
