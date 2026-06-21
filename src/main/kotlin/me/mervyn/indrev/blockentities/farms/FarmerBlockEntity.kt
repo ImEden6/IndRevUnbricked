@@ -21,6 +21,7 @@ import net.minecraft.server.world.ServerWorld
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Box
 import net.minecraft.util.math.Direction
+import me.mervyn.indrev.blocks.machine.pipes.BasePipeBlock
 
 class FarmerBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
     : AOEMachineBlockEntity<BasicMachineConfig>(tier, MachineRegistry.FARMER_REGISTRY, pos, state) {
@@ -70,6 +71,9 @@ class FarmerBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
     }
 
     private fun tryHarvest(state: BlockState, pos: BlockPos, world: ServerWorld): Boolean {
+        val blockBelow = world.getBlockState(pos.down()).block
+        if (blockBelow is BasePipeBlock) return false
+
         val block = state.block
 
         val inventory = inventoryComponent?.inventory
@@ -85,22 +89,56 @@ class FarmerBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
                     true
                 }
                 canHarvest(slot, state, block, item) -> {
-                    if ((block is CropBlock || block is SweetBerryBushBlock) && stack.count > 1) {
-                        world.setBlockState(pos, block.defaultState)
-                        stack.decrement(1)
-                    } else {
-                        world.setBlockState(pos, Blocks.AIR.defaultState)
-                    }
                     val droppedStacks = state.getDroppedStacks(
                         LootContextParameterSet.Builder(world)
                             .add(LootContextParameters.ORIGIN, pos.toVec3d())
                             .add(LootContextParameters.BLOCK_STATE, state)
-                            .add(LootContextParameters.TOOL, ItemStack.EMPTY))
+                            .add(LootContextParameters.TOOL, ItemStack.EMPTY)
+                    )
 
-                    droppedStacks.forEach { inventory.output(it) }
+                    var replanted = false
+                    if (block is CropBlock || block is SweetBerryBushBlock || block is CocoaBlock || block is NetherWartBlock) {
+                        val seedStack = droppedStacks.firstOrNull { drop ->
+                            val dropItem = drop.item
+                            dropItem is BlockItem && dropItem.block == block
+                        }
+                        if (seedStack != null) {
+                            var cropState = block.defaultState
+                            if (block is CocoaBlock) {
+                                val facing = state.get(CocoaBlock.FACING)
+                                cropState = cropState.with(CocoaBlock.FACING, facing)
+                            }
+                            world.setBlockState(pos, cropState)
+                            seedStack.decrement(1)
+                            replanted = true
+                        } else if (!stack.isEmpty && item is BlockItem && item.block == block) {
+                            var cropState = block.defaultState
+                            if (block is CocoaBlock) {
+                                arrayOf(Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST).firstOrNull {
+                                    cropState = cropState.with(CocoaBlock.FACING, it)
+                                    cropState.canPlaceAt(world, pos)
+                                } != null
+                            }
+                            if (cropState.canPlaceAt(world, pos)) {
+                                world.setBlockState(pos, cropState)
+                                stack.decrement(1)
+                                replanted = true
+                            }
+                        }
+                    }
+
+                    if (!replanted) {
+                        world.setBlockState(pos, Blocks.AIR.defaultState)
+                    }
+
+                    droppedStacks.forEach { drop ->
+                        if (!drop.isEmpty) {
+                            inventory.output(drop)
+                        }
+                    }
                     true
                 }
-                block is AirBlock && canPlant(item) && stack.count > 1 -> {
+                block is AirBlock && canPlant(item) && !stack.isEmpty -> {
                     var cropState = (item as BlockItem).block.defaultState
 
                     if (item.block is CocoaBlock) {
@@ -112,7 +150,7 @@ class FarmerBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
 
                     if (cropState.canPlaceAt(world, pos) && world.isAir(pos)) {
                         world.setBlockState(pos, cropState)
-                        stack.count--
+                        stack.decrement(1)
                         true
                     } else false
                 }

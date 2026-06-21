@@ -23,6 +23,7 @@ import net.minecraft.util.ItemScatterer
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Box
 import net.minecraft.world.chunk.Chunk
+import me.mervyn.indrev.blocks.machine.pipes.BasePipeBlock
 
 class ChopperBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMachineBlockEntity<BasicMachineConfig>(tier, MachineRegistry.CHOPPER_REGISTRY, pos, state) {
     
@@ -123,9 +124,12 @@ class ChopperBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMach
                 energyOf(toolStack) != null -> energyOf(toolStack)!!.use(amount.toLong())
                 toolStack.isEmpty -> false
                 toolStack.isDamageable -> {
-                    toolStack.damage(amount, world?.random, null)
-                    if (toolStack.damage >= toolStack.maxDamage)
-                        toolStack.decrement(1)
+                    val isUnbreakable = toolStack.hasNbt() && toolStack.nbt?.getBoolean("Unbreakable") == true
+                    if (!isUnbreakable) {
+                        toolStack.damage(amount, world?.random, null)
+                        if (toolStack.damage >= toolStack.maxDamage)
+                            toolStack.decrement(1)
+                    }
                     true
                 }
                 else -> true
@@ -158,8 +162,11 @@ class ChopperBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMach
     private fun tryUse(blockState: BlockState, itemStack: ItemStack, pos: BlockPos): Boolean {
         val item = itemStack.item
         val block = blockState.block
+        val blockBelow = world?.getBlockState(pos.down())?.block
+        if (blockBelow is BasePipeBlock) return false
+
         when {
-            item is BoneMealItem && itemStack.count > 1
+            item is BoneMealItem && !itemStack.isEmpty
                     && (blockState.isIn(BlockTags.SAPLINGS) || block is MushroomPlantBlock || block is BambooBlock || block is BambooSaplingBlock)
                     && block is Fertilizable
                     && block.isFertilizable(world, pos, blockState, false)
@@ -172,7 +179,7 @@ class ChopperBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMach
                     && item is BlockItem
                     && (itemStack.isIn(ItemTags.SAPLINGS) || item.block is MushroomPlantBlock || item.block is BambooBlock)
                     && item.block.defaultState.canPlaceAt(world, pos)
-                    && itemStack.count > 1 -> {
+                    && !itemStack.isEmpty -> {
                 if (item.block is BambooBlock)
                     world?.setBlockState(pos, Blocks.BAMBOO_SAPLING.defaultState, 3)
                 else

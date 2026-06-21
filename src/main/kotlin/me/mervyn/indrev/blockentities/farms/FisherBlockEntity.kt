@@ -47,6 +47,7 @@ class FisherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
         cooldown += getProcessingSpeed()
         if (cooldown < config.processSpeed) return
         cooldown = 0.0
+        var damagedRod = false
         Direction.values().forEach { direction ->
             val pos = pos.offset(direction)
             if (world?.isWater(pos) == true) {
@@ -59,11 +60,15 @@ class FisherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
                     .build(LootContextTypes.FISHING))
                     .build(null)
                 lootTable.generateLoot(ctx) { stack -> inventoryComponent?.inventory?.output(stack) }
-                rodStack?.apply {
-                    if (isDamageable) {
-                        damage(1, world?.random, null)
-                        if (damage >= maxDamage) decrement(1)
+                if (!damagedRod) {
+                    rodStack?.apply {
+                        val isUnbreakable = hasNbt() && nbt?.getBoolean("Unbreakable") == true
+                        if (isDamageable && !isUnbreakable) {
+                            damage(1, world?.random, null)
+                            if (damage >= maxDamage) decrement(1)
+                        }
                     }
+                    damagedRod = true
                 }
             }
         }
