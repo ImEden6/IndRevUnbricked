@@ -302,6 +302,9 @@ class OreGen  {
 }
 
 class MiningRigConfig {
+    val enableAprilFools: Boolean = true
+    val dataCardWriterRequiresCard: Boolean = true
+    val dataCardWriterRequiredOreStackSize: Int = 64
     val allowedTags = mutableMapOf(
         ItemTags.COPPER_ORES.id.toString() to 1,
         ItemTags.COAL_ORES.id.toString() to 1,

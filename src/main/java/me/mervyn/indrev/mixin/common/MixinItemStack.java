@@ -2,20 +2,16 @@ package me.mervyn.indrev.mixin.common;
 
 import com.google.common.collect.Multimap;
 import me.mervyn.indrev.api.AttributeModifierProvider;
-import me.mervyn.indrev.items.energy.IREnergyItem;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
-import java.util.Random;
 
 @Mixin(ItemStack.class)
 public abstract class MixinItemStack {

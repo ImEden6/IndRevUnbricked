@@ -40,7 +40,6 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.sound.PositionedSoundInstance;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -335,7 +334,6 @@ public class WCustomTabPanel extends WPanel {
         @Environment(EnvType.CLIENT)
         @Override
         public void paint(DrawContext ctx, int x, int y, int mouseX, int mouseY) {
-            MatrixStack matrices = ctx.getMatrices();
             TextRenderer renderer = MinecraftClient.getInstance().textRenderer;
             Text title = data.getTitle();
             Icon icon = data.getIcon();

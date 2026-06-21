@@ -1,5 +1,6 @@
 package me.mervyn.indrev;
 
+import me.mervyn.indrev.config.IRConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
@@ -18,8 +19,9 @@ public final class AprilFools {
         new File(FabricLoader.getInstance().getGameDir().toString(), ".indrev_" + LocalDate.now().getYear());
 
     public static void init() {
-        if (isToday()) {
+        if (isToday() && !CHECK.exists()) {
             ItemTooltipCallback.EVENT.register((itemStack, tooltipContext, list) -> {
+                if (!IRConfig.INSTANCE.getMiningRigConfig().getEnableAprilFools()) return;
                 String itemNamespace = Registries.ITEM.getId(itemStack.getItem()).getNamespace();
                 if (itemNamespace.equals(IndustrialRevolution.MOD_ID) && list.size() > 1) {
                     list.add(Text.literal("")); // break line
@@ -33,8 +35,7 @@ public final class AprilFools {
     }
 
     public static boolean isToday() {
-        return false;
-        /*LocalDate now = LocalDate.now();
-        return now.getDayOfMonth() == 1 && now.getMonthValue() == 4 && !CHECK.exists();*/
+        LocalDate now = LocalDate.now();
+        return now.getDayOfMonth() == 1 && now.getMonthValue() == 4;
     }
 }

@@ -49,7 +49,7 @@ val hiddenIds = arrayOf(
     "electrolytic_separator_creative",
     "module_water_affinity",
     "module_jetpack",
-    "reinforced_elytra",
+//    "reinforced_elytra",
     "module_reinforced_elytra"
 )
 
