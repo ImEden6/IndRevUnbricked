@@ -1,0 +1,1 @@
+This file enables IDE Mode in build.gradle. Delete or rename this file to build release jars.

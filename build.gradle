@@ -7,6 +7,8 @@ plugins {
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
+def isIdeMode = file("ide-mode.txt").exists()
+
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
@@ -157,6 +159,9 @@ dependencies {
     dependencies.ext.lib("io.activej:activej-serializer:${project.activej_version}", true)
     modRuntimeOnly("org.yaml:snakeyaml:1.27")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    if (isIdeMode) {
+        compileOnly files("build/classes/kotlin/main")
+    }
 }
 
 loom {
@@ -238,5 +243,7 @@ compileTestKotlin {
 
 compileJava {
     dependsOn compileKotlin
-    classpath += files(compileKotlin.destinationDirectory)
+    if (!isIdeMode) {
+        classpath += files(compileKotlin.destinationDirectory)
+    }
 }
