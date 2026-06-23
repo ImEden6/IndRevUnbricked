@@ -14,6 +14,7 @@ import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.boss.WitherEntity
 import net.minecraft.entity.damage.DamageSource
 import net.minecraft.entity.decoration.ArmorStandEntity
+import net.minecraft.entity.mob.MobEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.SwordItem
 import net.minecraft.server.world.ServerWorld
@@ -41,31 +42,40 @@ class SlaughterBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMa
 
     override fun machineTick() {
         if (world?.isClient == true) return
+        if (ticks % 15 != 0) return
         val inventory = inventoryComponent?.inventory ?: return
         val enhancers = enhancerComponent!!.enhancers
-        cooldown += getProcessingSpeed()
+        cooldown += getProcessingSpeed() * 15
         if (cooldown < config.processSpeed) return
+        if (!canUse(getEnergyCost())) {
+            workingState = false
+            cooldown = 0.0
+            return
+        }
+        val swordStack = inventory.inputSlots.map { inventory.getStack(it) }.firstOrNull { it.item is SwordItem }
+        if (swordStack == null || swordStack.isEmpty || swordStack.damage >= swordStack.maxDamage) {
+            workingState = false
+            cooldown = 0.0
+            return
+        }
         val fakePlayer = FakePlayer.get(world as ServerWorld)
         val source = world?.damageSources?.playerAttack(fakePlayer)
-        val mobs = world?.getEntitiesByClass(LivingEntity::class.java, getWorkingArea()) { e -> e !is PlayerEntity && e !is ArmorStandEntity && !e.isDead && !e.isInvulnerableTo(source) && (e !is WitherEntity || e.invulnerableTimer <= 0) } ?: emptyList()
-        if (mobs.isEmpty() || !canUse(getEnergyCost())) {
+        val mobs = world?.getEntitiesByClass(MobEntity::class.java, getWorkingArea()) { e -> !e.isDead && !e.isInvulnerableTo(source) && (e !is WitherEntity || e.invulnerableTimer <= 0) } ?: emptyList()
+        if (mobs.isEmpty()) {
             workingState = false
             cooldown = 0.0
             return
         } else workingState = true
-        val swordStack = inventory.inputSlots.map { inventory.getStack(it) }.firstOrNull { it.item is SwordItem }
         fakePlayer.inventory.selectedSlot = 0
-        if (swordStack != null && !swordStack.isEmpty && swordStack.damage < swordStack.maxDamage) {
-            val swordItem = swordStack.item as SwordItem
-            use(getEnergyCost())
-            mobs.forEach { mob ->
-                swordStack.damage(1, world?.random, null)
-                if (swordStack.damage >= swordStack.maxDamage) swordStack.decrement(1)
+        val swordItem = swordStack.item as SwordItem
+        use(getEnergyCost())
+        mobs.forEach { mob ->
+            swordStack.damage(1, world?.random, null)
+            if (swordStack.damage >= swordStack.maxDamage) swordStack.decrement(1)
 
-                if (mob.isAlive) {
-                    mob.redirectDrops(inventory) {
-                        mob.damage(source, (swordItem.attackDamage * Enhancer.getDamageMultiplier(enhancers)).toFloat())
-                    }
+            if (mob.isAlive) {
+                mob.redirectDrops(inventory) {
+                    mob.damage(source, (swordItem.attackDamage * Enhancer.getDamageMultiplier(enhancers)).toFloat())
                 }
             }
         }
