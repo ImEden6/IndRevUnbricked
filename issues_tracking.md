@@ -102,8 +102,6 @@ This file tracks the open issues from the original repository [GabrielOlvH/Indus
 - [ ] [#498] [[BUG] Recipe's should use cookingtime and not cookingTime](https://github.com/GabrielOlvH/Industrial-Revolution/issues/498) `[bug]`
 - [ ] [#496] [[BUG] client crash with REI](https://github.com/GabrielOlvH/Industrial-Revolution/issues/496) `[bug]`
 - [ ] [#494] [[BUG] some textures are missing](https://github.com/GabrielOlvH/Industrial-Revolution/issues/494) `[bug]`
-- [ ] [#491] [[BUG] slaughter_mk1 crashed the server with Ticking block entity](https://github.com/GabrielOlvH/Industrial-Revolution/issues/491) `[bug]`
-- [ ] [#489] [[BUG] Mining rig doesn't seem work](https://github.com/GabrielOlvH/Industrial-Revolution/issues/489) `[bug]`
 - [ ] [#488] [[BUG] [v.1.14.0-BETA] Factory auto-split not working](https://github.com/GabrielOlvH/Industrial-Revolution/issues/488) `[bug]`
 - [ ] [#487] [Cross-dimensional pump stops working at random](https://github.com/GabrielOlvH/Industrial-Revolution/issues/487)
 - [ ] [#486] [[BUG] Server causes error when loaded with REI](https://github.com/GabrielOlvH/Industrial-Revolution/issues/486) `[bug]`

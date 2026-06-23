@@ -41,11 +41,24 @@ class FisherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
     override val maxOutput: Long = 0
 
     override fun machineTick() {
+        if (ticks % 15 != 0) return
+        cooldown += getProcessingSpeed() * 15
+        if (cooldown < config.processSpeed) return
         if (!canUse(getEnergyCost())) return
         val rodStack = inventoryComponent!!.inventory.getStack(1)
         if (rodStack.isEmpty || rodStack.item !is FishingRodItem) return
-        cooldown += getProcessingSpeed()
-        if (cooldown < config.processSpeed) return
+
+        val inventory = inventoryComponent?.inventory ?: return
+        var hasSpace = false
+        for (slot in inventory.outputSlots) {
+            val stack = inventory.getStack(slot)
+            if (stack.isEmpty || stack.count < stack.maxCount) {
+                hasSpace = true
+                break
+            }
+        }
+        if (!hasSpace) return
+
         if (!use(getEnergyCost())) return
         cooldown = 0.0
         var damagedRod = false
