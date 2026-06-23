@@ -2,6 +2,10 @@
   "sources": [
     {
       "type": "single",
+      "resource": "indrev:block/cabinet"
+    },
+    {
+      "type": "single",
       "resource": "indrev:block/lazuli_flux_container_lf_level"
     },
     {

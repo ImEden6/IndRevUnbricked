@@ -19,6 +19,9 @@ import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.SwordItem
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.util.math.BlockPos
+import net.minecraft.registry.RegistryKey
+import net.minecraft.registry.RegistryKeys
+import net.minecraft.util.Identifier
 
 class SlaughterBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMachineBlockEntity<BasicMachineConfig>(tier, MachineRegistry.SLAUGHTER_REGISTRY, pos, state) {
 
@@ -41,7 +44,8 @@ class SlaughterBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMa
     override var range = 5
 
     override fun machineTick() {
-        if (world?.isClient == true) return
+        val serverWorld = world as? ServerWorld ?: return
+        if (serverWorld.isClient) return
         if (ticks % 15 != 0) return
         val inventory = inventoryComponent?.inventory ?: return
         val enhancers = enhancerComponent!!.enhancers
@@ -58,9 +62,9 @@ class SlaughterBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMa
             cooldown = 0.0
             return
         }
-        val fakePlayer = FakePlayer.get(world as ServerWorld)
-        val source = world?.damageSources?.playerAttack(fakePlayer)
-        val mobs = world?.getEntitiesByClass(MobEntity::class.java, getWorkingArea()) { e -> !e.isDead && !e.isInvulnerableTo(source) && (e !is WitherEntity || e.invulnerableTimer <= 0) } ?: emptyList()
+        val fakePlayer = FakePlayer.get(serverWorld)
+        val source = serverWorld.damageSources.playerAttack(fakePlayer)
+        val mobs = serverWorld.getEntitiesByClass(MobEntity::class.java, getWorkingArea()) { e -> !e.isDead && !e.isInvulnerableTo(source) && (e !is WitherEntity || e.invulnerableTimer <= 0) } ?: emptyList()
         if (mobs.isEmpty()) {
             workingState = false
             cooldown = 0.0
@@ -69,13 +73,17 @@ class SlaughterBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMa
         fakePlayer.inventory.selectedSlot = 0
         val swordItem = swordStack.item as SwordItem
         use(getEnergyCost())
+        
+        val rawDamage = (swordItem.attackDamage * Enhancer.getDamageMultiplier(enhancers)).toFloat()
+        val dmgSource = serverWorld.damageSources.create(MACHINE_KILL, fakePlayer)
+        
         mobs.forEach { mob ->
-            swordStack.damage(1, world?.random, null)
-            if (swordStack.damage >= swordStack.maxDamage) swordStack.decrement(1)
-
             if (mob.isAlive) {
                 mob.redirectDrops(inventory) {
-                    mob.damage(source, (swordItem.attackDamage * Enhancer.getDamageMultiplier(enhancers)).toFloat())
+                    if (mob.damage(dmgSource, rawDamage)) {
+                        swordStack.damage(1, serverWorld.random, null)
+                        if (swordStack.damage >= swordStack.maxDamage) swordStack.decrement(1)
+                    }
                 }
             }
         }
@@ -95,5 +103,12 @@ class SlaughterBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMa
             Enhancer.BUFFER -> 4
             else -> 1
         }
+    }
+
+    companion object {
+        val MACHINE_KILL: RegistryKey<net.minecraft.entity.damage.DamageType> = RegistryKey.of(
+            RegistryKeys.DAMAGE_TYPE,
+            Identifier(IndustrialRevolution.MOD_ID, "machine_kill")
+        )
     }
 }
