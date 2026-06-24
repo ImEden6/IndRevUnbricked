@@ -34,7 +34,7 @@ object EMIPlugin : EmiPlugin {
 
     private fun registerCategories(registry: EmiRegistry) {
         fun add(id: Identifier, icon: ItemStack) {
-            val catId = Identifier("indrev_unbricked", id.path)
+            val catId = Identifier(IndustrialRevolution.MOD_ID, id.path)
             val category = EmiRecipeCategory(catId, EmiStack.of(icon))
             categories[id] = category
             registry.addCategory(category)
@@ -114,7 +114,7 @@ object EMIPlugin : EmiPlugin {
 
     private fun hideItems(registry: EmiRegistry) {
         registry.removeEmiStacks { stack ->
-            stack.id.namespace == "indrev_unbricked" && hide(stack.id)
+            stack.id.namespace == IndustrialRevolution.MOD_ID && hide(stack.id)
         }
     }
 }

@@ -1,10 +1,10 @@
 {
   "name": "item.patchouli.industrial_revolution_book.name",
   "landing_text": "item.patchouli.industrial_revolution_book.landing",
-  "model": "indrev_unbricked:guide_book",
+  "model": "indrev:guide_book",
   "version": 1,
   "subtitle": "Всё, что тебе, $(playername), положено знать о $(l)$(o)Industrial Revolution.",
-  "creative_tab": "indrev_unbricked.indrev_group",
+  "creative_tab": "indrev.indrev_group",
   "show_progress": false,
   "pause_game": false
 }

@@ -34,7 +34,7 @@ object IRModelManagers : ModelVariantProvider, ExtraModelProvider {
     )
 
     override fun loadModelVariant(resourceId: ModelIdentifier, ctx: ModelProviderContext?): UnbakedModel? {
-        if (resourceId.namespace != "indrev_unbricked") return null
+        if (resourceId.namespace != "indrev") return null
         val path = resourceId.path
         val variant = resourceId.variant
         val id = Identifier(resourceId.namespace, resourceId.path)
