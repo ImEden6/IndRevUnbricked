@@ -3,7 +3,7 @@
   "item.indrev.guide_book": "Руководство Industrial Revolution",
   "item.patchouli.industrial_revolution_book.landing": "Эта книга поможет тебе пройтись насквозь по некоторым важным аспектам мода.$(br2)Если ты найдёшь какие-либо проблемы, захочешь задать вопрос или предложить предложение, открой «Проблему» в $(l:https://github.com/GabrielOlvH/Industrial-Revolution/issues)GitHub$() или присоединяйся в наш $(l:https://discord.com/invite/G4PjhEf)Discord!$()$(br2)Спасибо за игру!",
 
-  "itemGroup.indrev.indrev_group": "Industrial Revolution",
+  "itemGroup.indrev.indrev_group": "Industrial Revolution Разблокировано",
 
   "block.machines.tooltip.io": "Ввод/Вывод: %s",
   "block.indrev.lazuli_flux_container_1": "Лазуритовый флакс",
@@ -650,13 +650,13 @@
   "item.indrev.tin_leggings": "Оловянные поножи",
   "item.indrev.tin_boots": "Оловянные ботинки",
 
-  "category.indrev": "Industrial Revolution",
+  "category.indrev": "Industrial Revolution Разблокировано",
   "key.indrev.modular": "Конфигурация модульных предметов",
 
   "text.multiblock.not_built": "Конструкция не построена!",
 
-  "advancements.indrev.nikolite": "Начало",
-  "advancements.indrev.nikolite.description": "Найди наколит",
+  "advancements.indrev.nikolite": "Разблокировано",
+  "advancements.indrev.nikolite.description": "Найди наколит и начни Industrial Revolution Разблокировано",
   "advancements.indrev.machine_block": "Основы",
   "advancements.indrev.machine_block.description": "Создай машинный блок",
   "advancements.indrev.coal_generator": "Первые шаги",

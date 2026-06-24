@@ -4,20 +4,23 @@ import me.mervyn.indrev_unbricked.IndustrialRevolution
 import me.mervyn.indrev_unbricked.api.machines.Tier
 import me.mervyn.indrev_unbricked.components.EnhancerComponent
 import me.mervyn.indrev_unbricked.config.BasicMachineConfig
+import me.mervyn.indrev_unbricked.config.IRConfig
+import me.mervyn.indrev_unbricked.enchantments.IREnchantments
 import me.mervyn.indrev_unbricked.inventories.inventory
 import me.mervyn.indrev_unbricked.items.upgrade.Enhancer
 import me.mervyn.indrev_unbricked.registry.MachineRegistry
 import me.mervyn.indrev_unbricked.utils.redirectDrops
 import net.fabricmc.fabric.api.entity.FakePlayer
 import net.minecraft.block.BlockState
-import net.minecraft.entity.LivingEntity
+import net.minecraft.enchantment.EnchantmentHelper
+import net.minecraft.enchantment.Enchantments
+import net.minecraft.entity.ExperienceOrbEntity
 import net.minecraft.entity.boss.WitherEntity
-import net.minecraft.entity.damage.DamageSource
-import net.minecraft.entity.decoration.ArmorStandEntity
 import net.minecraft.entity.mob.MobEntity
-import net.minecraft.entity.player.PlayerEntity
+import net.minecraft.item.ItemStack
 import net.minecraft.item.SwordItem
 import net.minecraft.server.world.ServerWorld
+import net.minecraft.util.Hand
 import net.minecraft.util.math.BlockPos
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
@@ -73,16 +76,88 @@ class SlaughterBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMa
         fakePlayer.inventory.selectedSlot = 0
         val swordItem = swordStack.item as SwordItem
         use(getEnergyCost())
-        
+
         val rawDamage = (swordItem.attackDamage * Enhancer.getDamageMultiplier(enhancers)).toFloat()
         val dmgSource = serverWorld.damageSources.create(MACHINE_KILL, fakePlayer)
-        
-        mobs.forEach { mob ->
-            if (mob.isAlive) {
-                mob.redirectDrops(inventory) {
-                    if (mob.damage(dmgSource, rawDamage)) {
-                        swordStack.damage(1, serverWorld.random, null)
-                        if (swordStack.damage >= swordStack.maxDamage) swordStack.decrement(1)
+
+        val useWeaponEnchants = IRConfig.machines.slaughterUseWeaponEnchants
+
+        if (useWeaponEnchants) {
+            fakePlayer.setStackInHand(Hand.MAIN_HAND, swordStack.copy())
+            val lootingLevel = EnchantmentHelper.getLevel(Enchantments.LOOTING, swordStack)
+            val fireAspectLevel = EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, swordStack)
+            val scavengerLevel = EnchantmentHelper.getLevel(IREnchantments.SCAVENGER, swordStack)
+            val knowledgeLevel = EnchantmentHelper.getLevel(IREnchantments.KNOWLEDGE, swordStack)
+
+            mobs.forEach { mob ->
+                if (mob.isAlive) {
+                    val enchantDamage = EnchantmentHelper.getAttackDamage(swordStack, mob.group)
+                    val finalDamage = rawDamage + enchantDamage
+
+                    mob.attacker = fakePlayer
+
+                    val preCounts = inventory.outputSlots.associate { it to inventory.getStack(it).count }
+
+                    mob.redirectDrops(inventory) {
+                        if (mob.damage(dmgSource, finalDamage)) {
+                            swordStack.damage(1, serverWorld.random, null)
+                            if (swordStack.damage >= swordStack.maxDamage) swordStack.decrement(1)
+                            if (fireAspectLevel > 0) mob.setOnFireFor(fireAspectLevel * 4)
+                        }
+                    }
+
+                    if (!mob.isDead) return@forEach
+
+                    if (knowledgeLevel > 0) {
+                        inventory.outputSlots.forEach { slot ->
+                            val stack = inventory.getStack(slot)
+                            val before = preCounts[slot] ?: 0
+                            if (stack.count > before) {
+                                val diff = stack.count - before
+                                stack.count = before
+                                var xpTotal = diff * knowledgeLevel * 25
+                                while (xpTotal > 0) {
+                                    val xpValue = ExperienceOrbEntity.roundToOrbSize(xpTotal)
+                                    xpTotal -= xpValue
+                                    serverWorld.spawnEntity(ExperienceOrbEntity(serverWorld, mob.x, mob.y + 0.5, mob.z, xpValue))
+                                }
+                            }
+                        }
+                    }
+
+                    if (lootingLevel > 0) {
+                        inventory.outputSlots.forEach { slot ->
+                            val stack = inventory.getStack(slot)
+                            val before = preCounts[slot] ?: 0
+                            if (stack.count > before) {
+                                val extra = serverWorld.random.nextInt(lootingLevel + 1)
+                                if (extra > 0) {
+                                    inventory.output(ItemStack(stack.item, extra))
+                                }
+                            }
+                        }
+                    }
+
+                    if (scavengerLevel > 0 && serverWorld.random.nextInt(100) < (scavengerLevel * 2.5f).toInt()) {
+                        inventory.outputSlots.forEach { slot ->
+                            val stack = inventory.getStack(slot)
+                            val before = preCounts[slot] ?: 0
+                            if (stack.count > before) {
+                                val diff = stack.count - before
+                                if (diff > 0) inventory.output(ItemStack(stack.item, diff))
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            mobs.forEach { mob ->
+                if (mob.isAlive) {
+                    mob.redirectDrops(inventory) {
+                        if (mob.damage(dmgSource, rawDamage)) {
+                            swordStack.damage(1, serverWorld.random, null)
+                            if (swordStack.damage >= swordStack.maxDamage) swordStack.decrement(1)
+                        }
                     }
                 }
             }

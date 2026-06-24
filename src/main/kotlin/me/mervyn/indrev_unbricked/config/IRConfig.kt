@@ -201,6 +201,10 @@ class Machines {
 
     val pumpMaxRange: Int = 64
 
+    val slaughterUseWeaponEnchants: Boolean = false
+    val rancherUseWeaponEnchants: Boolean = false
+    val fisherUseWeaponEnchants: Boolean = false
+
     val smelter: HeatMachineConfig = HeatMachineConfig(64, 4.0, 2.0,50000, Tier.MK4.io)
 
     val condenser: MachineConfig = MachineConfig(64, 4.0, 50000, Tier.MK4.io)

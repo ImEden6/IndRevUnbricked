@@ -4,6 +4,7 @@ import me.mervyn.indrev_unbricked.api.IRServerPlayerEntityExtension
 import me.mervyn.indrev_unbricked.api.machines.Tier
 import me.mervyn.indrev_unbricked.config.IRConfig
 import me.mervyn.indrev_unbricked.datagen.DataGeneratorManager
+import me.mervyn.indrev_unbricked.enchantments.IREnchantments
 import me.mervyn.indrev_unbricked.events.common.IRLootTableCallback
 import me.mervyn.indrev_unbricked.gui.screenhandlers.COAL_GENERATOR_HANDLER
 import me.mervyn.indrev_unbricked.gui.screenhandlers.IRGuiScreenHandler
@@ -52,6 +53,7 @@ object IndustrialRevolution : ModInitializer {
         COAL_GENERATOR_HANDLER
 
         IRConfig
+        IREnchantments
         IRItemRegistry.registerAll()
         IRBlockRegistry.registerAll()
         IRFluidRegistry.registerAll()

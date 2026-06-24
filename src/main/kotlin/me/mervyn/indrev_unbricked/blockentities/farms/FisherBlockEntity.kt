@@ -4,6 +4,7 @@ import me.mervyn.indrev_unbricked.api.machines.Tier
 import me.mervyn.indrev_unbricked.blockentities.MachineBlockEntity
 import me.mervyn.indrev_unbricked.components.EnhancerComponent
 import me.mervyn.indrev_unbricked.config.BasicMachineConfig
+import me.mervyn.indrev_unbricked.config.IRConfig
 import me.mervyn.indrev_unbricked.inventories.inventory
 import me.mervyn.indrev_unbricked.items.upgrade.Enhancer
 import me.mervyn.indrev_unbricked.registry.MachineRegistry
@@ -11,6 +12,8 @@ import me.mervyn.indrev_unbricked.utils.component1
 import me.mervyn.indrev_unbricked.utils.component2
 import me.mervyn.indrev_unbricked.utils.toVec3d
 import net.minecraft.block.BlockState
+import net.minecraft.enchantment.EnchantmentHelper
+import net.minecraft.enchantment.Enchantments
 import net.minecraft.item.FishingRodItem
 import net.minecraft.loot.context.LootContext
 import net.minecraft.loot.context.LootContextParameterSet
@@ -36,7 +39,7 @@ class FisherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
     }
 
     private var cooldown = config.processSpeed
-    
+
     override val maxInput: Long = config.maxInput
     override val maxOutput: Long = 0
 
@@ -62,10 +65,14 @@ class FisherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
         if (!use(getEnergyCost())) return
         cooldown = 0.0
         var damagedRod = false
+        val useWeaponEnchants = IRConfig.machines.fisherUseWeaponEnchants
+        val luckLevel = if (useWeaponEnchants) {
+            EnchantmentHelper.getLevel(Enchantments.LUCK_OF_THE_SEA, rodStack)
+        } else 0
         Direction.values().forEach { direction ->
             val pos = pos.offset(direction)
             if (world?.isWater(pos) == true) {
-                val identifiers = getIdentifiers(tier)
+                val identifiers = getIdentifiers(tier, luckLevel)
                 val id = identifiers[world!!.random!!.nextInt(identifiers.size)]
                 val lootTable = (world as ServerWorld).server.lootManager.getLootTable(id)
                 val ctx = LootContext.Builder(LootContextParameterSet.Builder(world as ServerWorld)
@@ -93,10 +100,21 @@ class FisherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
         return config.energyCost * speedEnhancers
     }
 
-    private fun getIdentifiers(tier: Tier) = when (tier) {
-        Tier.MK2 -> arrayOf(FISH_IDENTIFIER)
-        Tier.MK3 -> arrayOf(FISH_IDENTIFIER, FISH_IDENTIFIER, JUNK_IDENTIFIER, JUNK_IDENTIFIER, TREASURE_IDENTIFIER)
-        else -> arrayOf(FISH_IDENTIFIER, FISH_IDENTIFIER, FISH_IDENTIFIER, TREASURE_IDENTIFIER)
+    override fun getProcessingSpeed(): Double {
+        val lureLevel = if (IRConfig.machines.fisherUseWeaponEnchants) {
+            EnchantmentHelper.getLevel(Enchantments.LURE, inventoryComponent?.inventory?.getStack(1) ?: return super.getProcessingSpeed())
+        } else 0
+        return super.getProcessingSpeed() * (lureLevel + 1)
+    }
+
+    private fun getIdentifiers(tier: Tier, luckLevel: Int): Array<Identifier> {
+        val base = when (tier) {
+            Tier.MK2 -> mutableListOf(FISH_IDENTIFIER)
+            Tier.MK3 -> mutableListOf(FISH_IDENTIFIER, FISH_IDENTIFIER, JUNK_IDENTIFIER, JUNK_IDENTIFIER, TREASURE_IDENTIFIER)
+            else -> mutableListOf(FISH_IDENTIFIER, FISH_IDENTIFIER, FISH_IDENTIFIER, TREASURE_IDENTIFIER)
+        }
+        repeat(luckLevel) { base.add(TREASURE_IDENTIFIER) }
+        return base.toTypedArray()
     }
 
     fun getMaxCount(enhancer: Enhancer): Int {

@@ -115,9 +115,7 @@ This file tracks the open issues from the original repository [GabrielOlvH/Indus
 - [ ] [#465] [[BUG] Rancher Crashing due to Fake Player API](https://github.com/GabrielOlvH/Industrial-Revolution/issues/465) `[bug]`
 - [ ] [#459] [[BUG] Item Network](https://github.com/GabrielOlvH/Industrial-Revolution/issues/459) `[bug]`
 - [ ] [#456] [[BUG] Ore Tripling with Industrial Smelter as Guide Book States](https://github.com/GabrielOlvH/Industrial-Revolution/issues/456) `[bug]`
-- [ ] [#455] [Fluid Pipe servo GUI doesn't work ?](https://github.com/GabrielOlvH/Industrial-Revolution/issues/455)
-- [ ] [#445] [[BUG] Advancement tab isn't named after the mod](https://github.com/GabrielOlvH/Industrial-Revolution/issues/445) `[bug]`
-- [ ] [#444] [[BUG] Ticking block entity crash on Chopper](https://github.com/GabrielOlvH/Industrial-Revolution/issues/444) `[bug]`
+
 
 ### Page 6
 - [ ] [#430] [[BUG] Full energy items of different counts cannot be combined](https://github.com/GabrielOlvH/Industrial-Revolution/issues/430) `[bug]`
@@ -127,7 +125,6 @@ This file tracks the open issues from the original repository [GabrielOlvH/Indus
 - [ ] [#396] [[BUG] Modular Mining Drill overlay with max range upgrades causes FPS to tank when looking at certain blocks from certain angles.](https://github.com/GabrielOlvH/Industrial-Revolution/issues/396) `[bug]`
 - [ ] [#388] [[BUG] Slaughter (MK4 tested only) crashes server](https://github.com/GabrielOlvH/Industrial-Revolution/issues/388) `[bug]`
 - [ ] [#363] [[BUG] Pulverizer Factory Auto Split ignores recipe](https://github.com/GabrielOlvH/Industrial-Revolution/issues/363) `[bug]`
-- [ ] [#353] [[BUG] Most machines remove items with 'Unbreakable' Tag](https://github.com/GabrielOlvH/Industrial-Revolution/issues/353) `[bug]`
 - [ ] [#344] [REI, unification... ?](https://github.com/GabrielOlvH/Industrial-Revolution/issues/344) `[bug]`
 - [ ] [#303] [[BUG] [Mod Interaction] Auto feeder consumes any item with foodstats, even if player can't eat it](https://github.com/GabrielOlvH/Industrial-Revolution/issues/303) `[bug]`
 - [ ] [#280] [[BUG] When using modular drill with range modules, mining deletes NBT](https://github.com/GabrielOlvH/Industrial-Revolution/issues/280) `[bug]`

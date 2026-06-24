@@ -5,13 +5,17 @@ import me.mervyn.indrev_unbricked.api.machines.Tier
 import me.mervyn.indrev_unbricked.components.EnhancerComponent
 import me.mervyn.indrev_unbricked.components.autosync
 import me.mervyn.indrev_unbricked.config.BasicMachineConfig
+import me.mervyn.indrev_unbricked.config.IRConfig
+import me.mervyn.indrev_unbricked.enchantments.IREnchantments
 import me.mervyn.indrev_unbricked.inventories.inventory
 import me.mervyn.indrev_unbricked.items.upgrade.Enhancer
 import me.mervyn.indrev_unbricked.registry.MachineRegistry
 import me.mervyn.indrev_unbricked.utils.redirectDrops
 import net.fabricmc.fabric.api.entity.FakePlayer
 import net.minecraft.block.BlockState
-import net.minecraft.entity.damage.DamageSource
+import net.minecraft.enchantment.EnchantmentHelper
+import net.minecraft.enchantment.Enchantments
+import net.minecraft.entity.ExperienceOrbEntity
 import net.minecraft.entity.passive.AnimalEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.item.SwordItem
@@ -57,15 +61,90 @@ class RancherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
         val swordStack = inventory.inputSlots.map { inventory.getStack(it) }.firstOrNull { it.item is SwordItem }
         val fakePlayer = FakePlayer.get(world as ServerWorld)
         fakePlayer.inventory.selectedSlot = 0
+        val serverWorld = world as ServerWorld
+        val dmgSource = serverWorld.damageSources.playerAttack(fakePlayer)
+        val useWeaponEnchants = IRConfig.machines.rancherUseWeaponEnchants
+
         if (swordStack != null && !swordStack.isEmpty && swordStack.damage < swordStack.maxDamage) {
             val swordItem = swordStack.item as SwordItem
             val kill = filterAnimalsToKill(animals)
             if (kill.isNotEmpty()) use(getEnergyCost())
-            kill.forEach { animal ->
-                animal.redirectDrops(inventory) {
-                    if (!animal.isAlive || !animal.damage(world?.damageSources?.playerAttack(fakePlayer), swordItem.attackDamage)) return@forEach
-                    swordStack.damage(1, world?.random, null)
-                    if (swordStack.damage >= swordStack.maxDamage) swordStack.decrement(1)
+
+            if (useWeaponEnchants) {
+                fakePlayer.setStackInHand(Hand.MAIN_HAND, swordStack.copy())
+                val lootingLevel = EnchantmentHelper.getLevel(Enchantments.LOOTING, swordStack)
+                val fireAspectLevel = EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, swordStack)
+                val scavengerLevel = EnchantmentHelper.getLevel(IREnchantments.SCAVENGER, swordStack)
+                val knowledgeLevel = EnchantmentHelper.getLevel(IREnchantments.KNOWLEDGE, swordStack)
+                val baseDamage = swordItem.attackDamage
+
+                kill.forEach { animal ->
+                    if (!animal.isAlive) return@forEach
+                    val enchantDamage = EnchantmentHelper.getAttackDamage(swordStack, animal.group)
+                    val finalDamage = baseDamage + enchantDamage
+
+                    animal.attacker = fakePlayer
+
+                    val preCounts = inventory.outputSlots.associate { it to inventory.getStack(it).count }
+
+                    animal.redirectDrops(inventory) {
+                        if (animal.damage(dmgSource, finalDamage)) {
+                            swordStack.damage(1, serverWorld.random, null)
+                            if (swordStack.damage >= swordStack.maxDamage) swordStack.decrement(1)
+                            if (fireAspectLevel > 0) animal.setOnFireFor(fireAspectLevel * 4)
+                        }
+                    }
+
+                    if (!animal.isDead) return@forEach
+
+                    if (knowledgeLevel > 0) {
+                        inventory.outputSlots.forEach { slot ->
+                            val stack = inventory.getStack(slot)
+                            val before = preCounts[slot] ?: 0
+                            if (stack.count > before) {
+                                val diff = stack.count - before
+                                stack.count = before
+                                var xpTotal = diff * knowledgeLevel * 25
+                                while (xpTotal > 0) {
+                                    val xpValue = ExperienceOrbEntity.roundToOrbSize(xpTotal)
+                                    xpTotal -= xpValue
+                                    serverWorld.spawnEntity(ExperienceOrbEntity(serverWorld, animal.x, animal.y + 0.5, animal.z, xpValue))
+                                }
+                            }
+                        }
+                    }
+
+                    if (lootingLevel > 0) {
+                        inventory.outputSlots.forEach { slot ->
+                            val stack = inventory.getStack(slot)
+                            val before = preCounts[slot] ?: 0
+                            if (stack.count > before) {
+                                val extra = serverWorld.random.nextInt(lootingLevel + 1)
+                                if (extra > 0) {
+                                    inventory.output(ItemStack(stack.item, extra))
+                                }
+                            }
+                        }
+                    }
+
+                    if (scavengerLevel > 0 && serverWorld.random.nextInt(100) < (scavengerLevel * 2.5f).toInt()) {
+                        inventory.outputSlots.forEach { slot ->
+                            val stack = inventory.getStack(slot)
+                            val before = preCounts[slot] ?: 0
+                            if (stack.count > before) {
+                                val diff = stack.count - before
+                                if (diff > 0) inventory.output(ItemStack(stack.item, diff))
+                            }
+                        }
+                    }
+                }
+            } else {
+                kill.forEach { animal ->
+                    animal.redirectDrops(inventory) {
+                        if (!animal.isAlive || !animal.damage(dmgSource, swordItem.attackDamage)) return@forEach
+                        swordStack.damage(1, serverWorld.random, null)
+                        if (swordStack.damage >= swordStack.maxDamage) swordStack.decrement(1)
+                    }
                 }
             }
         }
@@ -127,7 +206,7 @@ class RancherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
 
     fun getMaxCount(enhancer: Enhancer): Int {
         return when (enhancer) {
-            Enhancer.SPEED -> return 1 
+            Enhancer.SPEED -> return 1
             Enhancer.BUFFER -> 4
             else -> 1
         }
