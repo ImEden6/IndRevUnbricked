@@ -1,16 +1,16 @@
 {
   "replace": false,
   "values": [
-    "indrev:mining_drill_mk1",
-    "indrev:mining_drill_mk2",
-    "indrev:mining_drill_mk3",
-    "indrev:mining_drill_mk4",
-    "indrev:tin_axe",
-    "indrev:copper_axe",
-    "indrev:steel_axe",
-    "indrev:gamer_axe",
-    "indrev:lead_axe",
-    "indrev:silver_axe",
-    "indrev:bronze_axe"
+    "indrev_unbricked:mining_drill_mk1",
+    "indrev_unbricked:mining_drill_mk2",
+    "indrev_unbricked:mining_drill_mk3",
+    "indrev_unbricked:mining_drill_mk4",
+    "indrev_unbricked:tin_axe",
+    "indrev_unbricked:copper_axe",
+    "indrev_unbricked:steel_axe",
+    "indrev_unbricked:gamer_axe",
+    "indrev_unbricked:lead_axe",
+    "indrev_unbricked:silver_axe",
+    "indrev_unbricked:bronze_axe"
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:sawdust"
+    },
+    {
+      "item": "indrev_unbricked:sawdust"
+    },
+    {
+      "item": "indrev_unbricked:sawdust"
+    },
+    {
+      "item": "minecraft:water_bucket"
+    }
+  ],
+  "result": {
+    "item": "minecraft:paper",
+    "count": 3
+  }
+}

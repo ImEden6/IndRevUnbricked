@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "indrev_unbricked:block/ore_base"
+    }
+  }

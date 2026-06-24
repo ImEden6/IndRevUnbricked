@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GCG",
+    "NMN",
+    "IBI"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "M": {
+      "item": "indrev_unbricked:machine_block"
+    },
+    "C": {
+      "item": "indrev_unbricked:circuit_mk1"
+    },
+    "I": {
+      "tag": "c:bronze_plates"
+    },
+    "N": {
+      "item": "indrev_unbricked:nikolite_dust"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:solar_generator_mk1"
+  }
+}

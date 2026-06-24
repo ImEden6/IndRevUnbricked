@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:smelter",
+  "ingredients": {
+    "tag": "minecraft:gold_ores"
+  },
+  "fluidOutput": {
+    "fluid": "indrev_unbricked:molten_gold_still",
+    "amount": 36000
+  },
+  "processTime": 600
+}

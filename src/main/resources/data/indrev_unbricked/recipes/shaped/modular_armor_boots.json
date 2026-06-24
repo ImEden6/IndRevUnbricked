@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ICI",
+    "NSN",
+    "BMB"
+  ],
+  "key": {
+    "C": {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    "S": {
+      "item": "indrev_unbricked:steel_boots"
+    },
+    "N": {
+      "item": "indrev_unbricked:enriched_nikolite_ingot"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    },
+    "I": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "M": {
+      "item": "indrev_unbricked:modular_core_activated"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:modular_armor_boots"
+  }
+}

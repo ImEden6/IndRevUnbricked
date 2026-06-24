@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:smelter",
+  "ingredients": {
+    "tag": "c:iron_dusts"
+  },
+  "fluidOutput": {
+    "fluid": "indrev_unbricked:molten_iron_still",
+    "amount": 9000
+  },
+  "processTime": 600
+}

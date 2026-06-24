@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:smelter",
+  "ingredients": {
+    "item": "indrev_unbricked:lead_purified_ore"
+  },
+  "fluidOutput": {
+    "fluid": "indrev_unbricked:molten_lead_still",
+    "amount": 45000
+  },
+  "processTime": 600
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "books",
+  "ingredients": [
+    {
+      "item": "minecraft:book"
+    },
+    {
+      "item": "indrev_unbricked:nikolite_dust"
+    }
+  ],
+  "result": {
+    "item": "indrev_unbricked:guide_book"
+  }
+}

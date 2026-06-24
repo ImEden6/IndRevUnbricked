@@ -1,0 +1,21 @@
+{
+  "type": "indrev_unbricked:modules",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    {
+      "tag": "c:tungsten_plates"
+    },
+    {
+      "tag": "c:tungsten_plates"
+    },
+    {
+      "item": "indrev_unbricked:enriched_nikolite_ingot"
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:module_breathing"
+  },
+  "processTime": 400
+}

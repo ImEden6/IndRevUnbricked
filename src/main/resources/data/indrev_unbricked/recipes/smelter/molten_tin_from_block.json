@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:smelter",
+  "ingredients": {
+    "tag": "c:tin_blocks"
+  },
+  "fluidOutput": {
+    "fluid": "indrev_unbricked:molten_tin_still",
+    "amount": 81000
+  },
+  "processTime": 600
+}

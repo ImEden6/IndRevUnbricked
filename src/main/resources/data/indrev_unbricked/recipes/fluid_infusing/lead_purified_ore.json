@@ -1,0 +1,21 @@
+{
+  "type": "indrev_unbricked:fluid_infuse",
+  "ingredients": [
+    {
+      "tag": "c:lead_ores"
+    }
+  ],
+  "fluidInput": {
+    "fluid": "indrev_unbricked:sulfuric_acid_still",
+    "amount": 81000
+  },
+  "fluidOutput": {
+    "fluid": "indrev_unbricked:toxic_mud_still",
+    "amount": 1000
+  },
+  "output": {
+    "item": "indrev_unbricked:lead_purified_ore",
+    "count": 1
+  },
+  "processTime": 500
+}

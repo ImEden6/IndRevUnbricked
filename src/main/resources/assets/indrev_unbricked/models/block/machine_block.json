@@ -1,0 +1,6 @@
+{
+  "parent": "indrev_unbricked:block/machine",
+  "textures": {
+    "texture": "indrev_unbricked:block/machine_block"
+  }
+}

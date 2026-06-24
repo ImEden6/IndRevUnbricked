@@ -1,0 +1,12 @@
+{
+  "type": "indrev_unbricked:compress",
+  "ingredients": {
+    "item": "indrev_unbricked:planks",
+    "count": 8
+  },
+  "output": {
+    "item": "indrev_unbricked:plank_block",
+    "count": 1
+  },
+  "processTime": 300
+}

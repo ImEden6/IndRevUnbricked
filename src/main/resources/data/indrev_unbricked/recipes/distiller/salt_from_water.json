@@ -1,0 +1,12 @@
+{
+  "type": "indrev_unbricked:distiller",
+  "output": {
+    "item": "indrev_unbricked:salt",
+    "count": 1
+  },
+  "fluidInput": {
+    "fluid": "minecraft:water",
+    "amount": 27000
+  },
+  "processTime": 150
+}

@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "indrev:steel_chestplate",
+    "indrev_unbricked:steel_chestplate",
     {
       "id": "astromine:steel_chestplate",
       "required": false

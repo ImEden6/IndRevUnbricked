@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "group": "tin_ingots",
+  "ingredient": {
+    "tag": "c:raw_tin_ores"
+  },
+  "result": "indrev_unbricked:tin_ingot",
+  "cookingTime": 150
+}

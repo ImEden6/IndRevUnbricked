@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GCG",
+    "NMN",
+    "NBN"
+  ],
+  "key": {
+    "M": {
+      "item": "indrev_unbricked:machine_block"
+    },
+    "C": {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    "N": {
+      "tag": "c:lead_plates"
+    },
+    "G": {
+      "item": "indrev_unbricked:netherite_drill_head"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:mining_rig_mk4"
+  }
+}

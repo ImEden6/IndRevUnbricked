@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "indrev:machine_kill"
+    "indrev_unbricked:machine_kill"
   ]
 }

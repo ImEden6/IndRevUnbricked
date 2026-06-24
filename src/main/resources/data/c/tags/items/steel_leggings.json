@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "indrev:steel_leggings",
+    "indrev_unbricked:steel_leggings",
     {
       "id": "astromine:steel_leggings",
       "required": false

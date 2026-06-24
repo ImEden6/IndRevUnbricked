@@ -1,0 +1,16 @@
+{
+  "type": "indrev_unbricked:infuse",
+  "ingredients": [
+    {
+      "item": "minecraft:rotten_flesh"
+    },
+    {
+      "item": "minecraft:rotten_flesh"
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:untanned_leather",
+    "count": 1
+  },
+  "processTime": 350
+}

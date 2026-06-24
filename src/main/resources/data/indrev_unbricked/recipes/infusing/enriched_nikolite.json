@@ -1,0 +1,16 @@
+{
+  "type": "indrev_unbricked:infuse",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:nikolite_dust"
+    },
+    {
+      "tag": "c:diamond_dusts"
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:enriched_nikolite_dust",
+    "count": 2
+  },
+  "processTime": 600
+}

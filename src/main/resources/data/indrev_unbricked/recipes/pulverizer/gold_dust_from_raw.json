@@ -1,0 +1,12 @@
+{
+  "type": "indrev_unbricked:pulverize",
+  "ingredients": {
+    "tag": "c:raw_gold_ores",
+    "count": 2
+  },
+  "output": {
+    "item": "indrev_unbricked:gold_dust",
+    "count": 3
+  },
+  "processTime": 200
+}

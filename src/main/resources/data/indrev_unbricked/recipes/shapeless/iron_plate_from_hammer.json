@@ -1,0 +1,14 @@
+{
+  "type": "indrev_unbricked:selfremainder",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "indrev_unbricked:hammer"
+    }
+  ],
+  "result": {
+    "item": "indrev_unbricked:iron_plate"
+  }
+}

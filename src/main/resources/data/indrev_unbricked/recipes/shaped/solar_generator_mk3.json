@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "NSN",
+    "EBE"
+  ],
+  "key": {
+    "S": {
+      "item": "indrev_unbricked:solar_generator_mk1"
+    },
+    "C": {
+      "item": "indrev_unbricked:circuit_mk3"
+    },
+    "N": {
+      "item": "indrev_unbricked:enriched_nikolite_ingot"
+    },
+    "E": {
+      "tag": "c:electrum_plates"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:solar_generator_mk3"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:smelter",
+  "ingredients": {
+    "item": "indrev_unbricked:copper_purified_ore"
+  },
+  "fluidOutput": {
+    "fluid": "indrev_unbricked:molten_copper_still",
+    "amount": 45000
+  },
+  "processTime": 600
+}

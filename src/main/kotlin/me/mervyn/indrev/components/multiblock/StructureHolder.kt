@@ -1,6 +1,7 @@
 package me.mervyn.indrev.components.multiblock
 
 import com.google.common.collect.ImmutableMap
+import me.mervyn.indrev.IndustrialRevolution
 import net.minecraft.block.BlockState
 import net.minecraft.util.BlockRotation
 import net.minecraft.util.math.BlockPos
@@ -124,7 +125,7 @@ class StructureHolder(val variants: Map<StructureIdentifier, Map<BlockPos, Block
         }
 
         fun create(variant: String): Builder {
-            createdStructures[StructureIdentifier("indrev", definition.identifier, variant)] = ImmutableMap.copyOf(structure)
+            createdStructures[StructureIdentifier(IndustrialRevolution.MOD_ID, definition.identifier, variant)] = ImmutableMap.copyOf(structure)
             structure.clear()
             return this
         }

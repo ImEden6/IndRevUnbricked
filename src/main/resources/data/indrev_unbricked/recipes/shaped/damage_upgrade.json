@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "SES",
+    "N N"
+  ],
+  "key": {
+    "C": {
+      "item": "indrev_unbricked:circuit_mk1"
+    },
+    "S": {
+      "item": "minecraft:diamond_sword"
+    },
+    "E": {
+      "item": "indrev_unbricked:empty_enhancer"
+    },
+    "N": {
+      "item": "indrev_unbricked:enriched_nikolite_dust"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:damage_enhancer"
+  }
+}

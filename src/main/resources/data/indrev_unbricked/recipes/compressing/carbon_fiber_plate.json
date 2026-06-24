@@ -1,0 +1,12 @@
+{
+  "type": "indrev_unbricked:compress",
+  "ingredients": {
+    "item": "indrev_unbricked:soot",
+    "count": 9
+  },
+  "output": {
+    "item": "indrev_unbricked:carbon_fiber_plate",
+    "count": 1
+  },
+  "processTime": 400
+}

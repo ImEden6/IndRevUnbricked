@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "indrev_unbricked:item/module_jump_boost"
+  }
+}

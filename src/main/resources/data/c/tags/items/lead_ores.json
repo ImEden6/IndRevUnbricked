@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "indrev:lead_ore",
-    "indrev:deepslate_lead_ore"
+    "indrev_unbricked:lead_ore",
+    "indrev_unbricked:deepslate_lead_ore"
   ]
 }

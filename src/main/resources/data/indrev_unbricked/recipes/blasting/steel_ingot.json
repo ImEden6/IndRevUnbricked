@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "c:steel_dusts"
+  },
+  "result": "indrev_unbricked:steel_ingot",
+  "cookingTime": 150
+}

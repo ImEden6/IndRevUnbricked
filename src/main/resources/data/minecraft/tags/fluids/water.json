@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "indrev:coolant_still",
-    "indrev:coolant_flowing",
-    "indrev:sulfuric_acid_still",
-    "indrev:sulfuric_acid_flowing",
-    "indrev:toxic_mud_still",
-    "indrev:toxic_mud_flowing"
+    "indrev_unbricked:coolant_still",
+    "indrev_unbricked:coolant_flowing",
+    "indrev_unbricked:sulfuric_acid_still",
+    "indrev_unbricked:sulfuric_acid_flowing",
+    "indrev_unbricked:toxic_mud_still",
+    "indrev_unbricked:toxic_mud_flowing"
   ]
 }

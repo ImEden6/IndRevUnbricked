@@ -1,0 +1,16 @@
+{
+  "type": "indrev_unbricked:infuse",
+  "ingredients": [
+    {
+      "tag": "c:gold_dusts"
+    },
+    {
+      "tag": "c:silver_dusts"
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:electrum_dust",
+    "count": 2
+  },
+  "processTime": 300
+}

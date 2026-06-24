@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NPN",
+    "OCO",
+    "OBO"
+  ],
+  "key": {
+    "C": {
+      "item": "indrev_unbricked:circuit_mk3"
+    },
+    "N": {
+      "item": "indrev_unbricked:enriched_nikolite_dust"
+    },
+    "P": {
+      "item": "indrev_unbricked:diamond_drill_head"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    },
+    "O": {
+      "tag": "c:electrum_plates"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:mining_drill_mk3"
+  }
+}

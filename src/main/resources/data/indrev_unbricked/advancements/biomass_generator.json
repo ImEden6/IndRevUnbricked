@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "indrev_unbricked:biomass_generator_mk3"
+    },
+    "title": {
+      "translate": "advancements.indrev.biomass_generator"
+    },
+    "description": {
+      "translate": "advancements.indrev.biomass_generator.description"
+    }
+  },
+  "parent": "indrev_unbricked:biomass",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["indrev_unbricked:biomass_generator_mk3"]
+          }
+        ]
+      }
+    }
+  }
+}

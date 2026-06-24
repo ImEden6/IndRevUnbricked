@@ -1,0 +1,13 @@
+{
+  "name": "扳手",
+  "category": "indrev_unbricked:tools",
+  "sortnum": 1,
+  "icon": "indrev_unbricked:wrench",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "indrev_unbricked:shaped/wrench",
+      "text": "扳手可用于旋转或拆卸机器。扳手拆除的机器会保存电量。"
+    }
+  ]
+}

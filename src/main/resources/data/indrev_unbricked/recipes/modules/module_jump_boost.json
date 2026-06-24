@@ -1,0 +1,21 @@
+{
+  "type": "indrev_unbricked:modules",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    {
+      "tag": "c:steel_plates"
+    },
+    {
+      "tag": "c:steel_plates"
+    },
+    {
+      "item": "indrev_unbricked:enriched_nikolite_ingot"
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:module_jump_boost"
+  },
+  "processTime": 400
+}

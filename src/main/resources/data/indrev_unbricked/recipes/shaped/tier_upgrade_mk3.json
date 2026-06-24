@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "PCP",
+    "NPN"
+  ],
+  "key": {
+    "C": {
+      "item": "indrev_unbricked:circuit_mk3"
+    },
+    "P": {
+      "tag": "c:electrum_plates"
+    },
+    "N": {
+      "item": "indrev_unbricked:enriched_nikolite_dust"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:tier_upgrade_mk3"
+  }
+}

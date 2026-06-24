@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:smelter",
+  "ingredients": {
+    "tag": "c:copper_nuggets"
+  },
+  "fluidOutput": {
+    "fluid": "indrev_unbricked:molten_copper_still",
+    "amount": 1000
+  },
+  "processTime": 600
+}

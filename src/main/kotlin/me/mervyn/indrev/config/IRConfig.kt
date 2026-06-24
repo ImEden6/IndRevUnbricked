@@ -35,7 +35,7 @@ object IRConfig {
     }
 
     private inline fun <reified T> readOrCreate(file: String, default: () -> T): T {
-        val dir = File(FabricLoader.getInstance().configDir.toFile(), "indrev")
+        val dir = File(FabricLoader.getInstance().configDir.toFile(), "indrev_unbricked")
         if (!dir.exists() && !dir.mkdirs()) {
             IndustrialRevolution.LOGGER.error("Could not create directory, using default configs.")
             return default()

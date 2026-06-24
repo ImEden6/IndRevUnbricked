@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GBG",
+    "IMI"
+  ],
+  "key": {
+    "G": {
+      "item": "minecraft:glass"
+    },
+    "I": {
+      "tag": "c:iron_plates"
+    },
+    "B": {
+      "item": "minecraft:bucket"
+    },
+    "M": {
+      "item": "indrev_unbricked:machine_block"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:drain_mk1"
+  }
+}

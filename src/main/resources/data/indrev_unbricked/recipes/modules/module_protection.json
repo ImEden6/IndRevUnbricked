@@ -1,0 +1,27 @@
+{
+  "type": "indrev_unbricked:modules",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    {
+      "tag": "c:steel_plates"
+    },
+    {
+      "tag": "c:steel_plates"
+    },
+    {
+      "tag": "c:steel_plates"
+    },
+    {
+      "tag": "c:steel_plates"
+    },
+    {
+      "tag": "c:steel_plates"
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:module_protection"
+  },
+  "processTime": 400
+}

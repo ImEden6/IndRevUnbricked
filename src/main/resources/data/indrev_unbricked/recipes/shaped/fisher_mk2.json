@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PCP",
+    "NMN",
+    "NBN"
+  ],
+  "key": {
+    "M": {
+      "item": "indrev_unbricked:machine_block"
+    },
+    "C": {
+      "item": "indrev_unbricked:circuit_mk2"
+    },
+    "N": {
+      "tag": "c:silver_plates"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    },
+    "P": {
+      "item": "indrev_unbricked:planks"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:fisher_mk2"
+  }
+}

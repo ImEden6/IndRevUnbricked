@@ -1,0 +1,14 @@
+{
+  "type": "indrev_unbricked:selfremainder",
+  "ingredients": [
+    {
+      "tag": "c:tin_ingots"
+    },
+    {
+      "item": "indrev_unbricked:hammer"
+    }
+  ],
+  "result": {
+    "item": "indrev_unbricked:tin_plate"
+  }
+}

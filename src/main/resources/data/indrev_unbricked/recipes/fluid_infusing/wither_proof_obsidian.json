@@ -1,0 +1,17 @@
+{
+  "type": "indrev_unbricked:fluid_infuse",
+  "ingredients": [
+    {
+      "item": "minecraft:obsidian"
+    }
+  ],
+  "fluidInput": {
+    "fluid": "indrev_unbricked:molten_iron_still",
+    "amount": 81000
+  },
+  "output": {
+    "item": "indrev_unbricked:wither_proof_obsidian",
+    "count": 1
+  },
+  "processTime": 400
+}

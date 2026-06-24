@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "indrev_unbricked:gamer_axe"
+    },
+    "title": {
+      "translate": "advancements.indrev.gamer_axe"
+    },
+    "description": {
+      "translate": "advancements.indrev.gamer_axe.description"
+    },
+    "frame": "challenge"
+  },
+  "parent": "indrev_unbricked:nikolite",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["indrev_unbricked:gamer_axe"]
+          }
+        ]
+      }
+    }
+  }
+}

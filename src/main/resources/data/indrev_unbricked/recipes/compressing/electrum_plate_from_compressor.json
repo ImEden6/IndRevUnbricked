@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:compress",
+  "ingredients": {
+    "tag": "c:electrum_ingots"
+  },
+  "output": {
+    "item": "indrev_unbricked:electrum_plate",
+    "count": 1
+  },
+  "processTime": 400
+}

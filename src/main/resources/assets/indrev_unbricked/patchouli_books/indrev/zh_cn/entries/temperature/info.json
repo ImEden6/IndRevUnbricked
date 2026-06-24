@@ -1,0 +1,16 @@
+{
+  "name": "机器如何运作？",
+  "category": "indrev_unbricked:temperature",
+  "sortnum": 0,
+  "icon": "indrev_unbricked:fan",
+  "pages": [
+    {
+      "type": "text",
+      "text": "“工业革命”的科学家™们用最前沿最先进的高精尖理论知识打造出了这些智能高效而，呃，不会爆炸的机器。$(br)并且，机器在其最适温度下运转效率最高。只要机器持续运作，达到这个温度时就会停止升温。"
+    },
+    {
+      "type": "text",
+      "text": "想要让机器达到最适温度，你需要时刻进行进行冷却，此时的运作速率$(l)并不会$()提升。更多请参阅$(l:temperature/coolers_and_fans)$(t:时刻保持高“冷”~)以时刻保持高效！"
+    }
+  ]
+}

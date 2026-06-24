@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " C ",
+    "SMS",
+    "SBS"
+  ],
+  "key": {
+    "M": {
+      "item": "indrev_unbricked:machine_block"
+    },
+    "C": {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    "S": {
+      "tag": "c:lead_plates"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:condenser_mk4"
+  }
+}

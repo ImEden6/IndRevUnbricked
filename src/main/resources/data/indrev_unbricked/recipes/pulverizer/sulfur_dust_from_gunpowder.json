@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:pulverize",
+  "ingredients": {
+    "item": "minecraft:gunpowder"
+  },
+  "output": {
+    "item": "indrev_unbricked:sulfur_dust",
+    "count": 1
+  },
+  "processTime": 200
+}

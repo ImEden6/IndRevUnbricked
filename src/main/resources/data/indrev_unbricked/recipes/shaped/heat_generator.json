@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "UCU",
+    "NMN",
+    "LBL"
+  ],
+  "key": {
+    "C": {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    "U": {
+      "item": "indrev_unbricked:heat_coil"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    },
+    "L": {
+      "tag": "c:lead_plates"
+    },
+    "M": {
+      "item": "indrev_unbricked:machine_block"
+    },
+    "N": {
+      "item": "indrev_unbricked:enriched_nikolite_ingot"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:heat_generator_mk4"
+  }
+}

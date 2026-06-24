@@ -1,0 +1,27 @@
+{
+  "type": "indrev_unbricked:modules",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    {
+      "tag": "c:tungsten_plates"
+    },
+    {
+      "tag": "c:tungsten_plates"
+    },
+    {
+      "tag": "c:steel_plates"
+    },
+    {
+      "tag": "c:steel_plates"
+    },
+    {
+      "item": "indrev_unbricked:reinforced_elytra"
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:module_elytra"
+  },
+  "processTime": 400
+}

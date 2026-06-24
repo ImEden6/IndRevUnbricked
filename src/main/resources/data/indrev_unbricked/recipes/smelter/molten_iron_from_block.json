@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:smelter",
+  "ingredients": {
+    "item": "minecraft:iron_block"
+  },
+  "fluidOutput": {
+    "fluid": "indrev_unbricked:molten_iron_still",
+    "amount": 81000
+  },
+  "processTime": 600
+}

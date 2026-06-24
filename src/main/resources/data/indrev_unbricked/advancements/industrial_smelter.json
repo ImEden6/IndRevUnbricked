@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "indrev_unbricked:smelter_mk4"
+    },
+    "title": {
+      "translate": "advancements.indrev.industrial_smelter"
+    },
+    "description": {
+      "translate": "advancements.indrev.industrial_smelter"
+    }
+  },
+  "parent": "indrev_unbricked:circuit_mk4",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["indrev_unbricked:smelter_mk4"]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "indrev_unbricked:recycle",
+  "ingredients": [
+    {
+      "item": "minecraft:potato",
+      "count": 2
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:biomass",
+    "count": 3
+  },
+  "processTime": 200
+}

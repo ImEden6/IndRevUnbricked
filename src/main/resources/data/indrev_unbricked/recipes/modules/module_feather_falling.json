@@ -1,0 +1,24 @@
+{
+  "type": "indrev_unbricked:modules",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    {
+      "item": "minecraft:slime_ball"
+    },
+    {
+      "tag": "c:steel_plates"
+    },
+    {
+      "tag": "c:steel_plates"
+    },
+    {
+      "item": "indrev_unbricked:enriched_nikolite_ingot"
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:module_feather_falling"
+  },
+  "processTime": 400
+}

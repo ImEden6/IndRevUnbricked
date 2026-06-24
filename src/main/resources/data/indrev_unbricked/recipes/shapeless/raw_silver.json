@@ -1,0 +1,12 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:raw_silver_block"
+    }
+  ],
+  "result": {
+    "item": "indrev_unbricked:raw_silver",
+    "count": 9
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:smelter",
+  "ingredients": {
+    "item": "indrev_unbricked:netherite_scrap_purified_ore"
+  },
+  "fluidOutput": {
+    "fluid": "indrev_unbricked:molten_netherite_still",
+    "amount": 1000
+  },
+  "processTime": 600
+}

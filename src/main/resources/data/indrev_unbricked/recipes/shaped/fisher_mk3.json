@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NCN",
+    "SMS",
+    "SBS"
+  ],
+  "key": {
+    "M": {
+      "item": "indrev_unbricked:fisher_mk2"
+    },
+    "C": {
+      "item": "indrev_unbricked:circuit_mk3"
+    },
+    "N": {
+      "item": "indrev_unbricked:enriched_nikolite_dust"
+    },
+    "S": {
+      "tag": "c:electrum_plates"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:fisher_mk3"
+  }
+}

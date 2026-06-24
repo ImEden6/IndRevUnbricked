@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " T ",
+    "TCT",
+    " T "
+  ],
+  "key": {
+    "C": {
+      "item": "indrev_unbricked:coolant_bucket"
+    },
+    "T": {
+      "tag": "c:tin_plates"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:cooler_cell"
+  }
+}

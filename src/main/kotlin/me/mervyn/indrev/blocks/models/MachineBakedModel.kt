@@ -223,9 +223,9 @@ open class MachineBakedModel(val id: String) : UnbakedModel, BakedModel, FabricB
             }
         }
         val blockRotation = when (direction) {
-            Direction.EAST -> BlockRotation.COUNTERCLOCKWISE_90
+            Direction.EAST -> BlockRotation.CLOCKWISE_90
             Direction.SOUTH -> BlockRotation.CLOCKWISE_180
-            Direction.WEST -> BlockRotation.CLOCKWISE_90
+            Direction.WEST -> BlockRotation.COUNTERCLOCKWISE_90
             else -> BlockRotation.NONE
         }
         val nominalFace = q.nominalFace()

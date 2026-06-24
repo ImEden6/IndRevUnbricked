@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "indrev:copper_plate"
+    "indrev_unbricked:copper_plate"
   ]
 }

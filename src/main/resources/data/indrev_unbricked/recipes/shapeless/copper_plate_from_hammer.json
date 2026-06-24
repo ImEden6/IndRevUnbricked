@@ -1,0 +1,14 @@
+{
+  "type": "indrev_unbricked:selfremainder",
+  "ingredients": [
+    {
+      "tag": "c:copper_ingots"
+    },
+    {
+      "item": "indrev_unbricked:hammer"
+    }
+  ],
+  "result": {
+    "item": "indrev_unbricked:copper_plate"
+  }
+}

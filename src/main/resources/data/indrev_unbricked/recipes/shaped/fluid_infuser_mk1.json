@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "GCG",
+    "NMN",
+    "NBN"
+  ],
+  "key": {
+    "M": {
+      "item": "indrev_unbricked:machine_block"
+    },
+    "C": {
+      "item": "indrev_unbricked:circuit_mk1"
+    },
+    "N": {
+      "tag": "c:bronze_plates"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    },
+    "G": {
+      "item": "indrev_unbricked:tank"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:fluid_infuser_mk1"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "indrev_unbricked:compress",
+  "ingredients": {
+    "tag": "c:tin_plates",
+    "count": 4
+  },
+  "output": {
+    "item": "indrev_unbricked:empty_enhancer",
+    "count": 1
+  },
+  "processTime": 300
+}

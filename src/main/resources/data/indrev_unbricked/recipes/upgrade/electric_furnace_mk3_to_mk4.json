@@ -1,0 +1,14 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:electric_furnace_mk3"
+    },
+    {
+      "item": "indrev_unbricked:tier_upgrade_mk4"
+    }
+  ],
+  "result": {
+    "item": "indrev_unbricked:electric_furnace_mk4"
+  }
+}

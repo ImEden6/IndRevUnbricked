@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TCT",
+    "FCF",
+    "TCT"
+  ],
+  "key": {
+    "C": {
+      "item": "indrev_unbricked:coolant_bucket"
+    },
+    "T": {
+      "tag": "c:tin_plates"
+    },
+    "F": {
+      "item": "indrev_unbricked:fan"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:heatsink"
+  }
+}

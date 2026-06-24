@@ -1,0 +1,27 @@
+{
+  "type": "indrev_unbricked:modules",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    {
+      "tag": "c:tungsten_plates"
+    },
+    {
+      "tag": "c:tungsten_plates"
+    },
+    {
+      "tag": "c:tungsten_plates"
+    },
+    {
+      "tag": "c:tungsten_plates"
+    },
+    {
+      "tag": "c:tungsten_plates"
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:module_fire_resistance"
+  },
+  "processTime": 400
+}

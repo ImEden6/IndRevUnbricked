@@ -1,0 +1,6 @@
+{
+  "parent": "indrev_unbricked:block/machine_mk4",
+  "textures": {
+    "texture": "indrev_unbricked:block/smelter"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "display": {
+    "icon": {
+      "item": "indrev_unbricked:lazuli_flux_container_mk4"
+    },
+    "title": {
+      "translate": "advancements.indrev.lazuli_flux_container_mk4"
+    },
+    "description": {
+      "translate": "advancements.indrev.lazuli_flux_container_mk4.description"
+    }
+  },
+  "parent": "indrev_unbricked:circuit_mk4",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "indrev_unbricked:lazuli_flux_container_mk4"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

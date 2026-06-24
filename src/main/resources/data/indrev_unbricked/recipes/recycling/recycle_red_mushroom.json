@@ -1,0 +1,14 @@
+{
+  "type": "indrev_unbricked:recycle",
+  "ingredients": [
+    {
+      "item": "minecraft:red_mushroom",
+      "count": 2
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:biomass",
+    "count": 1
+  },
+  "processTime": 50
+}

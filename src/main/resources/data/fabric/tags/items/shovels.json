@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "indrev:mining_drill_mk1",
-    "indrev:mining_drill_mk2",
-    "indrev:mining_drill_mk3",
-    "indrev:mining_drill_mk4",
-    "indrev:tin_shovel",
-    "indrev:copper_shovel",
-    "indrev:steel_shovel",
-    "indrev:lead_shovel",
-    "indrev:silver_shovel",
-    "indrev:bronze_shovel"
+    "indrev_unbricked:mining_drill_mk1",
+    "indrev_unbricked:mining_drill_mk2",
+    "indrev_unbricked:mining_drill_mk3",
+    "indrev_unbricked:mining_drill_mk4",
+    "indrev_unbricked:tin_shovel",
+    "indrev_unbricked:copper_shovel",
+    "indrev_unbricked:steel_shovel",
+    "indrev_unbricked:lead_shovel",
+    "indrev_unbricked:silver_shovel",
+    "indrev_unbricked:bronze_shovel"
   ]
 }

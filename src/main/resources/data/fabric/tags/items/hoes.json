@@ -1,11 +1,11 @@
 {
   "replace": false,
   "values": [
-    "indrev:tin_hoe",
-    "indrev:copper_hoe",
-    "indrev:steel_hoe",
-    "indrev:lead_hoe",
-    "indrev:silver_hoe",
-    "indrev:bronze_hoe"
+    "indrev_unbricked:tin_hoe",
+    "indrev_unbricked:copper_hoe",
+    "indrev_unbricked:steel_hoe",
+    "indrev_unbricked:lead_hoe",
+    "indrev_unbricked:silver_hoe",
+    "indrev_unbricked:bronze_hoe"
   ]
 }

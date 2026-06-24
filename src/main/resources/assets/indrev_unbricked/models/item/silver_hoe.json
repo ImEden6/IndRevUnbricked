@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "indrev_unbricked:item/silver_hoe"
+  }
+}

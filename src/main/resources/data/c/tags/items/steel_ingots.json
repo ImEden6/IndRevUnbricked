@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "indrev:steel_ingot"
+    "indrev_unbricked:steel_ingot"
   ]
 }

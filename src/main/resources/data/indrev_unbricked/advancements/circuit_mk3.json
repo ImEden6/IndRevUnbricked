@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "indrev_unbricked:circuit_mk3"
+    },
+    "title": {
+      "translate": "advancements.indrev.circuit_mk3"
+    },
+    "description": {
+      "translate": "advancements.indrev.circuit_mk3.description"
+    }
+  },
+  "hidden": true,
+  "parent": "indrev_unbricked:circuit_mk2",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["indrev_unbricked:circuit_mk3"]
+          }
+        ]
+      }
+    }
+  }
+}

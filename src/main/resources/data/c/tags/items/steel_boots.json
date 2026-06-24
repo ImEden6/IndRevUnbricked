@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "indrev:steel_boots",
+    "indrev_unbricked:steel_boots",
     {
       "id": "astromine:steel_boots",
       "required": false

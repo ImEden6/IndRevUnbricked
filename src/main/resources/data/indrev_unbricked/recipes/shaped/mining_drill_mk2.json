@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NPN",
+    "OCO",
+    "OBO"
+  ],
+  "key": {
+    "C": {
+      "item": "indrev_unbricked:circuit_mk2"
+    },
+    "N": {
+      "item": "indrev_unbricked:nikolite_ingot"
+    },
+    "P": {
+      "item": "indrev_unbricked:iron_drill_head"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    },
+    "O": {
+      "tag": "c:silver_plates"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:mining_drill_mk2"
+  }
+}

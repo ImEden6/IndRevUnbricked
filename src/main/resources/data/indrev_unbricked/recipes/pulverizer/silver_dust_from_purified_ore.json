@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:pulverize",
+  "ingredients": {
+    "item": "indrev_unbricked:silver_purified_ore"
+  },
+  "output": {
+    "item": "indrev_unbricked:silver_dust",
+    "count": 3
+  },
+  "processTime": 200
+}

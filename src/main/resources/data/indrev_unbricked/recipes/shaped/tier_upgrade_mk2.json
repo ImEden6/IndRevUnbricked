@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " P ",
+    "PCP",
+    "NPN"
+  ],
+  "key": {
+    "C": {
+      "item": "indrev_unbricked:circuit_mk2"
+    },
+    "P": {
+      "tag": "c:silver_plates"
+    },
+    "N": {
+      "item": "indrev_unbricked:nikolite_ingot"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:tier_upgrade_mk2"
+  }
+}

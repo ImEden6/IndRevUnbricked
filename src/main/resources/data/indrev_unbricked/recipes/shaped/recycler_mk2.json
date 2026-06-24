@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "DCD",
+    "NMN",
+    "SBS"
+  ],
+  "key": {
+    "M": {
+      "item": "indrev_unbricked:machine_block"
+    },
+    "C": {
+      "item": "indrev_unbricked:circuit_mk2"
+    },
+    "N": {
+      "item": "indrev_unbricked:nikolite_dust"
+    },
+    "D": {
+      "item": "minecraft:composter"
+    },
+    "S": {
+      "tag": "c:silver_plates"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:recycler_mk2"
+  }
+}

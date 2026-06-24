@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NCN",
+    "SBS",
+    "BEB"
+  ],
+  "key": {
+    "B": {
+      "item": "indrev_unbricked:battery"
+    },
+    "C": {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    "S": {
+      "tag": "c:steel_plates"
+    },
+    "E": {
+      "item": "indrev_unbricked:enriched_nikolite_ingot"
+    },
+    "N": {
+      "item": "indrev_unbricked:nikolite_dust"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:portable_charger"
+  }
+}

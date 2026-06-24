@@ -1,0 +1,11 @@
+{
+  "type": "indrev_unbricked:compress",
+  "ingredients": {
+    "item": "minecraft:gold_ingot"
+  },
+  "output": {
+    "item": "indrev_unbricked:gold_plate",
+    "count": 1
+  },
+  "processTime": 400
+}

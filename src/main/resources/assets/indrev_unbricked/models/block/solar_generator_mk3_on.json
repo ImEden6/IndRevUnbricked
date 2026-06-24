@@ -1,0 +1,6 @@
+{
+  "parent": "indrev_unbricked:block/machine_mk3",
+  "textures": {
+    "texture": "indrev_unbricked:block/solar_generator_on"
+  }
+}

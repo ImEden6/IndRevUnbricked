@@ -1,0 +1,13 @@
+{
+  "name": "Отвёртка",
+  "category": "indrev_unbricked:tools",
+  "sortnum": 2,
+  "icon": "indrev_unbricked:screwdriver",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "indrev_unbricked:shaped/screwdriver",
+      "text": "Отвёртка используется для настройки входов/выходов машин для предметов и жидкостей.$(br)Также можно использовать в Лазуритовом флаксовом резервуаре для настройки входа/выхода энергии."
+    }
+  ]
+}

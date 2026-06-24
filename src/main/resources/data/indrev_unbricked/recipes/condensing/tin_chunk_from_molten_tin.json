@@ -1,0 +1,12 @@
+{
+  "type": "indrev_unbricked:condenser",
+  "output": {
+    "item": "indrev_unbricked:tin_chunk",
+    "count": 1
+  },
+  "fluidInput": {
+    "fluid": "indrev_unbricked:molten_tin_still",
+    "amount": 9000
+  },
+  "processTime": 500
+}

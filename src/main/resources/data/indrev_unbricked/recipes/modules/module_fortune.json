@@ -1,0 +1,24 @@
+{
+  "type": "indrev_unbricked:modules",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:circuit_mk4"
+    },
+    {
+      "item": "minecraft:emerald"
+    },
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "indrev_unbricked:enriched_nikolite_ingot"
+    },
+    {
+      "item": "indrev_unbricked:enriched_nikolite_ingot"
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:module_fortune"
+  },
+  "processTime": 400
+}

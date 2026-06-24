@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "indrev:nikolite_ore",
-    "indrev:deepslate_nikolite_ore"
+    "indrev_unbricked:nikolite_ore",
+    "indrev_unbricked:deepslate_nikolite_ore"
   ]
 }

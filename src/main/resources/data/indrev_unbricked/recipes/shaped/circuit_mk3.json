@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MEM",
+    "ECE",
+    "MEM"
+  ],
+  "key": {
+    "E": {
+      "item": "indrev_unbricked:enriched_nikolite_dust"
+    },
+    "C": {
+      "item": "indrev_unbricked:circuit_mk2"
+    },
+    "M": {
+      "tag": "c:electrum_plates"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:circuit_mk3"
+  }
+}

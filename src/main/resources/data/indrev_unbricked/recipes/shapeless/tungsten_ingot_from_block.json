@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "c:tungsten_blocks"
+    }
+  ],
+  "result": {
+    "item": "indrev_unbricked:tungsten_ingot",
+    "count": 9
+  }
+}

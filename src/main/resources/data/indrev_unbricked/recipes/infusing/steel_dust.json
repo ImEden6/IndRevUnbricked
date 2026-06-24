@@ -1,0 +1,16 @@
+{
+  "type": "indrev_unbricked:infuse",
+  "ingredients": [
+    {
+      "tag": "c:coal_dusts"
+    },
+    {
+      "tag": "c:iron_dusts"
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:steel_dust",
+    "count": 2
+  },
+  "processTime": 600
+}

@@ -1,8 +1,8 @@
 {
   "replace": false,
   "values": [
-    "indrev:biomass_composter",
-    "indrev:plank_block",
-    "indrev:planks"
+    "indrev_unbricked:biomass_composter",
+    "indrev_unbricked:plank_block",
+    "indrev_unbricked:planks"
   ]
 }

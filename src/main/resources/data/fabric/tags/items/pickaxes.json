@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "indrev:mining_drill_mk1",
-    "indrev:mining_drill_mk2",
-    "indrev:mining_drill_mk3",
-    "indrev:mining_drill_mk4",
-    "indrev:tin_pickaxe",
-    "indrev:copper_pickaxe",
-    "indrev:steel_pickaxe",
-    "indrev:lead_pickaxe",
-    "indrev:silver_pickaxe",
-    "indrev:bronze_pickaxe"
+    "indrev_unbricked:mining_drill_mk1",
+    "indrev_unbricked:mining_drill_mk2",
+    "indrev_unbricked:mining_drill_mk3",
+    "indrev_unbricked:mining_drill_mk4",
+    "indrev_unbricked:tin_pickaxe",
+    "indrev_unbricked:copper_pickaxe",
+    "indrev_unbricked:steel_pickaxe",
+    "indrev_unbricked:lead_pickaxe",
+    "indrev_unbricked:silver_pickaxe",
+    "indrev_unbricked:bronze_pickaxe"
   ]
 }

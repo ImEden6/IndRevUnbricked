@@ -1,0 +1,13 @@
+{
+  "name": "Wrench",
+  "category": "indrev_unbricked:tools",
+  "sortnum": 1,
+  "icon": "indrev_unbricked:wrench",
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "indrev_unbricked:shaped/wrench",
+      "text": "The Wrench can be used to rotate blocks and break machines keeping their energy when using it while crouching."
+    }
+  ]
+}

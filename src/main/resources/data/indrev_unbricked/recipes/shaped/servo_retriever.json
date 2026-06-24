@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "IOI"
+  ],
+  "key": {
+    "I": {
+      "item": "minecraft:iron_nugget"
+    },
+    "O": {
+      "item": "indrev_unbricked:nikolite_dust"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:servo_retriever"
+  }
+}

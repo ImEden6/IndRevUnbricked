@@ -1,0 +1,14 @@
+{
+  "type": "indrev_unbricked:recycle",
+  "ingredients": [
+    {
+      "item": "minecraft:bamboo",
+      "count": 4
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:biomass",
+    "count": 1
+  },
+  "processTime": 400
+}

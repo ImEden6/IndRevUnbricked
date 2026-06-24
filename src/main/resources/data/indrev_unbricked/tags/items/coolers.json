@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "indrev_unbricked:fan",
+    "indrev_unbricked:cooler_cell",
+    "indrev_unbricked:heatsink",
+    "indrev_unbricked:heat_coil"
+  ]
+}

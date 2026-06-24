@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "S S",
+    "S S"
+  ],
+  "key": {
+    "S": {
+      "item": "indrev_unbricked:carbon_fiber_rod"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:carbon_fiber_legs_frame"
+  }
+}

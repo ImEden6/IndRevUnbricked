@@ -1,0 +1,20 @@
+{
+  "type": "indrev_unbricked:fluid_infuse",
+  "ingredients": [
+    {
+      "tag": "c:sulfur_dusts"
+    }
+  ],
+  "fluidInput": {
+    "fluid": "minecraft:water",
+    "amount": 81000
+  },
+  "fluidOutput": {
+    "fluid": "indrev_unbricked:sulfuric_acid_still",
+    "amount": 81000
+  },
+  "output": {
+    "item": "empty"
+  },
+  "processTime": 600
+}

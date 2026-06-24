@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NCN",
+    "IMI",
+    "IBI"
+  ],
+  "key": {
+    "M": {
+      "item": "indrev_unbricked:machine_block"
+    },
+    "C": {
+      "item": "indrev_unbricked:circuit_mk1"
+    },
+    "I": {
+      "tag": "c:copper_plates"
+    },
+    "N": {
+      "item": "indrev_unbricked:heat_coil"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:coal_generator_mk1"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PCP",
+    "BMB",
+    "NBN"
+  ],
+  "key": {
+    "C": {
+      "item": "indrev_unbricked:circuit_mk1"
+    },
+    "N": {
+      "item": "indrev_unbricked:nikolite_dust"
+    },
+    "M": {
+      "item": "indrev_unbricked:machine_block"
+    },
+    "B": {
+      "item": "indrev_unbricked:battery"
+    },
+    "P": {
+      "tag": "c:bronze_plates"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:lazuli_flux_container_mk1"
+  }
+}

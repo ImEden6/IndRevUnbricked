@@ -104,6 +104,13 @@ repositories {
             includeGroup "dev.draylar"
         }
     }
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
+        content {
+            includeGroup "dev.emi"
+        }
+    }
 }
 
 dependencies {
@@ -147,6 +154,10 @@ dependencies {
 
     dependencies.ext.lib("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}", true)
 
+    modCompileOnly("dev.emi:emi-fabric:${project.emi_version}:api") {
+        exclude group: "net.fabricmc.fabric-api"
+    }
+
     modImplementation(files("libs/NoIndium-1.1.0+1.19.jar"))
     include(files("libs/NoIndium-1.1.0+1.19.jar"))
 
@@ -165,7 +176,7 @@ dependencies {
 }
 
 loom {
-    accessWidenerPath = file("src/main/resources/indrev.accesswidener")
+    accessWidenerPath = file("src/main/resources/indrev_unbricked.accesswidener")
 }
 
 processResources {

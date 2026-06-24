@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "group": "tin_ingots",
+  "ingredient": {
+    "tag": "c:tin_dusts"
+  },
+  "result": "indrev_unbricked:tin_ingot",
+  "cookingTime": 200
+}

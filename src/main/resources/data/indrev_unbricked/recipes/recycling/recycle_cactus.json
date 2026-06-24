@@ -1,0 +1,14 @@
+{
+  "type": "indrev_unbricked:recycle",
+  "ingredients": [
+    {
+      "item": "minecraft:cactus",
+      "count": 3
+    }
+  ],
+  "output": {
+    "item": "indrev_unbricked:biomass",
+    "count": 2
+  },
+  "processTime": 150
+}

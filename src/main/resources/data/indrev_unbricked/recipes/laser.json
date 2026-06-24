@@ -1,0 +1,12 @@
+{
+  "type": "indrev_unbricked:laser",
+  "ingredients": {
+    "item": "indrev_unbricked:modular_core"
+  },
+  "output": [
+    {
+      "item": "indrev_unbricked:modular_core_activated"
+    }
+  ],
+  "processTime": 100000000
+}

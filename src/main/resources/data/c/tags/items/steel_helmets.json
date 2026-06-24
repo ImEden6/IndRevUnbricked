@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "indrev:steel_helmet",
+    "indrev_unbricked:steel_helmet",
     {
       "id": "astromine:steel_helmet",
       "required": false

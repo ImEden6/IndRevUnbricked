@@ -1,0 +1,18 @@
+{
+  "type": "indrev_unbricked:electrolysis",
+  "fluidInput": {
+    "fluid": "minecraft:water",
+    "amount": 81000
+  },
+  "fluidOutput": [
+    {
+      "fluid": "indrev_unbricked:hydrogen_still",
+      "amount": 40500
+    },
+    {
+      "fluid": "indrev_unbricked:oxygen_still",
+      "amount": 40500
+    }
+  ],
+  "processTime": 300
+}

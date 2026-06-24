@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "H",
+    "H",
+    "H"
+  ],
+  "key": {
+    "H": {
+      "item": "indrev_unbricked:carbon_fiber_plate"
+    }
+  },
+  "result": {
+    "item": "indrev_unbricked:carbon_fiber_rod",
+    "count": 1
+  }
+}

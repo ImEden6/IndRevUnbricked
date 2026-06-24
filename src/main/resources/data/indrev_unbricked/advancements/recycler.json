@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "indrev_unbricked:recycler_mk2"
+    },
+    "title": {
+      "translate": "advancements.indrev.recycler"
+    },
+    "description": {
+      "translate": "advancements.indrev.recycler.description"
+    }
+  },
+  "parent": "indrev_unbricked:machine_block",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["indrev_unbricked:recycler_mk2"]
+          }
+        ]
+      }
+    }
+  }
+}

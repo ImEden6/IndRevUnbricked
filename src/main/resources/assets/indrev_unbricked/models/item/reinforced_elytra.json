@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "indrev_unbricked:item/reinforced_elytra"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "indrev_unbricked:broken": 1
+      },
+      "model": "indrev_unbricked:item/broken_reinforced_elytra"
+    }
+  ]
+}

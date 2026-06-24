@@ -1,0 +1,14 @@
+{
+  "type": "crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "indrev_unbricked:electrolytic_separator_mk1"
+    },
+    {
+      "item": "indrev_unbricked:tier_upgrade_mk2"
+    }
+  ],
+  "result": {
+    "item": "indrev_unbricked:electrolytic_separator_mk2"
+  }
+}

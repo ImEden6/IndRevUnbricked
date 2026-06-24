@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "indrev_unbricked:block/controller"
+    },
+    "facing=south": {
+      "model": "indrev_unbricked:block/controller",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "indrev_unbricked:block/controller",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "indrev_unbricked:block/controller",
+      "y": 90
+    }
+  }
+}
