@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:pulverizer_mk1"
     },
     "title": {
-      "translate": "advancements.indrev.pulverizer"
+      "translate": "advancements.indrev_unbricked.pulverizer"
     },
     "description": {
-      "translate": "advancements.indrev.pulverizer.description"
+      "translate": "advancements.indrev_unbricked.pulverizer.description"
     }
   },
   "parent": "indrev_unbricked:machine_block",

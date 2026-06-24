@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:condenser_mk4"
     },
     "title": {
-      "translate": "advancements.indrev.condenser"
+      "translate": "advancements.indrev_unbricked.condenser"
     },
     "description": {
-      "translate": "advancements.indrev.condenser"
+      "translate": "advancements.indrev_unbricked.condenser.description"
     }
   },
   "parent": "indrev_unbricked:circuit_mk4",

@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:nikolite_ingot"
     },
     "title": {
-      "translate": "advancements.indrev.nikolite_ingot"
+      "translate": "advancements.indrev_unbricked.nikolite_ingot"
     },
     "description": {
-      "translate": "advancements.indrev.nikolite_ingot.description"
+      "translate": "advancements.indrev_unbricked.nikolite_ingot.description"
     }
   },
   "parent": "indrev_unbricked:solid_infuser",

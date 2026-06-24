@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:recycler_mk2"
     },
     "title": {
-      "translate": "advancements.indrev.recycler"
+      "translate": "advancements.indrev_unbricked.recycler"
     },
     "description": {
-      "translate": "advancements.indrev.recycler.description"
+      "translate": "advancements.indrev_unbricked.recycler.description"
     }
   },
   "parent": "indrev_unbricked:machine_block",

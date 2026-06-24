@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:electric_furnace_mk1"
     },
     "title": {
-      "translate": "advancements.indrev.electric_furnace"
+      "translate": "advancements.indrev_unbricked.electric_furnace"
     },
     "description": {
-      "translate": "advancements.indrev.electric_furnace.description"
+      "translate": "advancements.indrev_unbricked.electric_furnace.description"
     }
   },
   "parent": "indrev_unbricked:machine_block",

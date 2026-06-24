@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:cable_mk4"
     },
     "title": {
-      "translate": "advancements.indrev.cable_mk4"
+      "translate": "advancements.indrev_unbricked.cable_mk4"
     },
     "description": {
-      "translate": "advancements.indrev.cable_mk4.description"
+      "translate": "advancements.indrev_unbricked.cable_mk4.description"
     }
   },
   "parent": "indrev_unbricked:cable_mk3",

@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:smelter_mk4"
     },
     "title": {
-      "translate": "advancements.indrev.industrial_smelter"
+      "translate": "advancements.indrev_unbricked.industrial_smelter"
     },
     "description": {
-      "translate": "advancements.indrev.industrial_smelter"
+      "translate": "advancements.indrev_unbricked.industrial_smelter.description"
     }
   },
   "parent": "indrev_unbricked:circuit_mk4",

@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:heat_generator_mk4"
     },
     "title": {
-      "translate": "advancements.indrev.heat_generator"
+      "translate": "advancements.indrev_unbricked.heat_generator"
     },
     "description": {
-      "translate": "advancements.indrev.heat_generator.description"
+      "translate": "advancements.indrev_unbricked.heat_generator.description"
     }
   },
   "parent": "indrev_unbricked:coal_generator",
@@ -24,3 +24,4 @@
     }
   }
 }
+

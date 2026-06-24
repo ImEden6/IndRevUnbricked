@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:tier_upgrade_mk2"
     },
     "title": {
-      "translate": "advancements.indrev.mk2_upgrade"
+      "translate": "advancements.indrev_unbricked.mk2_upgrade"
     },
     "description": {
-      "translate": "advancements.indrev.mk2_upgrade.description"
+      "translate": "advancements.indrev_unbricked.mk2_upgrade.description"
     }
   },
   "parent": "indrev_unbricked:circuit_mk2",

@@ -1,13 +1,13 @@
 {
   "display": {
     "icon": {
-      "item": "indrev_unbricked:buffer_enhancer"
+      "item": "indrev_unbricked:energy_enhancer"
     },
     "title": {
-      "translate": "advancements.indrev_unbricked.buffer_enhancer"
+      "translate": "advancements.indrev_unbricked.energy_enhancer"
     },
     "description": {
-      "translate": "advancements.indrev_unbricked.buffer_enhancer.description"
+      "translate": "advancements.indrev_unbricked.energy_enhancer.description"
     }
   },
   "parent": "indrev_unbricked:empty_enhancer",
@@ -17,10 +17,11 @@
       "conditions": {
         "items": [
           {
-            "items": ["indrev_unbricked:buffer_enhancer"]
+            "items": ["indrev_unbricked:energy_enhancer"]
           }
         ]
       }
     }
   }
 }
+

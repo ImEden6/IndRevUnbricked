@@ -6,10 +6,10 @@
       "nbt": "{Damage:0}"
     },
     "title": {
-      "translate": "advancements.indrev.modular_armor"
+      "translate": "advancements.indrev_unbricked.modular_armor"
     },
     "description": {
-      "translate": "advancements.indrev.modular_armor.description"
+      "translate": "advancements.indrev_unbricked.modular_armor.description"
     },
     "frame": "challenge"
   },

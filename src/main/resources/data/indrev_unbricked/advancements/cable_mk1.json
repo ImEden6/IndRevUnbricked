@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:cable_mk1"
     },
     "title": {
-      "translate": "advancements.indrev.cable_mk1"
+      "translate": "advancements.indrev_unbricked.cable_mk1"
     },
     "description": {
-      "translate": "advancements.indrev.cable_mk1.description"
+      "translate": "advancements.indrev_unbricked.cable_mk1.description"
     }
   },
   "parent": "indrev_unbricked:nikolite",

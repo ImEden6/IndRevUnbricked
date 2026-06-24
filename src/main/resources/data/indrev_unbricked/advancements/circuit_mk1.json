@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:circuit_mk1"
     },
     "title": {
-      "translate": "advancements.indrev.circuit_mk1"
+      "translate": "advancements.indrev_unbricked.circuit_mk1"
     },
     "description": {
-      "translate": "advancements.indrev.circuit_mk1.description"
+      "translate": "advancements.indrev_unbricked.circuit_mk1.description"
     }
   },
   "hidden": true,

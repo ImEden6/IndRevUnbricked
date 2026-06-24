@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:modular_workbench_mk4"
     },
     "title": {
-      "translate": "advancements.indrev.modular_workbench"
+      "translate": "advancements.indrev_unbricked.modular_workbench"
     },
     "description": {
-      "translate": "advancements.indrev.modular_workbench.description"
+      "translate": "advancements.indrev_unbricked.modular_workbench.description"
     }
   },
   "parent": "indrev_unbricked:machine_block",

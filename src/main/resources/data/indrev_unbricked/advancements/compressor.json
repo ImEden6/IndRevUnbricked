@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:compressor_mk1"
     },
     "title": {
-      "translate": "advancements.indrev.compressor"
+      "translate": "advancements.indrev_unbricked.compressor"
     },
     "description": {
-      "translate": "advancements.indrev.compressor.description"
+      "translate": "advancements.indrev_unbricked.compressor.description"
     }
   },
   "parent": "indrev_unbricked:machine_block",

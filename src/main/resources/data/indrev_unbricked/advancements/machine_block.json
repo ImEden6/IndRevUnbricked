@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:machine_block"
     },
     "title": {
-      "translate": "advancements.indrev.machine_block"
+      "translate": "advancements.indrev_unbricked.machine_block"
     },
     "description": {
-      "translate": "advancements.indrev.machine_block.description"
+      "translate": "advancements.indrev_unbricked.machine_block.description"
     }
   },
   "parent": "indrev_unbricked:nikolite",

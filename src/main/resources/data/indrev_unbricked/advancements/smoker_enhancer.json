@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:smoker_enhancer"
     },
     "title": {
-      "translate": "advancements.indrev.smoker_enhancer"
+      "translate": "advancements.indrev_unbricked.smoker_enhancer"
     },
     "description": {
-      "translate": "advancements.indrev.smoker_enhancer.description"
+      "translate": "advancements.indrev_unbricked.smoker_enhancer.description"
     }
   },
   "parent": "indrev_unbricked:empty_enhancer",

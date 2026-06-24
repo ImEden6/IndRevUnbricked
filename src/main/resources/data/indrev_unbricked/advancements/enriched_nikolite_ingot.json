@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:enriched_nikolite_ingot"
     },
     "title": {
-      "translate": "advancements.indrev.enriched_nikolite_ingot"
+      "translate": "advancements.indrev_unbricked.enriched_nikolite_ingot"
     },
     "description": {
-      "translate": "advancements.indrev.enriched_nikolite_ingot.description"
+      "translate": "advancements.indrev_unbricked.enriched_nikolite_ingot.description"
     }
   },
   "parent": "indrev_unbricked:enriched_nikolite_dust",

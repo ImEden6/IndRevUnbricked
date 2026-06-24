@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:chopper_mk1"
     },
     "title": {
-      "translate": "advancements.indrev.chopper_mk4"
+      "translate": "advancements.indrev_unbricked.chopper_mk4"
     },
     "description": {
-      "translate": "advancements.indrev.chopper_mk4.description"
+      "translate": "advancements.indrev_unbricked.chopper_mk4.description"
     }
   },
   "parent": "indrev_unbricked:machine_block",

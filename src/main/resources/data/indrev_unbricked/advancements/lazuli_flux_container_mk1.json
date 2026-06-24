@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:lazuli_flux_container_mk1"
     },
     "title": {
-      "translate": "advancements.indrev.lazuli_flux_container_mk1"
+      "translate": "advancements.indrev_unbricked.lazuli_flux_container_mk1"
     },
     "description": {
-      "translate": "advancements.indrev.lazuli_flux_container_mk1.description"
+      "translate": "advancements.indrev_unbricked.lazuli_flux_container_mk1.description"
     }
   },
   "parent": "indrev_unbricked:circuit_mk1",

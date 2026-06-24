@@ -17,12 +17,25 @@ import net.minecraft.item.ItemStack
 import net.minecraft.text.Text
 import net.minecraft.util.Formatting
 import net.minecraft.util.Identifier
-
 import java.util.*
 
 object EMIPlugin : EmiPlugin {
 
     private val categories = mutableMapOf<Identifier, EmiRecipeCategory>()
+
+    private val recipeMachineMap = mapOf(
+        PulverizerRecipe.IDENTIFIER to MachineRegistry.PULVERIZER_REGISTRY,
+        InfuserRecipe.IDENTIFIER to MachineRegistry.SOLID_INFUSER_REGISTRY,
+        CompressorRecipe.IDENTIFIER to MachineRegistry.COMPRESSOR_REGISTRY,
+        RecyclerRecipe.IDENTIFIER to MachineRegistry.RECYCLER_REGISTRY,
+        FluidInfuserRecipe.IDENTIFIER to MachineRegistry.FLUID_INFUSER_REGISTRY,
+        CondenserRecipe.IDENTIFIER to MachineRegistry.CONDENSER_REGISTRY,
+        SmelterRecipe.IDENTIFIER to MachineRegistry.SMELTER_REGISTRY,
+        SawmillRecipe.IDENTIFIER to MachineRegistry.SAWMILL_REGISTRY,
+        ModuleRecipe.IDENTIFIER to MachineRegistry.MODULAR_WORKBENCH_REGISTRY,
+        LaserRecipe.IDENTIFIER to MachineRegistry.LASER_EMITTER_REGISTRY,
+        ElectrolysisRecipe.IDENTIFIER to MachineRegistry.ELECTROLYTIC_SEPARATOR_REGISTRY,
+    )
 
     override fun register(registry: EmiRegistry) {
         registerCategories(registry)
@@ -49,39 +62,28 @@ object EMIPlugin : EmiPlugin {
         add(SmelterRecipe.IDENTIFIER, ItemStack(MachineRegistry.SMELTER_REGISTRY.block(Tier.MK4)))
         add(SawmillRecipe.IDENTIFIER, ItemStack(MachineRegistry.SAWMILL_REGISTRY.block(Tier.MK4)))
         add(ModuleRecipe.IDENTIFIER, ItemStack(MachineRegistry.MODULAR_WORKBENCH_REGISTRY.block(Tier.MK4)))
+        add(LaserRecipe.IDENTIFIER, ItemStack(MachineRegistry.LASER_EMITTER_REGISTRY.block(Tier.MK4)))
+        add(ElectrolysisRecipe.IDENTIFIER, ItemStack(MachineRegistry.ELECTROLYTIC_SEPARATOR_REGISTRY.block(Tier.MK4)))
     }
 
     private fun registerRecipes(registry: EmiRegistry) {
-        registry.addDeferredRecipes {
-            val deferred = mutableListOf<EmiRecipe>()
-            for ((typeId, category) in categories) {
-                val type = registry.recipeManager.recipes.keys
-                    .find { it is IRRecipeType<*> && it.id == typeId } as? IRRecipeType<IRRecipe> ?: continue
-                for (recipe in registry.recipeManager.getAllOfType(type).values) {
+        for (type in registry.recipeManager.recipes.keys) {
+            if (type is IRRecipeType<*> && type.id.namespace == IndustrialRevolution.MOD_ID) {
+                val category = categories[type.id] ?: continue
+                @Suppress("UNCHECKED_CAST")
+                val irType = type as IRRecipeType<IRRecipe>
+                for (recipe in registry.recipeManager.getAllOfType(irType).values) {
                     if (recipe is IRRecipe) {
-                        deferred.add(IRMachineEmiRecipe(recipe, category))
+                        registry.addRecipe(IRMachineEmiRecipe(recipe, category))
                     }
                 }
             }
-            deferred
         }
     }
 
     private fun registerWorkstations(registry: EmiRegistry) {
-        val machineCategoryIds = listOf(
-            PulverizerRecipe.IDENTIFIER to MachineRegistry.PULVERIZER_REGISTRY,
-            InfuserRecipe.IDENTIFIER to MachineRegistry.SOLID_INFUSER_REGISTRY,
-            CompressorRecipe.IDENTIFIER to MachineRegistry.COMPRESSOR_REGISTRY,
-            RecyclerRecipe.IDENTIFIER to MachineRegistry.RECYCLER_REGISTRY,
-            FluidInfuserRecipe.IDENTIFIER to MachineRegistry.FLUID_INFUSER_REGISTRY,
-            CondenserRecipe.IDENTIFIER to MachineRegistry.CONDENSER_REGISTRY,
-            SmelterRecipe.IDENTIFIER to MachineRegistry.SMELTER_REGISTRY,
-            SawmillRecipe.IDENTIFIER to MachineRegistry.SAWMILL_REGISTRY,
-            ModuleRecipe.IDENTIFIER to MachineRegistry.MODULAR_WORKBENCH_REGISTRY
-        )
-
-        machineCategoryIds.forEach { (id, machineReg) ->
-            val category = categories[id] ?: return@forEach
+        for ((id, machineReg) in recipeMachineMap) {
+            val category = categories[id] ?: continue
             machineReg.forEachBlock { _, block ->
                 registry.addWorkstation(category, EmiStack.of(block))
             }

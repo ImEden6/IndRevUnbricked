@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:biomass"
     },
     "title": {
-      "translate": "advancements.indrev.biomass"
+      "translate": "advancements.indrev_unbricked.biomass"
     },
     "description": {
-      "translate": "advancements.indrev.biomass.description"
+      "translate": "advancements.indrev_unbricked.biomass.description"
     }
   },
   "parent": "indrev_unbricked:recycler",

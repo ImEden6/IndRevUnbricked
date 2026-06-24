@@ -4,10 +4,10 @@
       "item": "indrev_unbricked:gamer_axe"
     },
     "title": {
-      "translate": "advancements.indrev.gamer_axe"
+      "translate": "advancements.indrev_unbricked.gamer_axe"
     },
     "description": {
-      "translate": "advancements.indrev.gamer_axe.description"
+      "translate": "advancements.indrev_unbricked.gamer_axe.description"
     },
     "frame": "challenge"
   },
