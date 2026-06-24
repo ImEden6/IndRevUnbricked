@@ -1,12 +1,12 @@
-package me.mervyn.indrev.mixin.common;
+package me.mervyn.indrev_unbricked.mixin.common;
 
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
-import me.mervyn.indrev.api.ServerWorldExtension;
-import me.mervyn.indrev.networks.Network;
-import me.mervyn.indrev.networks.ServoNetworkState;
-import me.mervyn.indrev.networks.energy.EnergyNetworkState;
-import me.mervyn.indrev.networks.fluid.FluidNetworkState;
-import me.mervyn.indrev.networks.item.ItemNetworkState;
+import me.mervyn.indrev_unbricked.api.ServerWorldExtension;
+import me.mervyn.indrev_unbricked.networks.Network;
+import me.mervyn.indrev_unbricked.networks.ServoNetworkState;
+import me.mervyn.indrev_unbricked.networks.energy.EnergyNetworkState;
+import me.mervyn.indrev_unbricked.networks.fluid.FluidNetworkState;
+import me.mervyn.indrev_unbricked.networks.item.ItemNetworkState;
 import net.fabricmc.fabric.api.lookup.v1.block.BlockApiCache;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Direction;

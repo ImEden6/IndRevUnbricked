@@ -1,4 +1,4 @@
-package me.mervyn.indrev;
+package me.mervyn.indrev_unbricked;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.RecipeInputInventory;

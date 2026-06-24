@@ -1,8 +1,8 @@
-package me.mervyn.indrev.mixin.aprilfools;
+package me.mervyn.indrev_unbricked.mixin.aprilfools;
 
-import me.mervyn.indrev.AprilFools;
-import me.mervyn.indrev.IndustrialRevolution;
-import me.mervyn.indrev.config.IRConfig;
+import me.mervyn.indrev_unbricked.AprilFools;
+import me.mervyn.indrev_unbricked.IndustrialRevolution;
+import me.mervyn.indrev_unbricked.config.IRConfig;
 import net.minecraft.text.TranslatableTextContent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

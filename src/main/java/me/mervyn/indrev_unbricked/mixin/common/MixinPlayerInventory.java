@@ -1,6 +1,6 @@
-package me.mervyn.indrev.mixin.common;
+package me.mervyn.indrev_unbricked.mixin.common;
 
-import me.mervyn.indrev.items.armor.JetpackHandler;
+import me.mervyn.indrev_unbricked.items.armor.JetpackHandler;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;

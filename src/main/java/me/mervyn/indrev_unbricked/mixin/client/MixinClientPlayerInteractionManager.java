@@ -1,6 +1,6 @@
-package me.mervyn.indrev.mixin.client;
+package me.mervyn.indrev_unbricked.mixin.client;
 
-import me.mervyn.indrev.registry.IRItemRegistry;
+import me.mervyn.indrev_unbricked.registry.IRItemRegistry;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;

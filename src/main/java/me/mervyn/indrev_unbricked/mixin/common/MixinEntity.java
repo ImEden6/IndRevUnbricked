@@ -1,9 +1,9 @@
-package me.mervyn.indrev.mixin.common;
+package me.mervyn.indrev_unbricked.mixin.common;
 
-import me.mervyn.indrev.api.IREntityExtension;
-import me.mervyn.indrev.api.IRPlayerEntityExtension;
-import me.mervyn.indrev.inventories.IRInventory;
-import me.mervyn.indrev.tools.modular.ArmorModule;
+import me.mervyn.indrev_unbricked.api.IREntityExtension;
+import me.mervyn.indrev_unbricked.api.IRPlayerEntityExtension;
+import me.mervyn.indrev_unbricked.inventories.IRInventory;
+import me.mervyn.indrev_unbricked.tools.modular.ArmorModule;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;

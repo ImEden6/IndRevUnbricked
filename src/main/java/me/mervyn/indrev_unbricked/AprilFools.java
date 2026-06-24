@@ -1,6 +1,6 @@
-package me.mervyn.indrev;
+package me.mervyn.indrev_unbricked;
 
-import me.mervyn.indrev.config.IRConfig;
+import me.mervyn.indrev_unbricked.config.IRConfig;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;

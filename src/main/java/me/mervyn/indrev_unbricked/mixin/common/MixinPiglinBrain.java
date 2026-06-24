@@ -1,7 +1,7 @@
-package me.mervyn.indrev.mixin.common;
+package me.mervyn.indrev_unbricked.mixin.common;
 
-import me.mervyn.indrev.api.IRPlayerEntityExtension;
-import me.mervyn.indrev.tools.modular.ArmorModule;
+import me.mervyn.indrev_unbricked.api.IRPlayerEntityExtension;
+import me.mervyn.indrev_unbricked.tools.modular.ArmorModule;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.PiglinBrain;
 import org.spongepowered.asm.mixin.Mixin;

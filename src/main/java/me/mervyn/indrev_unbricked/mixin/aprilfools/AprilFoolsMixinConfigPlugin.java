@@ -1,6 +1,6 @@
-package me.mervyn.indrev.mixin.aprilfools;
+package me.mervyn.indrev_unbricked.mixin.aprilfools;
 
-import me.mervyn.indrev.AprilFools;
+import me.mervyn.indrev_unbricked.AprilFools;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.loader.api.FabricLoader;
 import org.objectweb.asm.tree.ClassNode;

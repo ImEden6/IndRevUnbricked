@@ -1,6 +1,6 @@
-package me.mervyn.indrev.mixin.common;
+package me.mervyn.indrev_unbricked.mixin.common;
 
-import me.mervyn.indrev.api.CustomEnchantmentProvider;
+import me.mervyn.indrev_unbricked.api.CustomEnchantmentProvider;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.item.EnchantmentPredicate;
 import net.minecraft.predicate.item.ItemPredicate;

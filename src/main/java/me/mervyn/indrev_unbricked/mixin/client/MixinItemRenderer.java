@@ -1,7 +1,7 @@
-package me.mervyn.indrev.mixin.client;
+package me.mervyn.indrev_unbricked.mixin.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import me.mervyn.indrev.items.armor.IRModularArmorItem;
+import me.mervyn.indrev_unbricked.items.armor.IRModularArmorItem;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.Tessellator;

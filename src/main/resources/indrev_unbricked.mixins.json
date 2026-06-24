@@ -1,8 +1,8 @@
 {
   "required": true,
-  "package": "me.mervyn.indrev.mixin",
+  "package": "me.mervyn.indrev_unbricked.mixin",
   "compatibilityLevel": "JAVA_8",
-  "plugin": "me.mervyn.indrev.mixin.aprilfools.AprilFoolsMixinConfigPlugin",
+  "plugin": "me.mervyn.indrev_unbricked.mixin.aprilfools.AprilFoolsMixinConfigPlugin",
   "mixins": [
     "common.MixinAbstractCookingRecipe",
     "common.MixinEnchantmentHelper",

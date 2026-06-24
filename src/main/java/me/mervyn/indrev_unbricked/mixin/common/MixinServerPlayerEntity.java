@@ -1,17 +1,17 @@
-package me.mervyn.indrev.mixin.common;
+package me.mervyn.indrev_unbricked.mixin.common;
 
 import com.mojang.authlib.GameProfile;
 import io.netty.buffer.Unpooled;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import me.mervyn.indrev.api.IRServerPlayerEntityExtension;
-import me.mervyn.indrev.items.armor.IRModularArmorItem;
-import me.mervyn.indrev.items.energy.IRPortableChargerItem;
-import me.mervyn.indrev.packets.client.SyncAppliedModulesPacket;
-import me.mervyn.indrev.tools.modular.ArmorModule;
-import me.mervyn.indrev.utils.AccessorextensionsKt;
-import me.mervyn.indrev.utils.EnergyutilsKt;
-import me.mervyn.indrev.utils.HelperextensionsKt;
+import me.mervyn.indrev_unbricked.api.IRServerPlayerEntityExtension;
+import me.mervyn.indrev_unbricked.items.armor.IRModularArmorItem;
+import me.mervyn.indrev_unbricked.items.energy.IRPortableChargerItem;
+import me.mervyn.indrev_unbricked.packets.client.SyncAppliedModulesPacket;
+import me.mervyn.indrev_unbricked.tools.modular.ArmorModule;
+import me.mervyn.indrev_unbricked.utils.AccessorextensionsKt;
+import me.mervyn.indrev_unbricked.utils.EnergyutilsKt;
+import me.mervyn.indrev_unbricked.utils.HelperextensionsKt;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.entity.ExperienceOrbEntity;
 import net.minecraft.entity.ItemEntity;
@@ -182,14 +182,12 @@ public abstract class MixinServerPlayerEntity extends PlayerEntity implements IR
                                 || (entity instanceof ExperienceOrbEntity xpEntity && xpEntity.age > 40)) {
                             Vec3d v = entity.getPos().relativize(blockCenter).normalize().multiply(0.2);
                             entity.addVelocity(v.x, v.y, v.z);
-                            //applyModule(ArmorModule.MAGNET, 1);
                         }
                     });
                     return;
                 }
             }
         }
-        //getAppliedModules().remove(ArmorModule.MAGNET);
     }
 
     private void regenerateShield() {

@@ -1,4 +1,4 @@
-package me.mervyn.indrev;
+package me.mervyn.indrev_unbricked;
 
 import net.fabricmc.fabric.api.transfer.v1.storage.StoragePreconditions;
 import net.fabricmc.fabric.api.transfer.v1.transaction.TransactionContext;

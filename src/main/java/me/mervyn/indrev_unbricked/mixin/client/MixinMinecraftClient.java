@@ -1,7 +1,7 @@
-package me.mervyn.indrev.mixin.client;
+package me.mervyn.indrev_unbricked.mixin.client;
 
-import me.mervyn.indrev.gui.screenhandlers.IRGuiScreenHandler;
-import me.mervyn.indrev.packets.client.GuiPropertySyncPacket;
+import me.mervyn.indrev_unbricked.gui.screenhandlers.IRGuiScreenHandler;
+import me.mervyn.indrev_unbricked.packets.client.GuiPropertySyncPacket;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.MinecraftClient;

@@ -1,12 +1,12 @@
-package me.mervyn.indrev.mixin.common;
+package me.mervyn.indrev_unbricked.mixin.common;
 
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import me.mervyn.indrev.api.IRPlayerEntityExtension;
-import me.mervyn.indrev.items.energy.IREnergyItem;
-import me.mervyn.indrev.items.energy.IRGamerAxeItem;
-import me.mervyn.indrev.tools.modular.ArmorModule;
-import me.mervyn.indrev.utils.EnergyutilsKt;
+import me.mervyn.indrev_unbricked.api.IRPlayerEntityExtension;
+import me.mervyn.indrev_unbricked.items.energy.IREnergyItem;
+import me.mervyn.indrev_unbricked.items.energy.IRGamerAxeItem;
+import me.mervyn.indrev_unbricked.tools.modular.ArmorModule;
+import me.mervyn.indrev_unbricked.utils.EnergyutilsKt;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

@@ -1,7 +1,7 @@
-package me.mervyn.indrev.mixin.common;
+package me.mervyn.indrev_unbricked.mixin.common;
 
 import com.google.common.collect.Multimap;
-import me.mervyn.indrev.api.AttributeModifierProvider;
+import me.mervyn.indrev_unbricked.api.AttributeModifierProvider;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;

@@ -1,6 +1,6 @@
-package me.mervyn.indrev.mixin.client;
+package me.mervyn.indrev_unbricked.mixin.client;
 
-import me.mervyn.indrev.blockentities.GlobalStateController;
+import me.mervyn.indrev_unbricked.blockentities.GlobalStateController;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.chunk.ChunkBuilder;
 import net.minecraft.util.math.BlockPos;

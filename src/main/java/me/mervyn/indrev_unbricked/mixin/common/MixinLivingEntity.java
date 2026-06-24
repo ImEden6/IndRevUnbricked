@@ -1,4 +1,4 @@
-package me.mervyn.indrev.mixin.common;
+package me.mervyn.indrev_unbricked.mixin.common;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;

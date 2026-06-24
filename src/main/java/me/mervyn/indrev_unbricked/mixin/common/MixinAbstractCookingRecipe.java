@@ -1,10 +1,10 @@
-package me.mervyn.indrev.mixin.common;
+package me.mervyn.indrev_unbricked.mixin.common;
 
-import me.mervyn.indrev.components.CraftingComponent;
-import me.mervyn.indrev.recipes.machines.IRRecipe;
-import me.mervyn.indrev.recipes.machines.entries.InputEntry;
-import me.mervyn.indrev.recipes.machines.entries.OutputEntry;
-import me.mervyn.indrev.utils.IRFluidTank;
+import me.mervyn.indrev_unbricked.components.CraftingComponent;
+import me.mervyn.indrev_unbricked.recipes.machines.IRRecipe;
+import me.mervyn.indrev_unbricked.recipes.machines.entries.InputEntry;
+import me.mervyn.indrev_unbricked.recipes.machines.entries.OutputEntry;
+import me.mervyn.indrev_unbricked.utils.IRFluidTank;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.Ingredient;

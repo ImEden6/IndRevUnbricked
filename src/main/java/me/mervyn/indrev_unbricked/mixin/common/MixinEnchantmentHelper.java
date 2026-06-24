@@ -1,8 +1,8 @@
-package me.mervyn.indrev.mixin.common;
+package me.mervyn.indrev_unbricked.mixin.common;
 
-import me.mervyn.indrev.api.CustomEnchantmentProvider;
-import me.mervyn.indrev.api.IRPlayerEntityExtension;
-import me.mervyn.indrev.tools.modular.ArmorModule;
+import me.mervyn.indrev_unbricked.api.CustomEnchantmentProvider;
+import me.mervyn.indrev_unbricked.api.IRPlayerEntityExtension;
+import me.mervyn.indrev_unbricked.tools.modular.ArmorModule;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
@@ -27,7 +27,6 @@ public class MixinEnchantmentHelper {
 
     @Inject(method = "hasAquaAffinity", at = @At("HEAD"), cancellable = true)
     private static void indrev_waterAffinityChest(LivingEntity entity, CallbackInfoReturnable<Boolean> cir) {
-        //specifically checks for water affinity on chestplate
         if (entity instanceof PlayerEntity player
                 && ArmorModule.WATER_AFFINITY.getLevel(player.getInventory().getArmorStack(EquipmentSlot.CHEST.getEntitySlotId())) > 0
                 && entity instanceof IRPlayerEntityExtension ext
@@ -38,7 +37,6 @@ public class MixinEnchantmentHelper {
 
     @Inject(method = "getDepthStrider", at = @At("HEAD"), cancellable = true)
     private static void indrev_waterAffinityLegs(LivingEntity entity, CallbackInfoReturnable<Integer> cir) {
-        //specifically checks for water affinity on leggings
         if (entity instanceof PlayerEntity player
                 && ArmorModule.WATER_AFFINITY.getLevel(player.getInventory().getArmorStack(EquipmentSlot.LEGS.getEntitySlotId())) > 0
                 && entity instanceof IRPlayerEntityExtension ext
