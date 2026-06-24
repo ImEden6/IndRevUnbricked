@@ -35,7 +35,6 @@ interface IRRecipe : Recipe<Inventory> {
     override fun craft(inv: Inventory?, registryManager: DynamicRegistryManager?): ItemStack = throw IllegalArgumentException("Unsupported method for Industrial Revolution's recipes")
     @Deprecated("Unsupported method for Industrial Revolution's recipes", replaceWith = ReplaceWith("output"), DeprecationLevel.ERROR)
     override fun getOutput(registryManager: DynamicRegistryManager?): ItemStack = outputs.firstOrNull()?.stack ?: ItemStack.EMPTY
-    @Deprecated("Unsupported method for Industrial Revolution's recipes", replaceWith = ReplaceWith("input"), DeprecationLevel.ERROR)
     override fun getIngredients(): DefaultedList<Ingredient> = DefaultedList.of()
     @Deprecated("Unsupported method for Industrial Revolution's recipes", replaceWith = ReplaceWith("matches(Inventory, FluidVolume?)"), DeprecationLevel.ERROR)
     override fun matches(inv: Inventory?, world: World?): Boolean = throw IllegalArgumentException("Unsupported method for Industrial Revolution's recipes")
