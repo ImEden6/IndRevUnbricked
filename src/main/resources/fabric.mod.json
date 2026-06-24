@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "indrev",
+  "id": "indrev_unbricked",
   "version": "${version}",
   "name": "IndRev Unbricked",
   "description": "Every other industrial mod ever",
@@ -14,7 +14,7 @@
     "sources": "https://github.com/GabrielOlvH/Industrial-Revolution"
   },
   "license": "Apache-2.0",
-  "icon": "assets/indrev/icon.png",
+  "icon": "assets/indrev_unbricked/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [

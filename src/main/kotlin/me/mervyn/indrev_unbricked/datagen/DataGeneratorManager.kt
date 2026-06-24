@@ -41,25 +41,25 @@ class DataGeneratorManager(namespace: String) {
         arrayOf("copper", "tin", "lead", "tungsten", "silver").forEach { material ->
             materialRecipeGenerator.register(
                 "${material}_ore",
-                pulverizeOre("c:${material}_ores", "indrev:${material}_dust")
+                pulverizeOre("c:${material}_ores", "indrev_unbricked:${material}_dust")
             )
             materialRecipeGenerator.register(
                 "${material}_ingot",
-                pulverizeIngot("c:${material}_ingots", "indrev:${material}_dust")
+                pulverizeIngot("c:${material}_ingots", "indrev_unbricked:${material}_dust")
             )
             arrayOf("ore", "plate", "dust", "ingot").forEach { suffix ->
-                materialTagGenerator.register("${material}_$suffix", createTag("indrev:${material}_$suffix"))
+                materialTagGenerator.register("${material}_$suffix", createTag("indrev_unbricked:${material}_$suffix"))
             }
         }
 
         arrayOf("iron", "gold").forEach { material ->
             materialRecipeGenerator.register(
                 "${material}_ore",
-                pulverizeOre("c:${material}_ores", "indrev:${material}_dust")
+                pulverizeOre("c:${material}_ores", "indrev_unbricked:${material}_dust")
             )
             materialRecipeGenerator.register(
                 "${material}_ingot",
-                pulverizeIngot("c:${material}_ingots", "indrev:${material}_dust")
+                pulverizeIngot("c:${material}_ingots", "indrev_unbricked:${material}_dust")
             )
             materialTagGenerator.register("${material}_ore", createTag("minecraft:${material}_ore"))
         }
@@ -70,9 +70,9 @@ class DataGeneratorManager(namespace: String) {
             )
             materialRecipeGenerator.register(
                 material,
-                pulverizeIngot("minecraft:$material", "indrev:${material}_dust", fileSuffix = "dust")
+                pulverizeIngot("minecraft:$material", "indrev_unbricked:${material}_dust", fileSuffix = "dust")
             )
-            materialTagGenerator.register("${material}_dust", createTag("indrev:${material}_dust"))
+            materialTagGenerator.register("${material}_dust", createTag("indrev_unbricked:${material}_dust"))
             materialTagGenerator.register("${material}_ore", createTag("minecraft:${material}_ore"))
         }
 
@@ -143,7 +143,7 @@ class DataGeneratorManager(namespace: String) {
         return object : JsonFactory<String> {
             override fun generate(): JsonObject {
                 val json = JsonObject()
-                json.addProperty("type", "indrev:pulverize")
+                json.addProperty("type", "indrev_unbricked:pulverize")
                 val ingredients = JsonObject()
                 ingredients.addProperty("tag", inputId)
                 json.add("ingredients", ingredients)
@@ -168,7 +168,7 @@ class DataGeneratorManager(namespace: String) {
         return object : JsonFactory<String> {
             override fun generate(): JsonObject {
                 val json = JsonObject()
-                json.addProperty("type", "indrev:pulverize")
+                json.addProperty("type", "indrev_unbricked:pulverize")
                 val ingredients = JsonObject()
                 ingredients.addProperty("item", inputId)
                 json.add("ingredients", ingredients)
@@ -201,10 +201,10 @@ class DataGeneratorManager(namespace: String) {
                 repeat(3) { pattern.add("###") }
                 json.add("pattern", pattern)
                 val key = JsonObject()
-                key.add("#", JsonObject().also { it.addProperty("item", "indrev:raw_${ore}") })
+                key.add("#", JsonObject().also { it.addProperty("item", "indrev_unbricked:raw_${ore}") })
                 json.add("key", key)
                 val result = JsonObject()
-                result.addProperty("item", "indrev:raw_${ore}_block")
+                result.addProperty("item", "indrev_unbricked:raw_${ore}_block")
                 json.add("result", result)
                 return json
             }
@@ -219,10 +219,10 @@ class DataGeneratorManager(namespace: String) {
                 val json = JsonObject()
                 json.addProperty("type", "crafting_shapeless")
                 val ingredients = JsonObject()
-                ingredients.addProperty("item", "indrev:raw_${ore}_block")
+                ingredients.addProperty("item", "indrev_unbricked:raw_${ore}_block")
                 json.add("ingredients", ingredients)
                 val output = JsonObject()
-                output.addProperty("item", "indrev:raw_${ore}")
+                output.addProperty("item", "indrev_unbricked:raw_${ore}")
                 output.addProperty("count", 9)
                 json.add("result", output)
                 return json
@@ -250,7 +250,7 @@ class DataGeneratorManager(namespace: String) {
         return object : JsonFactory<String> {
             override fun generate(): JsonObject {
                 val json = JsonObject()
-                json.addProperty("type", "indrev:fluid_infuse")
+                json.addProperty("type", "indrev_unbricked:fluid_infuse")
                 val ingredients = JsonObject()
                 ingredients.addProperty("item", "minecraft:${color}_concrete_powder")
                 json.add("ingredients", ingredients)

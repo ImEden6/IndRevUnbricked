@@ -14,6 +14,10 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
+    flatDir {
+        name "libs"
+        dirs "libs"
+    }
     maven {
         name = "Modmuss50"
         url = "https://maven.modmuss50.me/"
@@ -143,30 +147,32 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
-    modImplementation(files("libs/energy-${project.tr_energy_version}.jar"))
-    include(files("libs/energy-${project.tr_energy_version}.jar"))
+    modImplementation(":energy:${project.tr_energy_version}") {
+        transitive = false
+    }
+    include(":energy:${project.tr_energy_version}")
 
-    modImplementation(files("libs/LibGui-${project.libgui_version}.jar"))
-    include(files("libs/LibGui-${project.libgui_version}.jar"))
-    modImplementation(files("libs/Jankson-Fabric-6.0.0+j1.2.3.jar"))
-    include(files("libs/Jankson-Fabric-6.0.0+j1.2.3.jar"))
-    implementation(files("libs/jankson-1.2.3.jar"))
-    include(files("libs/jankson-1.2.3.jar"))
-    modImplementation(files("libs/libninepatch-1.2.0.jar"))
-    include(files("libs/libninepatch-1.2.0.jar"))
+    modImplementation(":LibGui:${project.libgui_version}")
+    include(":LibGui:${project.libgui_version}")
+    modImplementation(":Jankson-Fabric:6.0.0+j1.2.3")
+    include(":Jankson-Fabric:6.0.0+j1.2.3")
+    implementation(":jankson:1.2.3")
+    include(":jankson:1.2.3")
+    modImplementation(":libninepatch:1.2.0")
+    include(":libninepatch:1.2.0")
 
-    modImplementation(files("libs/Patchouli-${project.patchouli_version}.jar"))
-    include(files("libs/Patchouli-${project.patchouli_version}.jar"))
-    modImplementation(files("libs/fiber-0.23.0-2.jar"))
-    include(files("libs/fiber-0.23.0-2.jar"))
+    modImplementation(":Patchouli:${project.patchouli_version}")
+    include(":Patchouli:${project.patchouli_version}")
+    modImplementation(":fiber:0.23.0-2")
+    include(":fiber:0.23.0-2")
 
-    modImplementation(files("libs/magna-${project.magna_version}.jar"))
-    include(files("libs/magna-${project.magna_version}.jar"))
-    modImplementation(files("libs/omega-config-base-1.0.8-1.17.jar"))
-    include(files("libs/omega-config-base-1.0.8-1.17.jar"))
+    modImplementation(":magna:${project.magna_version}")
+    include(":magna:${project.magna_version}")
+    modImplementation(":omega-config-base:1.0.8-1.17")
+    include(":omega-config-base:1.0.8-1.17")
 
-    modImplementation(files("libs/step-height-entity-attribute-v1.2.0.jar"))
-    include(files("libs/step-height-entity-attribute-v1.2.0.jar"))
+    modImplementation(":step-height-entity-attribute:v1.2.0")
+    include(":step-height-entity-attribute:v1.2.0")
 
     modCompileOnly("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}") {
         exclude group: "net.fabricmc.fabric-api"
@@ -176,8 +182,8 @@ dependencies {
         exclude group: "net.fabricmc.fabric-api"
     }
 
-    modImplementation(files("libs/NoIndium-1.1.0+1.19.jar"))
-    include(files("libs/NoIndium-1.1.0+1.19.jar"))
+    modImplementation(":NoIndium:1.1.0+1.19")
+    include(":NoIndium:1.1.0+1.19")
 
     modRuntimeOnly("com.terraformersmc:modmenu:${project.modmenu_version}") {
         exclude group: "net.fabricmc.fabric-api", module: "fabric-api"

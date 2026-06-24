@@ -133,7 +133,7 @@ object IndustrialRevolution : ModInitializer {
 
     val LOGGER: Logger = LogManager.getLogger("Industrial Revolution")
 
-    const val MOD_ID = "indrev"
+    const val MOD_ID = "indrev_unbricked"
 
     val MOD_GROUP_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, identifier("mod_group"))
 

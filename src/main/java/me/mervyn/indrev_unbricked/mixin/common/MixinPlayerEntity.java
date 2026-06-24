@@ -60,12 +60,12 @@ public abstract class MixinPlayerEntity extends LivingEntity implements IRPlayer
 
     @Inject(method = "writeCustomDataToNbt", at = @At("RETURN"))
     private void indrev_writeShieldToPlayerTag(NbtCompound tag, CallbackInfo ci) {
-        tag.putDouble("indrev:shield", indrev_shield);
+        tag.putDouble("indrev_unbricked:shield", indrev_shield);
     }
 
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     private void indrev_readShieldToPlayerTag(NbtCompound tag, CallbackInfo ci) {
-        indrev_shield = tag.getDouble("indrev:shield");
+        indrev_shield = tag.getDouble("indrev_unbricked:shield");
     }
 
     @Override

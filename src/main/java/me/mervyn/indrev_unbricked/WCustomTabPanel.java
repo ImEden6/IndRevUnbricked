@@ -388,12 +388,12 @@ public class WCustomTabPanel extends WPanel {
     @Environment(EnvType.CLIENT)
     final static class Painters {
         static final BackgroundPainter SELECTED_TAB = BackgroundPainter.createLightDarkVariants(
-                BackgroundPainter.createNinePatch(new Identifier("indrev", "textures/gui/selected_light.png")).setTopPadding(2),
+                BackgroundPainter.createNinePatch(new Identifier("indrev_unbricked", "textures/gui/selected_light.png")).setTopPadding(2),
                 BackgroundPainter.createNinePatch(new Identifier("libgui", "textures/widget/tab/selected_dark.png")).setTopPadding(2)
         );
 
         static final BackgroundPainter UNSELECTED_TAB = BackgroundPainter.createLightDarkVariants(
-                BackgroundPainter.createNinePatch(new Identifier("indrev", "textures/gui/unselected_light.png")),
+                BackgroundPainter.createNinePatch(new Identifier("indrev_unbricked", "textures/gui/unselected_light.png")),
                 BackgroundPainter.createNinePatch(new Identifier("libgui", "textures/widget/tab/unselected_dark.png"))
         );
 
