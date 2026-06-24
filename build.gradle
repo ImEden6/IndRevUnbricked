@@ -111,6 +111,12 @@ repositories {
             includeGroup "dev.emi"
         }
     }
+    maven {
+        url = "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 dependencies {
@@ -142,17 +148,29 @@ dependencies {
 
     modImplementation(files("libs/LibGui-${project.libgui_version}.jar"))
     include(files("libs/LibGui-${project.libgui_version}.jar"))
+    modImplementation(files("libs/Jankson-Fabric-6.0.0+j1.2.3.jar"))
+    include(files("libs/Jankson-Fabric-6.0.0+j1.2.3.jar"))
+    implementation(files("libs/jankson-1.2.3.jar"))
+    include(files("libs/jankson-1.2.3.jar"))
+    modImplementation(files("libs/libninepatch-1.2.0.jar"))
+    include(files("libs/libninepatch-1.2.0.jar"))
 
     modImplementation(files("libs/Patchouli-${project.patchouli_version}.jar"))
     include(files("libs/Patchouli-${project.patchouli_version}.jar"))
+    modImplementation(files("libs/fiber-0.23.0-2.jar"))
+    include(files("libs/fiber-0.23.0-2.jar"))
 
     modImplementation(files("libs/magna-${project.magna_version}.jar"))
     include(files("libs/magna-${project.magna_version}.jar"))
+    modImplementation(files("libs/omega-config-base-1.0.8-1.17.jar"))
+    include(files("libs/omega-config-base-1.0.8-1.17.jar"))
 
     modImplementation(files("libs/step-height-entity-attribute-v1.2.0.jar"))
     include(files("libs/step-height-entity-attribute-v1.2.0.jar"))
 
-    dependencies.ext.lib("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}", true)
+    modCompileOnly("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}") {
+        exclude group: "net.fabricmc.fabric-api"
+    }
 
     modCompileOnly("dev.emi:emi-fabric:${project.emi_version}:api") {
         exclude group: "net.fabricmc.fabric-api"
@@ -169,6 +187,8 @@ dependencies {
     modCompileOnly(files("libs/dashloader-5.0.0-beta.2+1.20.0.jar"))
     dependencies.ext.lib("io.activej:activej-serializer:${project.activej_version}", true)
     modRuntimeOnly("org.yaml:snakeyaml:1.27")
+    modImplementation "curse.maven:emi-580555:6420944"
+    modRuntimeOnly "curse.maven:jade-324717:6291330"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     if (isIdeMode) {
         compileOnly files("build/classes/kotlin/main")

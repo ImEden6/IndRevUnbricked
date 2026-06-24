@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "libninepatch",
+  "name": "LibNinePatch",
+  "version": "1.2.0",
+
+  "description": "A simple nine-patch renderer.",
+  "authors": ["Juuz"],
+  "license": "MPL-2.0",
+
+  "custom": {
+    "modmenu": {
+      "badges": ["library"]
+    }
+  }
+}
