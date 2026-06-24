@@ -24,7 +24,7 @@ class CompressorScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.compressor", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.compressor", ctx, playerInventory, blockInventory)
 
         val inputSlot = WItemSlot.of(blockInventory, 2)
         root.add(inputSlot, 3.3, 1.8)

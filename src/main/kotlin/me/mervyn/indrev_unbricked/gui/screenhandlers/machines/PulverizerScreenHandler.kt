@@ -24,7 +24,7 @@ class PulverizerScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.pulverizer", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.pulverizer", ctx, playerInventory, blockInventory)
 
         val inputSlot = WItemSlot.of(blockInventory, 2)
         root.add(inputSlot, 3.3, 1.2)

@@ -73,7 +73,7 @@ object REIPlugin : REIClientPlugin {
             IRMachineRecipeCategory(
                 PulverizerRecipe.IDENTIFIER,
                 EntryStacks.of(MachineRegistry.PULVERIZER_REGISTRY.block(Tier.MK1)),
-                "indrev.category.rei.pulverizing"
+                "indrev_unbricked.category.rei.pulverizing"
             )
         )
 
@@ -81,7 +81,7 @@ object REIPlugin : REIClientPlugin {
             IRMachineRecipeCategory(
                 InfuserRecipe.IDENTIFIER,
                 EntryStacks.of(MachineRegistry.SOLID_INFUSER_REGISTRY.block(Tier.MK1)),
-                "indrev.category.rei.infusing"
+                "indrev_unbricked.category.rei.infusing"
             )
         )
 
@@ -89,7 +89,7 @@ object REIPlugin : REIClientPlugin {
             IRMachineRecipeCategory(
                 CompressorRecipe.IDENTIFIER,
                 EntryStacks.of(MachineRegistry.COMPRESSOR_REGISTRY.block(Tier.MK1)),
-                "indrev.category.rei.compressing"
+                "indrev_unbricked.category.rei.compressing"
             )
         )
 
@@ -97,7 +97,7 @@ object REIPlugin : REIClientPlugin {
             IRMachineRecipeCategory(
                 RecyclerRecipe.IDENTIFIER,
                 EntryStacks.of(MachineRegistry.RECYCLER_REGISTRY.block(Tier.MK2)),
-                "indrev.category.rei.recycling"
+                "indrev_unbricked.category.rei.recycling"
             )
         )
 
@@ -105,7 +105,7 @@ object REIPlugin : REIClientPlugin {
             IRMachineRecipeCategory(
                 FluidInfuserRecipe.IDENTIFIER,
                 EntryStacks.of(MachineRegistry.FLUID_INFUSER_REGISTRY.block(Tier.MK1)),
-                "indrev.category.rei.fluid_infusing"
+                "indrev_unbricked.category.rei.fluid_infusing"
             )
         )
 
@@ -113,7 +113,7 @@ object REIPlugin : REIClientPlugin {
             IRMachineRecipeCategory(
                 CondenserRecipe.IDENTIFIER,
                 EntryStacks.of(MachineRegistry.CONDENSER_REGISTRY.block(Tier.MK4)),
-                "indrev.category.rei.condensing"
+                "indrev_unbricked.category.rei.condensing"
             )
         )
 
@@ -121,7 +121,7 @@ object REIPlugin : REIClientPlugin {
             IRMachineRecipeCategory(
                 SmelterRecipe.IDENTIFIER,
                 EntryStacks.of(MachineRegistry.SMELTER_REGISTRY.block(Tier.MK4)),
-                "indrev.category.rei.smelting"
+                "indrev_unbricked.category.rei.smelting"
             )
         )
 
@@ -129,7 +129,7 @@ object REIPlugin : REIClientPlugin {
             IRSawmillRecipeCategory(
                 SawmillRecipe.IDENTIFIER,
                 EntryStacks.of(MachineRegistry.SAWMILL_REGISTRY.block(Tier.MK4)),
-                "indrev.category.rei.sawmill"
+                "indrev_unbricked.category.rei.sawmill"
             )
         )
 
@@ -137,7 +137,7 @@ object REIPlugin : REIClientPlugin {
             IRModuleCraftingRecipeCategory(
                 ModuleRecipe.IDENTIFIER,
                 EntryStacks.of(MachineRegistry.MODULAR_WORKBENCH_REGISTRY.block(Tier.MK4)),
-                "indrev.category.rei.module"
+                "indrev_unbricked.category.rei.module"
             )
         )
     }
@@ -154,8 +154,8 @@ object REIPlugin : REIClientPlugin {
                     val entryStack = EntryStacks.of(block)
                     if (tier != Tier.CREATIVE && tier != Tier.MK1) {
                         val info = DefaultInformationDisplay.createFromEntry(entryStack, translatable(block.translationKey))
-                        info.lines(translatable("indrev.category.rei.upgrading",
-                            translatable("item.indrev.tier_upgrade_" + tier.toString()
+                        info.lines(translatable("indrev_unbricked.category.rei.upgrading",
+                            translatable("item.indrev_unbricked.tier_upgrade_" + tier.toString()
                                 .lowercase(Locale.getDefault())).formatted(Formatting.DARK_GRAY),
                             translatable(machineRegistry.block(machineRegistry.tiers[machineRegistry.tiers.indexOf(tier) - 1]).translationKey).formatted(Formatting.DARK_GRAY),
                             tier.toString()))

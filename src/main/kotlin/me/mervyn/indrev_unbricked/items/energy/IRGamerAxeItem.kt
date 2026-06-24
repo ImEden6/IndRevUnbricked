@@ -68,8 +68,8 @@ class IRGamerAxeItem(
         if (Screen.hasShiftDown())
             getInstalledTooltip(getInstalled(stack), stack, tooltip)
         val active = stack.nbt?.getBoolean("Active") ?: false
-        tooltip.add(translatable("item.indrev.gamer_axe.tooltip.$active", literal("").append(IndustrialRevolutionClient.GAMER_AXE_TOGGLE_KEYBINDING.boundKeyLocalizedText).formatted(Formatting.AQUA)).formatted(Formatting.GRAY))
-        tooltip.add(translatable("item.indrev.modular_item.tooltip", literal("").append(IndustrialRevolutionClient.MODULAR_CONTROLLER_KEYBINDING.boundKeyLocalizedText).formatted(Formatting.AQUA)).formatted(Formatting.GRAY))
+        tooltip.add(translatable("item.indrev_unbricked.gamer_axe.tooltip.$active", literal("").append(IndustrialRevolutionClient.GAMER_AXE_TOGGLE_KEYBINDING.boundKeyLocalizedText).formatted(Formatting.AQUA)).formatted(Formatting.GRAY))
+        tooltip.add(translatable("item.indrev_unbricked.modular_item.tooltip", literal("").append(IndustrialRevolutionClient.MODULAR_CONTROLLER_KEYBINDING.boundKeyLocalizedText).formatted(Formatting.AQUA)).formatted(Formatting.GRAY))
     }
 
     override fun getItemBarColor(stack: ItemStack?): Int = getDurabilityBarColor(stack)

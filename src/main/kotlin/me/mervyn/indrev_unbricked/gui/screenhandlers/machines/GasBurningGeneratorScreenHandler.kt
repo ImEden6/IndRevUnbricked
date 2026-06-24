@@ -28,7 +28,7 @@ class GasBurningGeneratorScreenHandler(
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.gas_generator", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.gas_generator", ctx, playerInventory, blockInventory)
 
         withBlockEntity<GasBurningGeneratorBlockEntity> { be ->
             val wFuel = fuelBar(be)

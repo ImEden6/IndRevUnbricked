@@ -76,12 +76,12 @@ class IRModularArmorItem(type: ArmorItem.Type, maxStored: Long, settings: Settin
             tooltip?.add(EMPTY)
         }
         tooltip?.add(
-            translatable("item.indrev.modular_item.tooltip", literal("").append(
+            translatable("item.indrev_unbricked.modular_item.tooltip", literal("").append(
                 IndustrialRevolutionClient.MODULAR_CONTROLLER_KEYBINDING.boundKeyLocalizedText).formatted(Formatting.AQUA)).formatted(
                 Formatting.GRAY))
         if (ArmorModule.JETPACK.isInstalled(stack))
             tooltip?.add(
-                translatable("item.indrev.jetpack.tooltip", literal("").append(
+                translatable("item.indrev_unbricked.jetpack.tooltip", literal("").append(
                     IndustrialRevolutionClient.JETPACK_TOGGLE_KEYBINDING.boundKeyLocalizedText).formatted(Formatting.AQUA)).formatted(
                     Formatting.GRAY))
     }

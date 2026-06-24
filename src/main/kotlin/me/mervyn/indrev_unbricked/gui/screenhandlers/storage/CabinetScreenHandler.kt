@@ -23,7 +23,7 @@ class CabinetScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx: S
         val root = WGridPanel()
         setRootPanel(root)
 
-        root.add(WText(translatable("block.indrev.cabinet"), HorizontalAlignment.LEFT, 0x404040), 0.0, -0.1)
+        root.add(WText(translatable("block.indrev_unbricked.cabinet"), HorizontalAlignment.LEFT, 0x404040), 0.0, -0.1)
 
         root.add(WItemSlot.of(blockInventory, 0, 9, 3), 0.0, 0.6)
 

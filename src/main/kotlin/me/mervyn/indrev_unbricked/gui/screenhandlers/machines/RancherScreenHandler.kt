@@ -65,7 +65,7 @@ class RancherScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx: S
 
     private fun buildMainPanel(): WWidget {
         val mainPanel = WGridPanel()
-        configure("block.indrev.rancher", ctx, playerInventory, blockInventory, mainPanel, invPos = 4.45)
+        configure("block.indrev_unbricked.rancher", ctx, playerInventory, blockInventory, mainPanel, invPos = 4.45)
 
         val inputFrame = WSprite(identifier("textures/gui/input_frame.png"))
         mainPanel.add(inputFrame, 1.9, 0.7)
@@ -95,7 +95,7 @@ class RancherScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx: S
         slider.setValueChangeListener { newValue -> this.value = newValue }
 
         val text = WText({
-            translatable("block.indrev.aoe.range", slider.value)
+            translatable("block.indrev_unbricked.aoe.range", slider.value)
         }, HorizontalAlignment.LEFT)
         mainPanel.add(text, 1.8, 3.3)
 

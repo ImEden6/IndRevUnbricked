@@ -27,9 +27,9 @@ class IRServoItem(settings: Settings, val type: EndpointData.Type) : Item(settin
         tooltip.add(translatable("$translationKey.tooltip"))
         tooltip.add(EMPTY)
         val modeString = getMode(stack).toString().lowercase()
-        tooltip.add(translatable("item.indrev.servo.mode")
-            .append(translatable("item.indrev.servo.mode.$modeString").formatted(Formatting.BLUE)))
-        tooltip.add(translatable("item.indrev.servo.mode.$modeString.tooltip").formatted(Formatting.DARK_GRAY))
+        tooltip.add(translatable("item.indrev_unbricked.servo.mode")
+            .append(translatable("item.indrev_unbricked.servo.mode.$modeString").formatted(Formatting.BLUE)))
+        tooltip.add(translatable("item.indrev_unbricked.servo.mode.$modeString.tooltip").formatted(Formatting.DARK_GRAY))
     }
 
     override fun use(world: World?, user: PlayerEntity, hand: Hand?): TypedActionResult<ItemStack> {
@@ -37,8 +37,8 @@ class IRServoItem(settings: Settings, val type: EndpointData.Type) : Item(settin
         val stack = user.getStackInHand(hand)
         val newMode = getMode(stack).next()
         stack.orCreateNbt.putString("mode", newMode.toString())
-        user.sendMessage(translatable("item.indrev.servo.mode")
-            .append(translatable("item.indrev.servo.mode.${newMode.toString().lowercase()}").formatted(Formatting.BLUE)), true)
+        user.sendMessage(translatable("item.indrev_unbricked.servo.mode")
+            .append(translatable("item.indrev_unbricked.servo.mode.${newMode.toString().lowercase()}").formatted(Formatting.BLUE)), true)
         return TypedActionResult.consume(stack)
     }
 

@@ -22,7 +22,7 @@ class SteamTurbineScreenHandler(syncId: Int, playerInventory: PlayerInventory, c
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.steam_turbine_mk4", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.steam_turbine_mk4", ctx, playerInventory, blockInventory)
 
         ctx.run { world, pos ->
             val blockEntity = world.getBlockEntity(pos) as? SteamTurbineBlockEntity ?: return@run

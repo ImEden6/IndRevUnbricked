@@ -27,7 +27,7 @@ class PulverizerFactoryScreenHandler(
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.pulverizer_factory", ctx, playerInventory, blockInventory, widgetPos = 0.15)
+        configure("block.indrev_unbricked.pulverizer_factory", ctx, playerInventory, blockInventory, widgetPos = 0.15)
         withBlockEntity<PulverizerFactoryBlockEntity> { blockEntity ->
             val slotsAmount = 5
             val offset = 2.2

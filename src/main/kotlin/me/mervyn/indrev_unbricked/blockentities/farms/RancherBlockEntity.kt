@@ -6,7 +6,6 @@ import me.mervyn.indrev_unbricked.components.EnhancerComponent
 import me.mervyn.indrev_unbricked.components.autosync
 import me.mervyn.indrev_unbricked.config.BasicMachineConfig
 import me.mervyn.indrev_unbricked.config.IRConfig
-import me.mervyn.indrev_unbricked.enchantments.IREnchantments
 import me.mervyn.indrev_unbricked.inventories.inventory
 import me.mervyn.indrev_unbricked.items.upgrade.Enhancer
 import me.mervyn.indrev_unbricked.registry.MachineRegistry
@@ -21,9 +20,14 @@ import net.minecraft.item.ItemStack
 import net.minecraft.item.SwordItem
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.server.world.ServerWorld
+import net.minecraft.registry.Registries
 import net.minecraft.util.ActionResult
 import net.minecraft.util.Hand
+import net.minecraft.util.Identifier
 import net.minecraft.util.math.BlockPos
+
+private val zenithScavenger by lazy { Registries.ENCHANTMENT.get(Identifier("zenith", "scavenger")) }
+private val zenithKnowledge by lazy { Registries.ENCHANTMENT.get(Identifier("zenith", "knowledge")) }
 
 class RancherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
     : AOEMachineBlockEntity<BasicMachineConfig>(tier, MachineRegistry.RANCHER_REGISTRY, pos, state) {
@@ -74,8 +78,8 @@ class RancherBlockEntity(tier: Tier, pos: BlockPos, state: BlockState)
                 fakePlayer.setStackInHand(Hand.MAIN_HAND, swordStack.copy())
                 val lootingLevel = EnchantmentHelper.getLevel(Enchantments.LOOTING, swordStack)
                 val fireAspectLevel = EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, swordStack)
-                val scavengerLevel = EnchantmentHelper.getLevel(IREnchantments.SCAVENGER, swordStack)
-                val knowledgeLevel = EnchantmentHelper.getLevel(IREnchantments.KNOWLEDGE, swordStack)
+                val scavengerLevel = EnchantmentHelper.getLevel(zenithScavenger, swordStack)
+                val knowledgeLevel = EnchantmentHelper.getLevel(zenithKnowledge, swordStack)
                 val baseDamage = swordItem.attackDamage
 
                 kill.forEach { animal ->

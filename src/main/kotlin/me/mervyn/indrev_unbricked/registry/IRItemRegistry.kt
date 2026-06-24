@@ -315,7 +315,7 @@ object IRItemRegistry {
             tooltip: MutableList<Text>?,
             context: TooltipContext?
         ) {
-            tooltip?.add(translatable("item.indrev.heat_coil.tooltip").formatted(Formatting.BLUE))
+            tooltip?.add(translatable("item.indrev_unbricked.heat_coil.tooltip").formatted(Formatting.BLUE))
         }
     }
 

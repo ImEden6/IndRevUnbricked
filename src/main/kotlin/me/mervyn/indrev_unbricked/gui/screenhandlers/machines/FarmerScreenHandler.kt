@@ -34,7 +34,7 @@ class FarmerScreenHandler(
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.farmer", ctx, playerInventory, blockInventory, invPos = 4.45)
+        configure("block.indrev_unbricked.farmer", ctx, playerInventory, blockInventory, invPos = 4.45)
 
         val inputFrame = WSprite(identifier("textures/gui/input_frame.png"))
         root.add(inputFrame, 1.9, 0.7)
@@ -43,10 +43,10 @@ class FarmerScreenHandler(
         root.add(outputFrame, 5.1, 0.7)
         outputFrame.setSize(58, 62)
 
-        val outputSlot = WTooltipedItemSlot.of(blockInventory, (blockInventory as IRInventory).outputSlots.first(), 3, 3, translatable("gui.indrev.output_slot_type"))
+        val outputSlot = WTooltipedItemSlot.of(blockInventory, (blockInventory as IRInventory).outputSlots.first(), 3, 3, translatable("gui.indrev_unbricked.output_slot_type"))
         outputSlot.isInsertingAllowed = false
         root.add(outputSlot, 5.2, 1.0)
-        val inputSlot = WTooltipedItemSlot.of(blockInventory, (blockInventory as IRInventory).inputSlots.first(), 2, 2, translatable("gui.indrev.farmer_input_slot_type"))
+        val inputSlot = WTooltipedItemSlot.of(blockInventory, (blockInventory as IRInventory).inputSlots.first(), 2, 2, translatable("gui.indrev_unbricked.farmer_input_slot_type"))
         root.add(inputSlot, 2.0, 1.0)
 
         val slider = WSlider(1, 10, Axis.HORIZONTAL)
@@ -59,7 +59,7 @@ class FarmerScreenHandler(
         slider.setValueChangeListener { newValue -> this.value = newValue }
 
         val text = WText({
-            translatable("block.indrev.aoe.range", slider.value)
+            translatable("block.indrev_unbricked.aoe.range", slider.value)
         }, HorizontalAlignment.LEFT)
         root.add(text, 1.8, 3.3)
 

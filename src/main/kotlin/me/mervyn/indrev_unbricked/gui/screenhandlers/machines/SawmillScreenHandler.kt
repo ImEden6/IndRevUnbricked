@@ -24,7 +24,7 @@ class SawmillScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx: S
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.sawmill", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.sawmill", ctx, playerInventory, blockInventory)
 
         val inputSlot = WItemSlot.of(blockInventory, 2)
         root.add(inputSlot, 3.0, 1.8)

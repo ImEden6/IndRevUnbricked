@@ -20,7 +20,7 @@ import java.util.*
 
 class IRMachineUpgradeItem(settings: Settings, val from: Tier, val to: Tier) : Item(settings) {
     override fun appendTooltip(stack: ItemStack?, world: World?, tooltip: MutableList<Text>?, context: TooltipContext?) {
-        tooltip?.add(translatable("item.indrev.tier_upgrade_${to.toString().lowercase(Locale.getDefault())}.tooltip").formatted(Formatting.GREEN))
+        tooltip?.add(translatable("item.indrev_unbricked.tier_upgrade_${to.toString().lowercase(Locale.getDefault())}.tooltip").formatted(Formatting.GREEN))
         super.appendTooltip(stack, world, tooltip, context)
     }
 

@@ -29,7 +29,7 @@ class SolarGeneratorScreenHandler(
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.solar_generator", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.solar_generator", ctx, playerInventory, blockInventory)
 
         ctx.run { world, pos ->
             val blockEntity = world.getBlockEntity(pos) as? SolarGeneratorBlockEntity ?: return@run
@@ -38,8 +38,8 @@ class SolarGeneratorScreenHandler(
             sprite.setSize(19, 10)
 
             val text = WText({
-                if (blockEntity.shouldGenerate()) translatable("gui.indrev.solar.on")
-                else translatable("gui.indrev.heatgen.idle")
+                if (blockEntity.shouldGenerate()) translatable("gui.indrev_unbricked.solar.on")
+                else translatable("gui.indrev_unbricked.heatgen.idle")
             }, HorizontalAlignment.CENTER, 0x404040)
             root.add(text, 5.0, 2.7)
         }

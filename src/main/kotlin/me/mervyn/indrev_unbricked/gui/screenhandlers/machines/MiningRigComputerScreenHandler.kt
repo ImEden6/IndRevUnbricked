@@ -33,7 +33,7 @@ class MiningRigComputerScreenHandler(syncId: Int, playerInventory: PlayerInvento
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.mining_rig", ctx, playerInventory, blockInventory, invPos = 6.0, widgetPos = 1.5)
+        configure("block.indrev_unbricked.mining_rig", ctx, playerInventory, blockInventory, invPos = 6.0, widgetPos = 1.5)
 
 
         ctx.run { world, pos ->
@@ -45,10 +45,10 @@ class MiningRigComputerScreenHandler(syncId: Int, playerInventory: PlayerInvento
 
             root.add(WText(literal("Insert"), HorizontalAlignment.CENTER, 0x8080), 7.5, 1.9)
             root.add(WText(literal("data card"), HorizontalAlignment.CENTER, 0x8080), 7.5, 2.6)
-            val cardSlot = WTooltipedItemSlot.of(blockInventory, 0, translatable("gui.indrev.scan_output_slo1t_type"))
+            val cardSlot = WTooltipedItemSlot.of(blockInventory, 0, translatable("gui.indrev_unbricked.scan_output_slo1t_type"))
             root.add(cardSlot, 7.0, 3.3)
 
-            root.add(WText(translatable("block.indrev.drill.active"), HorizontalAlignment.CENTER, 0x8080), 3.35, 1.0)
+            root.add(WText(translatable("block.indrev_unbricked.drill.active"), HorizontalAlignment.CENTER, 0x8080), 3.35, 1.0)
 
             val requiredPower = component!!.get<Long>(MiningRigBlockEntity.ENERGY_REQUIRED_ID).toDouble()
             when {
@@ -56,8 +56,8 @@ class MiningRigComputerScreenHandler(syncId: Int, playerInventory: PlayerInvento
                     val sprite = object : WSprite(identifier("textures/gui/not_enough_power.png")) {
                         override fun addTooltip(tooltip: TooltipBuilder?) {
                             tooltip?.add(
-                                translatable("block.indrev.drill.not_enough_power").formatted(Formatting.DARK_RED),
-                                translatable("block.indrev.drill.power_required", requiredPower)
+                                translatable("block.indrev_unbricked.drill.not_enough_power").formatted(Formatting.DARK_RED),
+                                translatable("block.indrev_unbricked.drill.power_required", requiredPower)
                                     .formatted(Formatting.DARK_RED)
                             )
                         }
@@ -66,7 +66,7 @@ class MiningRigComputerScreenHandler(syncId: Int, playerInventory: PlayerInvento
                     sprite.setSize(16, 16)
                 }
                 activeDrills.isEmpty() -> {
-                    val noDrillsText = translatable("block.indrev.drill.no_drills")
+                    val noDrillsText = translatable("block.indrev_unbricked.drill.no_drills")
                     root.add(WText(noDrillsText, HorizontalAlignment.CENTER, 0x404040), 3.35, 1.75)
                 }
                 else -> {
@@ -82,7 +82,7 @@ class MiningRigComputerScreenHandler(syncId: Int, playerInventory: PlayerInvento
             val remaining = data.maxCycles - data.used
             literal("$remaining")
         }, HorizontalAlignment.CENTER, 0x8080), 3.35, 4.4)
-        root.add(WText(translatable("block.indrev.mining_rig.mined"), HorizontalAlignment.CENTER, 0x8080), 3.35, 5.0)
+        root.add(WText(translatable("block.indrev_unbricked.mining_rig.mined"), HorizontalAlignment.CENTER, 0x8080), 3.35, 5.0)
 
         root.validate(this)
     }
@@ -104,9 +104,9 @@ class MiningRigComputerScreenHandler(syncId: Int, playerInventory: PlayerInvento
                 override fun addTooltip(tooltip: TooltipBuilder?) {
                     tooltip?.add(itemStack.name)
                     val seconds = blockEntity.getSpeedMultiplier()
-                    tooltip?.add(translatable("block.indrev.drill.faster", seconds).formatted(Formatting.DARK_GRAY))
+                    tooltip?.add(translatable("block.indrev_unbricked.drill.faster", seconds).formatted(Formatting.DARK_GRAY))
                     if (blockEntity.position > 0)
-                        tooltip?.add(translatable("block.indrev.drill.activating").formatted(Formatting.DARK_GRAY))
+                        tooltip?.add(translatable("block.indrev_unbricked.drill.activating").formatted(Formatting.DARK_GRAY))
                 }
             }
             panel.add(progress, 0, 0)

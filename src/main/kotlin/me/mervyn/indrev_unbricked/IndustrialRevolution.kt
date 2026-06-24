@@ -4,7 +4,7 @@ import me.mervyn.indrev_unbricked.api.IRServerPlayerEntityExtension
 import me.mervyn.indrev_unbricked.api.machines.Tier
 import me.mervyn.indrev_unbricked.config.IRConfig
 import me.mervyn.indrev_unbricked.datagen.DataGeneratorManager
-import me.mervyn.indrev_unbricked.enchantments.IREnchantments
+
 import me.mervyn.indrev_unbricked.events.common.IRLootTableCallback
 import me.mervyn.indrev_unbricked.gui.screenhandlers.COAL_GENERATOR_HANDLER
 import me.mervyn.indrev_unbricked.gui.screenhandlers.IRGuiScreenHandler
@@ -53,7 +53,6 @@ object IndustrialRevolution : ModInitializer {
         COAL_GENERATOR_HANDLER
 
         IRConfig
-        IREnchantments
         IRItemRegistry.registerAll()
         IRBlockRegistry.registerAll()
         IRFluidRegistry.registerAll()
@@ -138,7 +137,7 @@ object IndustrialRevolution : ModInitializer {
     val MOD_GROUP_KEY = RegistryKey.of(RegistryKeys.ITEM_GROUP, identifier("mod_group"))
 
     val MOD_GROUP: ItemGroup =
-        FabricItemGroup.builder().icon { ItemStack { MachineRegistry.PULVERIZER_REGISTRY.block(Tier.MK4).asItem() } }.displayName(Text.literal("indrev.indrev_group")).build()
+        FabricItemGroup.builder().icon { ItemStack { MachineRegistry.PULVERIZER_REGISTRY.block(Tier.MK4).asItem() } }.displayName(Text.translatable("indrev_unbricked.indrev_group")).build()
 
     val COOLERS_TAG: TagKey<Item> = TagKey.of(RegistryKeys.ITEM, identifier("coolers"))
     val WRENCH_TAG: TagKey<Item> = TagKey.of(RegistryKeys.ITEM, Identifier("c:wrenches"))

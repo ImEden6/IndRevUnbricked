@@ -20,7 +20,7 @@ class IREnergyReaderItem(settings: Settings) : Item(settings) {
         val machineIo = energyOf(context!!.world as ServerWorld, blockPos!!, context.side)
         if (machineIo != null) {
             val energy = machineIo.amount
-            val text = translatable("item.indrev.energy_reader.use")
+            val text = translatable("item.indrev_unbricked.energy_reader.use")
                 .formatted(Formatting.BLUE)
                 .append(literal(" $energy LF").formatted(Formatting.WHITE))
             if (blockEntity is MachineBlockEntity<*>) {

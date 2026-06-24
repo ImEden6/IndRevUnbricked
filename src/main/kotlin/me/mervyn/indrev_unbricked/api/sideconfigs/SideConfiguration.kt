@@ -98,7 +98,7 @@ data class SideConfiguration(val type: ConfigurationType, private val transferCo
         val configuration = this
 
         if (configuration.type == ConfigurationType.ITEM) {
-            val autoPushBtn = WToggleButton(translatable("item.indrev.wrench.autopush"))
+            val autoPushBtn = WToggleButton(translatable("item.indrev_unbricked.wrench.autopush"))
             autoPushBtn.toggle = configuration.autoPush
             autoPushBtn.onToggle = Consumer { v ->
                 configuration.autoPush = v
@@ -110,7 +110,7 @@ data class SideConfiguration(val type: ConfigurationType, private val transferCo
                 ClientPlayNetworking.send(ConfigureIOPackets.UPDATE_AUTO_OPERATION_PACKET_ID, buf)
             }
             root.add(autoPushBtn, 0, 4)
-            val autoPullBtn = WToggleButton(translatable("item.indrev.wrench.autopull"))
+            val autoPullBtn = WToggleButton(translatable("item.indrev_unbricked.wrench.autopull"))
             autoPullBtn.toggle = configuration.autoPull
             autoPullBtn.onToggle = Consumer { v ->
                 configuration.autoPull = v

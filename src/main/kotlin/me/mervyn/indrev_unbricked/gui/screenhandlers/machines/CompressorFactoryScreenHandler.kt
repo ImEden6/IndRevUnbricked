@@ -27,7 +27,7 @@ class CompressorFactoryScreenHandler (
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.compressor_factory", ctx, playerInventory, blockInventory, widgetPos = 0.15)
+        configure("block.indrev_unbricked.compressor_factory", ctx, playerInventory, blockInventory, widgetPos = 0.15)
         withBlockEntity<CompressorFactoryBlockEntity> { blockEntity ->
             val slotsAmount = 5
             val offset = 2.2

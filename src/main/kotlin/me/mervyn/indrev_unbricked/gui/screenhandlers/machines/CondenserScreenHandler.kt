@@ -24,7 +24,7 @@ class CondenserScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx:
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.condenser", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.condenser", ctx, playerInventory, blockInventory)
 
         withBlockEntity<CondenserBlockEntity> { be ->
             val fluid = fluidTank(be, CondenserBlockEntity.INPUT_TANK_ID)

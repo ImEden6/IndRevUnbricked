@@ -24,7 +24,7 @@ class ElectrolyticSeparatorScreenHandler(syncId: Int, playerInventory: PlayerInv
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.electrolytic_separator", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.electrolytic_separator", ctx, playerInventory, blockInventory)
 
         withBlockEntity<ElectrolyticSeparatorBlockEntity> { be ->
             val fluid = fluidTank(be, ElectrolyticSeparatorBlockEntity.INPUT_TANK_ID)

@@ -37,7 +37,7 @@ class DataCardWriterScreenHandler(syncId: Int, playerInventory: PlayerInventory,
             }
         }
         setRootPanel(root)
-        configure("block.indrev.data_card_writer", ctx, playerInventory, blockInventory, invPos = 5.7, widgetPos = 0.85)
+        configure("block.indrev_unbricked.data_card_writer", ctx, playerInventory, blockInventory, invPos = 5.7, widgetPos = 0.85)
 
         val cardSlot = WItemSlot.of(blockInventory, 0)
         root.add(cardSlot, 4.0, 1.0)

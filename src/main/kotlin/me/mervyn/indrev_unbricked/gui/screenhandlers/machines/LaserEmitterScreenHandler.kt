@@ -30,7 +30,7 @@ class LaserEmitterScreenHandler(
         setRootPanel(root)
         root.insets = Insets.ROOT_PANEL
 
-        val label = WLabel(translatable("block.indrev.laser_emitter_mk4"))
+        val label = WLabel(translatable("block.indrev_unbricked.laser_emitter_mk4"))
         root.add(label, 0, 0)
         label.setSize(75, 0)
 

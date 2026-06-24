@@ -27,7 +27,7 @@ class SolidInfuserFactoryScreenHandler(
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.solid_infuser_factory", ctx, playerInventory, blockInventory, invPos = 4.85, widgetPos = 0.5)
+        configure("block.indrev_unbricked.solid_infuser_factory", ctx, playerInventory, blockInventory, invPos = 4.85, widgetPos = 0.5)
         withBlockEntity<SolidInfuserFactoryBlockEntity> { blockEntity ->
             val offset = 2.2
 

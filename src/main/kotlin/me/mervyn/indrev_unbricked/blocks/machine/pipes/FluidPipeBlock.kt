@@ -29,8 +29,8 @@ class FluidPipeBlock(settings: Settings, tier: Tier) : BasePipeBlock(settings, t
         options: TooltipContext?
     ) {
         tooltip?.add(
-            translatable("gui.indrev.tooltip.maxTransferRate").formatted(Formatting.AQUA)
-                .append(translatable("gui.indrev.tooltip.fluidsec", getMaxTransferRate()).formatted(Formatting.GRAY))
+            translatable("gui.indrev_unbricked.tooltip.maxTransferRate").formatted(Formatting.AQUA)
+                .append(translatable("gui.indrev_unbricked.tooltip.fluidsec", getMaxTransferRate()).formatted(Formatting.GRAY))
         )
     }
 

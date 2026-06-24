@@ -95,8 +95,8 @@ object EMIPlugin : EmiPlugin {
                     if (tier != Tier.CREATIVE && tier != Tier.MK1) {
                         val stack = EmiStack.of(block)
                         val infoText = listOf<Text>(
-                            translatable("indrev.category.rei.upgrading",
-                                translatable("item.indrev.tier_upgrade_" + tier.toString()
+                            translatable("indrev_unbricked.category.rei.upgrading",
+                                translatable("item.indrev_unbricked.tier_upgrade_" + tier.toString()
                                     .lowercase(Locale.getDefault())).formatted(Formatting.DARK_GRAY),
                                 translatable(machineReg.block(
                                     machineReg.tiers[machineReg.tiers.indexOf(tier) - 1]

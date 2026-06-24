@@ -5,7 +5,6 @@ import me.mervyn.indrev_unbricked.api.machines.Tier
 import me.mervyn.indrev_unbricked.components.EnhancerComponent
 import me.mervyn.indrev_unbricked.config.BasicMachineConfig
 import me.mervyn.indrev_unbricked.config.IRConfig
-import me.mervyn.indrev_unbricked.enchantments.IREnchantments
 import me.mervyn.indrev_unbricked.inventories.inventory
 import me.mervyn.indrev_unbricked.items.upgrade.Enhancer
 import me.mervyn.indrev_unbricked.registry.MachineRegistry
@@ -20,11 +19,15 @@ import net.minecraft.entity.mob.MobEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.item.SwordItem
 import net.minecraft.server.world.ServerWorld
-import net.minecraft.util.Hand
-import net.minecraft.util.math.BlockPos
+import net.minecraft.registry.Registries
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
+import net.minecraft.util.Hand
 import net.minecraft.util.Identifier
+import net.minecraft.util.math.BlockPos
+
+private val zenithScavenger by lazy { Registries.ENCHANTMENT.get(Identifier("zenith", "scavenger")) }
+private val zenithKnowledge by lazy { Registries.ENCHANTMENT.get(Identifier("zenith", "knowledge")) }
 
 class SlaughterBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMachineBlockEntity<BasicMachineConfig>(tier, MachineRegistry.SLAUGHTER_REGISTRY, pos, state) {
 
@@ -86,8 +89,8 @@ class SlaughterBlockEntity(tier: Tier, pos: BlockPos, state: BlockState) : AOEMa
             fakePlayer.setStackInHand(Hand.MAIN_HAND, swordStack.copy())
             val lootingLevel = EnchantmentHelper.getLevel(Enchantments.LOOTING, swordStack)
             val fireAspectLevel = EnchantmentHelper.getLevel(Enchantments.FIRE_ASPECT, swordStack)
-            val scavengerLevel = EnchantmentHelper.getLevel(IREnchantments.SCAVENGER, swordStack)
-            val knowledgeLevel = EnchantmentHelper.getLevel(IREnchantments.KNOWLEDGE, swordStack)
+            val scavengerLevel = EnchantmentHelper.getLevel(zenithScavenger, swordStack)
+            val knowledgeLevel = EnchantmentHelper.getLevel(zenithKnowledge, swordStack)
 
             mobs.forEach { mob ->
                 if (mob.isAlive) {

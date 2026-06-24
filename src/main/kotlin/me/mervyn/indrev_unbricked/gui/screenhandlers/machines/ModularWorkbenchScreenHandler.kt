@@ -169,12 +169,12 @@ class ModularWorkbenchScreenHandler(syncId: Int, playerInventory: PlayerInventor
 
     private fun buildInstallPanel(): WGridPanel {
         val root = WGridPanel()
-        configure("block.indrev.modular_workbench", ctx, playerInventory, blockInventory, root, invPos = 5.0, widgetPos = 0.9)
+        configure("block.indrev_unbricked.modular_workbench", ctx, playerInventory, blockInventory, root, invPos = 5.0, widgetPos = 0.9)
 
-        val armorSlot = WTooltipedItemSlot.of(blockInventory, 2, translatable("gui.indrev.modular_armor_slot_type"))
+        val armorSlot = WTooltipedItemSlot.of(blockInventory, 2, translatable("gui.indrev_unbricked.modular_armor_slot_type"))
         root.add(armorSlot, 1.5, 3.5)
 
-        val moduleSlot = WTooltipedItemSlot.of(blockInventory, 1, translatable("gui.indrev.module_slot_type"))
+        val moduleSlot = WTooltipedItemSlot.of(blockInventory, 1, translatable("gui.indrev_unbricked.module_slot_type"))
         root.add(moduleSlot, 1.5, 1.0)
 
         val process = query<ModularWorkbenchBlockEntity, WCustomBar> { upProcessBar(it, ModularWorkbenchBlockEntity.INSTALL_TIME_ID, ModularWorkbenchBlockEntity.MAX_INSTALL_TIME_ID) }
@@ -381,12 +381,12 @@ class ModularWorkbenchScreenHandler(syncId: Int, playerInventory: PlayerInventor
 
     companion object {
         val SCREEN_ID = identifier("modular_workbench_screen")
-        val SHIELD_TEXT = { translatable("gui.indrev.shield").formatted(Formatting.BLUE) }
-        val PROGRESS_TEXT = { translatable("gui.indrev.progress").formatted(Formatting.BLUE) }
-        val MODULE_COUNT = { translatable("gui.indrev.modules_installed").formatted(Formatting.BLUE) }
-        val INSTALLING_TEXT = { translatable("gui.indrev.installing").formatted(Formatting.DARK_PURPLE, Formatting.UNDERLINE) }
-        val INCOMPATIBLE_TEXT = { translatable("gui.indrev.incompatible").formatted(Formatting.RED) }
-        val MAX_LEVEL_TEXT = { translatable("gui.indrev.max_level").formatted(Formatting.RED) }
+        val SHIELD_TEXT = { translatable("gui.indrev_unbricked.shield").formatted(Formatting.BLUE) }
+        val PROGRESS_TEXT = { translatable("gui.indrev_unbricked.progress").formatted(Formatting.BLUE) }
+        val MODULE_COUNT = { translatable("gui.indrev_unbricked.modules_installed").formatted(Formatting.BLUE) }
+        val INSTALLING_TEXT = { translatable("gui.indrev_unbricked.installing").formatted(Formatting.DARK_PURPLE, Formatting.UNDERLINE) }
+        val INCOMPATIBLE_TEXT = { translatable("gui.indrev_unbricked.incompatible").formatted(Formatting.RED) }
+        val MAX_LEVEL_TEXT = { translatable("gui.indrev_unbricked.max_level").formatted(Formatting.RED) }
     }
 
 }

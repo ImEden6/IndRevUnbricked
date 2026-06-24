@@ -23,7 +23,7 @@ class RecyclerScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx: 
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.recycler", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.recycler", ctx, playerInventory, blockInventory)
 
         val inputSlot = WItemSlot.of(blockInventory, 2)
         root.add(inputSlot, 2.8, 1.8)

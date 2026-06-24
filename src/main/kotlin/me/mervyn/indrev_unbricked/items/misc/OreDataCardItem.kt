@@ -29,7 +29,7 @@ class OreDataCardItem : Item(itemSettings().maxCount(1)) {
     }
 
     override fun getName(stack: ItemStack): Text {
-        return if (OreDataCards.readNbt(stack) == null) translatable("item.indrev.empty_ore_data_card")
+        return if (OreDataCards.readNbt(stack) == null) translatable("item.indrev_unbricked.empty_ore_data_card")
         else super.getName(stack)
     }
 

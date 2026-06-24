@@ -16,8 +16,8 @@ enum class MiningToolModule(
 
     override fun getTooltip(stack: ItemStack, tooltip: MutableList<Text>?) {
         super.getTooltip(stack, tooltip)
-        tooltip?.add(translatable("item.indrev.module_parts").formatted(Formatting.BLUE))
-        tooltip?.add(translatable("item.indrev.module_parts_drill").formatted(Formatting.GOLD))
-        tooltip?.add(translatable("item.indrev.module_parts_gamer_axe").formatted(Formatting.GOLD))
+        tooltip?.add(translatable("item.indrev_unbricked.module_parts").formatted(Formatting.BLUE))
+        tooltip?.add(translatable("item.indrev_unbricked.module_parts_drill").formatted(Formatting.GOLD))
+        tooltip?.add(translatable("item.indrev_unbricked.module_parts_gamer_axe").formatted(Formatting.GOLD))
     }
 }

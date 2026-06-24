@@ -24,7 +24,7 @@ class SmelterScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx: S
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.smelter", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.smelter", ctx, playerInventory, blockInventory)
 
         val inputSlot = WItemSlot.of(blockInventory, 2)
         root.add(inputSlot, 3.5, 1.8)

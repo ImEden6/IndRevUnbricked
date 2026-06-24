@@ -39,7 +39,7 @@ class JetpackItem(tier: Tier) : ArmorItem(IRArmorMaterial.JETPACK, Type.CHESTPLA
             tooltip.add(EMPTY)
         }
         tooltip.add(
-            translatable("item.indrev.jetpack.tooltip", literal("").append(
+            translatable("item.indrev_unbricked.jetpack.tooltip", literal("").append(
                 IndustrialRevolutionClient.JETPACK_TOGGLE_KEYBINDING.boundKeyLocalizedText).formatted(Formatting.AQUA)).formatted(
                 Formatting.GRAY))
         super.appendTooltip(stack, world, tooltip, context)

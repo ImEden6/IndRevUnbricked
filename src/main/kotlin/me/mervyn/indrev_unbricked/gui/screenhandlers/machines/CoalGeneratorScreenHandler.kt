@@ -33,7 +33,7 @@ class CoalGeneratorScreenHandler(
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.coal_generator", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.coal_generator", ctx, playerInventory, blockInventory)
 
         val itemSlot = WItemSlot.of(blockInventory, 2)
         root.add(itemSlot, 4, 2)

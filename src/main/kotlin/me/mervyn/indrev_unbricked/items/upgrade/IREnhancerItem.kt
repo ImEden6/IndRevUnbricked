@@ -17,7 +17,7 @@ import java.util.*
 
 class IREnhancerItem(settings: Settings, val enhancer: Enhancer) : Item(settings) {
     override fun appendTooltip(stack: ItemStack?, world: World?, tooltip: MutableList<Text>?, context: TooltipContext?) {
-        tooltip?.add(translatable("item.indrev.${enhancer.toString().lowercase(Locale.getDefault())}_enhancer.tooltip").formatted(Formatting.GREEN))
+        tooltip?.add(translatable("item.indrev_unbricked.${enhancer.toString().lowercase(Locale.getDefault())}_enhancer.tooltip").formatted(Formatting.GREEN))
         tooltip?.add(EMPTY)
         val currentScreen = MinecraftClient.getInstance().currentScreen
         if (currentScreen is IRInventoryScreen<*>) {
@@ -26,9 +26,9 @@ class IREnhancerItem(settings: Settings, val enhancer: Enhancer) : Item(settings
                 val blockEntity = world?.getBlockEntity(pos) as? MachineBlockEntity<*> ?: return@run
                 val enhancerComponent = blockEntity.enhancerComponent ?: return@run
                 if (!enhancerComponent.compatible.contains(enhancer))
-                    tooltip?.add(translatable("item.indrev.enhancers.incompatible").formatted(Formatting.DARK_RED))
+                    tooltip?.add(translatable("item.indrev_unbricked.enhancers.incompatible").formatted(Formatting.DARK_RED))
                 else
-                    tooltip?.add(translatable("item.indrev.enhancers.count", enhancerComponent.maxSlotCount(enhancer)).formatted(Formatting.AQUA))
+                    tooltip?.add(translatable("item.indrev_unbricked.enhancers.count", enhancerComponent.maxSlotCount(enhancer)).formatted(Formatting.AQUA))
             }
         }
     }

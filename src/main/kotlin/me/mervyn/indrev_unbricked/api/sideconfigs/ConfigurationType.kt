@@ -6,9 +6,9 @@ import net.minecraft.text.Text
 import me.mervyn.indrev_unbricked.utils.translatable
 
 enum class ConfigurationType(val title: Text, vararg val validModes: TransferMode) {
-    ITEM(translatable("item.indrev.wrench.item"), TransferMode.INPUT, TransferMode.OUTPUT, TransferMode.INPUT_OUTPUT, TransferMode.INPUT_FIRST, TransferMode.INPUT_SECOND, TransferMode.NONE),
-    FLUID(translatable("item.indrev.wrench.fluid"), TransferMode.INPUT, TransferMode.OUTPUT, TransferMode.INPUT_OUTPUT, TransferMode.NONE),
-    ENERGY(translatable("item.indrev.wrench.energy"), TransferMode.INPUT, TransferMode.OUTPUT, TransferMode.NONE);
+    ITEM(translatable("item.indrev_unbricked.wrench.item"), TransferMode.INPUT, TransferMode.OUTPUT, TransferMode.INPUT_OUTPUT, TransferMode.INPUT_FIRST, TransferMode.INPUT_SECOND, TransferMode.NONE),
+    FLUID(translatable("item.indrev_unbricked.wrench.fluid"), TransferMode.INPUT, TransferMode.OUTPUT, TransferMode.INPUT_OUTPUT, TransferMode.NONE),
+    ENERGY(translatable("item.indrev_unbricked.wrench.energy"), TransferMode.INPUT, TransferMode.OUTPUT, TransferMode.NONE);
 
     fun next(): ConfigurationType {
         return when (this) {

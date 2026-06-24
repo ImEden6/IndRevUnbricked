@@ -29,8 +29,8 @@ class CableBlock(settings: Settings, tier: Tier) : BasePipeBlock(settings, tier,
         options: TooltipContext?
     ) {
         tooltip?.add(
-            translatable("gui.indrev.tooltip.maxTransferRate").formatted(Formatting.AQUA)
-                .append(translatable("gui.indrev.tooltip.lftick", getMaxTransferRate()).formatted(Formatting.GRAY))
+            translatable("gui.indrev_unbricked.tooltip.maxTransferRate").formatted(Formatting.AQUA)
+                .append(translatable("gui.indrev_unbricked.tooltip.lftick", getMaxTransferRate()).formatted(Formatting.GRAY))
         )
     }
 

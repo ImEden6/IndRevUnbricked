@@ -44,12 +44,12 @@ class LazuliFluxContainerScreenHandler(syncId: Int, playerInventory: PlayerInven
         root.setSize(150, 120)
 
         root.add(
-            WText(translatable("block.indrev.lazuli_flux_container_1"), HorizontalAlignment.CENTER, 0x404040),
+            WText(translatable("block.indrev_unbricked.lazuli_flux_container_1"), HorizontalAlignment.CENTER, 0x404040),
             5.95 + 0.3,
             0.0
         )
         root.add(
-            WText(translatable("block.indrev.lazuli_flux_container_2"), HorizontalAlignment.CENTER, 0x404040),
+            WText(translatable("block.indrev_unbricked.lazuli_flux_container_2"), HorizontalAlignment.CENTER, 0x404040),
             5.95 + 0.3,
             0.7
         )

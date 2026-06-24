@@ -27,7 +27,7 @@ object ToggleGamerAxePacket {
                         if (itemIo.amount > 0) {
                             stack.orCreateNbt.putBoolean("Active", active)
                             val color = if (active) Formatting.GREEN else Formatting.RED
-                            player.sendMessage(literal("").append(stack.name).formatted(stack.rarity.formatting).append(": ").append(translatable("item.indrev.gamer_axe.$active").formatted(color, Formatting.BOLD)), true)
+                            player.sendMessage(literal("").append(stack.name).formatted(stack.rarity.formatting).append(": ").append(translatable("item.indrev_unbricked.gamer_axe.$active").formatted(color, Formatting.BOLD)), true)
                         } else {
                             player.sendMessage(literal("Not enough energy!"), true)
                         }

@@ -23,7 +23,7 @@ open class IRModuleItem(val module: Module, settings: Settings) : Item(settings)
         if (Screen.hasShiftDown()) {
             module.getTooltip(stack, tooltip)
         } else {
-            tooltip?.add(translatable("gui.indrev.tooltip.press_shift", literal("").append(KeyBinding.getLocalizedName("key.keyboard.left.shift").get()).formatted(Formatting.BLUE, Formatting.ITALIC)).formatted(Formatting.BLUE, Formatting.ITALIC))
+            tooltip?.add(translatable("gui.indrev_unbricked.tooltip.press_shift", literal("").append(KeyBinding.getLocalizedName("key.keyboard.left.shift").get()).formatted(Formatting.BLUE, Formatting.ITALIC)).formatted(Formatting.BLUE, Formatting.ITALIC))
         }
     }
 }

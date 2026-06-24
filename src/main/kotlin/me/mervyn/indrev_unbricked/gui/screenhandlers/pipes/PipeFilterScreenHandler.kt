@@ -61,7 +61,7 @@ class PipeFilterScreenHandler(
             }
 
             override fun addTooltip(tooltip: TooltipBuilder?) {
-                tooltip?.add(translatable("gui.indrev.whitelist.$isOn"))
+                tooltip?.add(translatable("gui.indrev_unbricked.whitelist.$isOn"))
             }
         }
         whitelistButton.onToggle = Consumer { value ->
@@ -83,7 +83,7 @@ class PipeFilterScreenHandler(
             }
 
             override fun addTooltip(tooltip: TooltipBuilder?) {
-                tooltip?.add(translatable("gui.indrev.matchDurability.$isOn"))
+                tooltip?.add(translatable("gui.indrev_unbricked.matchDurability.$isOn"))
             }
         }
         matchDurabilityButton.onToggle = Consumer { value ->
@@ -105,7 +105,7 @@ class PipeFilterScreenHandler(
             }
             
             override fun addTooltip(tooltip: TooltipBuilder?) {
-                tooltip?.add(translatable("gui.indrev.matchTag.$isOn"))
+                tooltip?.add(translatable("gui.indrev_unbricked.matchTag.$isOn"))
             }
         }
         matchTagButton.onToggle = Consumer { value ->
@@ -183,8 +183,8 @@ class PipeFilterScreenHandler(
 
         override fun addTooltip(tooltip: TooltipBuilder?) {
             tooltip?.add(
-                translatable("item.indrev.servo.mode")
-                .append(translatable("item.indrev.servo.mode.${mode.toString().lowercase(Locale.getDefault())}").formatted(Formatting.BLUE)))
+                translatable("item.indrev_unbricked.servo.mode")
+                .append(translatable("item.indrev_unbricked.servo.mode.${mode.toString().lowercase(Locale.getDefault())}").formatted(Formatting.BLUE)))
         }
     }
 

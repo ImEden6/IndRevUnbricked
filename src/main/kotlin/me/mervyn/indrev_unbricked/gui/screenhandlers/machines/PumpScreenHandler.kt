@@ -33,7 +33,7 @@ class PumpScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx: Scre
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.pump", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.pump", ctx, playerInventory, blockInventory)
         withBlockEntity<PumpBlockEntity> { be ->
             val fluid = fluidTank(be, PumpBlockEntity.TANK_ID)
             root.add(fluid, 8, 1)

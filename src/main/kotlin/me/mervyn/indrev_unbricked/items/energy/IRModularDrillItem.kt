@@ -65,7 +65,7 @@ class IRModularDrillItem(
         if (Screen.hasShiftDown())
             getInstalledTooltip(getInstalled(stack), stack, tooltip)
         tooltip?.add(
-            translatable("item.indrev.modular_item.tooltip", literal("").append(
+            translatable("item.indrev_unbricked.modular_item.tooltip", literal("").append(
                 IndustrialRevolutionClient.MODULAR_CONTROLLER_KEYBINDING.boundKeyLocalizedText).formatted(Formatting.AQUA)).formatted(
                 Formatting.GRAY))
     }

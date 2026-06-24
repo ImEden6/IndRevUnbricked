@@ -151,19 +151,19 @@ fun buildMachineTooltip(config: Any, tooltip: MutableList<Text>?) {
         }
     } else {
         tooltip?.add(
-            translatable("gui.indrev.tooltip.press_shift", literal("").append(KeyBinding.getLocalizedName("key.keyboard.left.shift").get()).formatted(Formatting.AQUA)).formatted(Formatting.GRAY)
+            translatable("gui.indrev_unbricked.tooltip.press_shift", literal("").append(KeyBinding.getLocalizedName("key.keyboard.left.shift").get()).formatted(Formatting.AQUA)).formatted(Formatting.GRAY)
         )
     }
 }
 
 private fun configText(key: String, value: String): Text {
-    return translatable("gui.indrev.tooltip.$key").formatted(Formatting.AQUA)
+    return translatable("gui.indrev_unbricked.tooltip.$key").formatted(Formatting.AQUA)
         .append(literal(value).formatted(Formatting.GRAY))
 }
 
 private fun configText(key: String, unit: String, value: Any): Text {
-    return translatable("gui.indrev.tooltip.$key").formatted(Formatting.AQUA)
-        .append(translatable("gui.indrev.tooltip.$unit", value).formatted(Formatting.GRAY))
+    return translatable("gui.indrev_unbricked.tooltip.$key").formatted(Formatting.AQUA)
+        .append(translatable("gui.indrev_unbricked.tooltip.$unit", value).formatted(Formatting.GRAY))
 }
 
 fun getEnergyString(energy: Long): String =

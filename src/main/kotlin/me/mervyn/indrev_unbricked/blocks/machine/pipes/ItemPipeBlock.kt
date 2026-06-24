@@ -37,8 +37,8 @@ class ItemPipeBlock(settings: Settings, tier: Tier) : BasePipeBlock(settings, ti
         options: TooltipContext?
     ) {
         tooltip?.add(
-            translatable("gui.indrev.tooltip.maxTransferRate").formatted(Formatting.AQUA)
-                .append(translatable("gui.indrev.tooltip.itemsec", getMaxTransferRate()).formatted(Formatting.GRAY))
+            translatable("gui.indrev_unbricked.tooltip.maxTransferRate").formatted(Formatting.AQUA)
+                .append(translatable("gui.indrev_unbricked.tooltip.itemsec", getMaxTransferRate()).formatted(Formatting.GRAY))
         )
     }
 

@@ -27,7 +27,7 @@ class ElectricFurnaceFactoryScreenHandler(
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.electric_furnace_factory", ctx, playerInventory, blockInventory, widgetPos = 0.15)
+        configure("block.indrev_unbricked.electric_furnace_factory", ctx, playerInventory, blockInventory, widgetPos = 0.15)
         withBlockEntity<ElectricFurnaceFactoryBlockEntity> { blockEntity ->
             val slotsAmount = 5
             val offset = 2.2

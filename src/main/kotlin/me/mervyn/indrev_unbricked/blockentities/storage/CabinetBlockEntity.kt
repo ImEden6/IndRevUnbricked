@@ -24,7 +24,7 @@ class CabinetBlockEntity(pos: BlockPos, state: BlockState) : LootableContainerBl
 
     override fun size(): Int = 27
 
-    override fun getContainerName(): Text = translatable("block.indrev.cabinet")
+    override fun getContainerName(): Text = translatable("block.indrev_unbricked.cabinet")
 
     override fun createScreenHandler(syncId: Int, playerInventory: PlayerInventory): ScreenHandler {
         return CabinetScreenHandler(syncId, playerInventory, ScreenHandlerContext.create(world, pos))

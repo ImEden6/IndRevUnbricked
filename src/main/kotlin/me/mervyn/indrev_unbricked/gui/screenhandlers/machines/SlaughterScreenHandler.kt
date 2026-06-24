@@ -36,7 +36,7 @@ class SlaughterScreenHandler(
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.slaughter", ctx, playerInventory, blockInventory)
+        configure("block.indrev_unbricked.slaughter", ctx, playerInventory, blockInventory)
 
         val outputFrame = WSprite(identifier("textures/gui/output_frame.png"))
         root.add(outputFrame, 5.1, 0.7)
@@ -47,12 +47,12 @@ class SlaughterScreenHandler(
             (blockInventory as IRInventory).outputSlots.first(),
             3,
             3,
-            translatable("gui.indrev.output_slot_type")
+            translatable("gui.indrev_unbricked.output_slot_type")
         )
         outputSlot.isInsertingAllowed = false
         root.add(outputSlot, 5.2, 1.0)
 
-        val swordSlot = WTooltipedItemSlot.of(blockInventory, 1, translatable("gui.indrev.slaughter_input_sword"))
+        val swordSlot = WTooltipedItemSlot.of(blockInventory, 1, translatable("gui.indrev_unbricked.slaughter_input_sword"))
         swordSlot.setIcon(ctx, blockInventory, 1, SWORD_ICON)
         root.add(swordSlot, 2.5, 1.5)
 
@@ -66,7 +66,7 @@ class SlaughterScreenHandler(
         slider.setValueChangeListener { newValue -> this.value = newValue }
 
         val text = WText({
-            translatable("block.indrev.aoe.range", slider.value)
+            translatable("block.indrev_unbricked.aoe.range", slider.value)
         }, HorizontalAlignment.LEFT)
         root.add(text, 1.8, 2.8)
 

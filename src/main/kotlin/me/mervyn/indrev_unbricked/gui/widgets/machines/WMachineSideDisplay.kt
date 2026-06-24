@@ -43,17 +43,17 @@ class WMachineSideDisplay(
     }
 
     override fun addTooltip(tooltip: TooltipBuilder?) {
-        val modeText = translatable("item.indrev.wrench.mode",
-            translatable("item.indrev.wrench.${mode.toString().lowercase(Locale.getDefault())}").formatted(Formatting.WHITE)
+        val modeText = translatable("item.indrev_unbricked.wrench.mode",
+            translatable("item.indrev_unbricked.wrench.${mode.toString().lowercase(Locale.getDefault())}").formatted(Formatting.WHITE)
         ).formatted(Formatting.BLUE)
-        val side = translatable("item.indrev.wrench.side.${side.toString().lowercase(Locale.getDefault())}")
+        val side = translatable("item.indrev_unbricked.wrench.side.${side.toString().lowercase(Locale.getDefault())}")
             .append(literal(" (")
-                .append(translatable("item.indrev.wrench.side.${direction.toString().lowercase(Locale.getDefault())}"))
+                .append(translatable("item.indrev_unbricked.wrench.side.${direction.toString().lowercase(Locale.getDefault())}"))
                 .append(literal(")"))).formatted(Formatting.WHITE)
         tooltip?.add(modeText, side)
         val blockState = world.getBlockState(blockPos.offset(direction))
         if (!blockState.isAir) {
-            val neighbor = translatable("item.indrev.wrench.connected", blockState.block.name)
+            val neighbor = translatable("item.indrev_unbricked.wrench.connected", blockState.block.name)
             tooltip?.add(neighbor)
         }
     }

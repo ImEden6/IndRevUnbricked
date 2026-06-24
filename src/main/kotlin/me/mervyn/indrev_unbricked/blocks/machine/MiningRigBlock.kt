@@ -34,7 +34,7 @@ class MiningRigBlock(registry: MachineRegistry, settings: Settings, tier: Tier) 
     ) {
         super.appendTooltip(stack, view, tooltip, options)
         tooltip?.add(
-            translatable("block.indrev.mining_rig.tooltip").formatted(Formatting.BLUE, Formatting.ITALIC)
+            translatable("block.indrev_unbricked.mining_rig.tooltip").formatted(Formatting.BLUE, Formatting.ITALIC)
         )
     }
 

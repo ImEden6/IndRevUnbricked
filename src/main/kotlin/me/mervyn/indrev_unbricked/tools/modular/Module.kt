@@ -30,12 +30,12 @@ interface Module {
     }
 
     fun getTooltip(stack: ItemStack, tooltip: MutableList<Text>?) {
-        val titleText = translatable("item.indrev.module_${key}.tooltip")
+        val titleText = translatable("item.indrev_unbricked.module_${key}.tooltip")
         tooltip?.add(titleText.formatted(Formatting.BLUE, Formatting.ITALIC))
         tooltip?.add(literal(" "))
         if (Screen.hasShiftDown()) {
             if (this != ArmorModule.COLOR) {
-                val maxLevelText = translatable("item.indrev.module_max_level", literal(maxLevel.toString()).formatted(Formatting.GOLD))
+                val maxLevelText = translatable("item.indrev_unbricked.module_max_level", literal(maxLevel.toString()).formatted(Formatting.GOLD))
                 tooltip?.add(maxLevelText.formatted(Formatting.BLUE))
             }
         }

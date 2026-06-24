@@ -34,15 +34,15 @@ enum class ArmorModule(
     JETPACK("jetpack", arrayOf(EquipmentSlot.CHEST), 1, { IRItemRegistry.JETPACK_MODULE_ITEM }, false, false),
     WATER_AFFINITY("water_affinity", arrayOf(EquipmentSlot.CHEST, EquipmentSlot.LEGS), 1, { IRItemRegistry.WATER_AFFINITY_MODULE }, false, false) {
         override fun getTooltip(stack: ItemStack, tooltip: MutableList<Text>?) {
-            val chestplate = translatable("item.indrev.module_water_affinity.on", translatable("item.indrev.module_water_affinity.chestplate").formatted(Formatting.GOLD))
+            val chestplate = translatable("item.indrev_unbricked.module_water_affinity.on", translatable("item.indrev_unbricked.module_water_affinity.chestplate").formatted(Formatting.GOLD))
             tooltip?.add(chestplate.formatted(Formatting.BLUE, Formatting.ITALIC))
             tooltip?.add(literal("   ")
-                .append(translatable("item.indrev.module_water_affinity.tooltip")
+                .append(translatable("item.indrev_unbricked.module_water_affinity.tooltip")
                     .formatted(Formatting.BLUE, Formatting.ITALIC)))
-            val legs = translatable("item.indrev.module_water_affinity.on", translatable("item.indrev.module_water_affinity.leggings").formatted(Formatting.GOLD))
+            val legs = translatable("item.indrev_unbricked.module_water_affinity.on", translatable("item.indrev_unbricked.module_water_affinity.leggings").formatted(Formatting.GOLD))
             tooltip?.add(legs.formatted(Formatting.BLUE, Formatting.ITALIC))
             tooltip?.add(literal("   ")
-                .append(translatable("item.indrev.module_water_affinity.tooltip1")
+                .append(translatable("item.indrev_unbricked.module_water_affinity.tooltip1")
                     .formatted(Formatting.BLUE, Formatting.ITALIC)))
             tooltip?.add(literal(" "))
             if (Screen.hasShiftDown()) {
@@ -53,9 +53,9 @@ enum class ArmorModule(
                 tooltip?.add(maxLevelText.formatted(Formatting.BLUE))
             }
 
-            tooltip?.add(translatable("item.indrev.module_parts").formatted(Formatting.BLUE))
+            tooltip?.add(translatable("item.indrev_unbricked.module_parts").formatted(Formatting.BLUE))
             slots.forEach {
-                tooltip?.add(translatable("item.indrev.module_parts_${it.toString().lowercase()}").formatted(Formatting.GOLD))
+                tooltip?.add(translatable("item.indrev_unbricked.module_parts_${it.toString().lowercase()}").formatted(Formatting.GOLD))
             }
         }
                                                                                                                                                   },
@@ -63,9 +63,9 @@ enum class ArmorModule(
 
     override fun getTooltip(stack: ItemStack, tooltip: MutableList<Text>?) {
         super.getTooltip(stack, tooltip)
-        tooltip?.add(translatable("item.indrev.module_parts").formatted(Formatting.BLUE))
+        tooltip?.add(translatable("item.indrev_unbricked.module_parts").formatted(Formatting.BLUE))
         slots.forEach {
-            tooltip?.add(translatable("item.indrev.module_parts_${it.toString().lowercase()}").formatted(Formatting.GOLD))
+            tooltip?.add(translatable("item.indrev_unbricked.module_parts_${it.toString().lowercase()}").formatted(Formatting.GOLD))
         }
     }
 

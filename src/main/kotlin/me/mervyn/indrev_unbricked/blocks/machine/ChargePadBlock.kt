@@ -78,7 +78,7 @@ class ChargePadBlock(registry: MachineRegistry, settings: Settings, tier: Tier) 
 
     override fun appendTooltip(stack: ItemStack?, view: BlockView?, tooltip: MutableList<Text>?, options: TooltipContext?) {
         super.appendTooltip(stack, view, tooltip, options)
-        tooltip?.add(translatable("block.indrev.charge_pad_mk4.tooltip").formatted(Formatting.BLUE, Formatting.ITALIC))
+        tooltip?.add(translatable("block.indrev_unbricked.charge_pad_mk4.tooltip").formatted(Formatting.BLUE, Formatting.ITALIC))
     }
 
     companion object {

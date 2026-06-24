@@ -103,7 +103,7 @@ class DrillBlockEntity(pos: BlockPos, state: BlockState) : LootableContainerBloc
 
     override fun size(): Int = 1
 
-    override fun getContainerName(): Text = translatable("block.indrev.drill")
+    override fun getContainerName(): Text = translatable("block.indrev_unbricked.drill")
 
     override fun createScreenHandler(syncId: Int, playerInventory: PlayerInventory): ScreenHandler {
         return MiningRigDrillScreenHandler(syncId, playerInventory, ScreenHandlerContext.create(world, pos))

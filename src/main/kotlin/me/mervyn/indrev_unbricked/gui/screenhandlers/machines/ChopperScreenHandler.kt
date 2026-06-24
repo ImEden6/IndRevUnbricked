@@ -31,7 +31,7 @@ class ChopperScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx: S
     init {
         val root = WGridPanel()
         setRootPanel(root)
-        configure("block.indrev.chopper", ctx, playerInventory, blockInventory, invPos = 4.45)
+        configure("block.indrev_unbricked.chopper", ctx, playerInventory, blockInventory, invPos = 4.45)
 
         val inputFrame = WSprite(identifier("textures/gui/input_frame.png"))
         root.add(inputFrame, 1.9, 0.7)
@@ -40,23 +40,23 @@ class ChopperScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx: S
         root.add(outputFrame, 5.1, 0.7)
         outputFrame.setSize(58, 62)
 
-        val outputSlot = WTooltipedItemSlot.of(blockInventory, 6, 3, 3, translatable("gui.indrev.output_slot_type"))
+        val outputSlot = WTooltipedItemSlot.of(blockInventory, 6, 3, 3, translatable("gui.indrev_unbricked.output_slot_type"))
         outputSlot.isInsertingAllowed = false
         root.add(outputSlot, 5.2, 1.0)
         
-        val axeSlot = WTooltipedItemSlot.of(blockInventory, 2, translatable("gui.indrev.chopper_input_axe"))
+        val axeSlot = WTooltipedItemSlot.of(blockInventory, 2, translatable("gui.indrev_unbricked.chopper_input_axe"))
         axeSlot.setIcon(ctx, blockInventory, 2, AXE_ICON)
         root.add(axeSlot, 2.0, 1.0)
 
-        val boneMealSlot = WTooltipedItemSlot.of(blockInventory, 3, translatable("gui.indrev.chopper_input_bone_meal"))
+        val boneMealSlot = WTooltipedItemSlot.of(blockInventory, 3, translatable("gui.indrev_unbricked.chopper_input_bone_meal"))
         boneMealSlot.setIcon(ctx, blockInventory, 3, BONE_MEAL_ICON)
         root.add(boneMealSlot, 3.0, 1.0)
 
-        val saplingSlot = WTooltipedItemSlot.of(blockInventory, 4, translatable("gui.indrev.chopper_input_sapling"))
+        val saplingSlot = WTooltipedItemSlot.of(blockInventory, 4, translatable("gui.indrev_unbricked.chopper_input_sapling"))
         saplingSlot.setIcon(ctx, blockInventory, 4, SAPLING_ICON)
         root.add(saplingSlot, 2.0, 2.0)
 
-        val otherSaplingSlot = WTooltipedItemSlot.of(blockInventory, 5, translatable("gui.indrev.chopper_input_sapling"))
+        val otherSaplingSlot = WTooltipedItemSlot.of(blockInventory, 5, translatable("gui.indrev_unbricked.chopper_input_sapling"))
         otherSaplingSlot.setIcon(ctx, blockInventory, 5, SAPLING_ICON)
         root.add(otherSaplingSlot, 3.0, 2.0)
 
@@ -70,7 +70,7 @@ class ChopperScreenHandler(syncId: Int, playerInventory: PlayerInventory, ctx: S
         slider.setValueChangeListener { newValue -> this.value = newValue }
 
         val text = WText({
-            translatable("block.indrev.aoe.range", slider.value)
+            translatable("block.indrev_unbricked.aoe.range", slider.value)
         }, HorizontalAlignment.LEFT)
         root.add(text, 1.8, 3.3)
 

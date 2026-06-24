@@ -26,7 +26,7 @@ class MiningRigDrillScreenHandler(syncId: Int, playerInventory: PlayerInventory,
         val root = WGridPanel()
         setRootPanel(root)
 
-        root.add(WText(translatable("block.indrev.drill"), HorizontalAlignment.LEFT, 0x404040), 0.0, -0.1)
+        root.add(WText(translatable("block.indrev_unbricked.drill"), HorizontalAlignment.LEFT, 0x404040), 0.0, -0.1)
 
         val slot = WItemSlot.of(blockInventory, 0)
         slot.filter = Predicate { stack -> DrillBlockEntity.isValidDrill(stack.item) }
