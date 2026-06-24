@@ -5,10 +5,15 @@
         "**/bin/**"
     ],
     "files.exclude": {
-        "**/references/**": true,
-        "**/bin/": true
+        "**/references/**": false,
+        "**/bin/": false
     },
     "search.exclude": {
         "**/bin/": true
+    },
+    "workbench.editor.showTabs": true,
+    // This will style excluded folders differently
+    "workbench.colorCustomizations": {
+        "list.inactiveSelectionBackground": "#2a2a2a"
     }
 }
