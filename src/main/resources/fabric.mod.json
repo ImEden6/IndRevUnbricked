@@ -20,37 +20,37 @@
     "main": [
       {
         "adapter": "kotlin",
-        "value": "me.mervyn.indrev.IndustrialRevolution"
+        "value": "me.mervyn.indrev_unbricked.IndustrialRevolution"
       }
     ],
     "client": [
       {
         "adapter": "kotlin",
-        "value": "me.mervyn.indrev.IndustrialRevolutionClient"
+        "value": "me.mervyn.indrev_unbricked.IndustrialRevolutionClient"
       }
     ],
     "rei_client": [
       {
         "adapter": "kotlin",
-        "value": "me.mervyn.indrev.compat.rei.REIPlugin"
+        "value": "me.mervyn.indrev_unbricked.compat.rei.REIPlugin"
       }
     ],
     "fabric-datagen": [
       {
         "adapter": "kotlin",
-        "value": "me.mervyn.indrev.datagen.IndustrialRevolutionDatagen"
+        "value": "me.mervyn.indrev_unbricked.datagen.IndustrialRevolutionDatagen"
       }
     ],
     "dashloader": [
       {
         "adapter": "kotlin",
-        "value": "me.mervyn.indrev.compat.dashloader.IndRevDashLoaderPlugin"
+        "value": "me.mervyn.indrev_unbricked.compat.dashloader.IndRevDashLoaderPlugin"
       }
     ],
     "emi": [
       {
         "adapter": "kotlin",
-        "value": "me.mervyn.indrev.compat.emi.EMIPlugin"
+        "value": "me.mervyn.indrev_unbricked.compat.emi.EMIPlugin"
       }
     ]
   },

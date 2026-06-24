@@ -1,0 +1,85 @@
+package me.mervyn.indrev_unbricked.networks.factory
+
+import me.mervyn.indrev_unbricked.blocks.machine.pipes.CableBlock
+import me.mervyn.indrev_unbricked.blocks.machine.pipes.FluidPipeBlock
+import me.mervyn.indrev_unbricked.blocks.machine.pipes.ItemPipeBlock
+import me.mervyn.indrev_unbricked.networks.NetworkState
+import me.mervyn.indrev_unbricked.networks.energy.EnergyNetwork
+import me.mervyn.indrev_unbricked.networks.energy.EnergyNetworkState
+import me.mervyn.indrev_unbricked.networks.fluid.FluidNetwork
+import me.mervyn.indrev_unbricked.networks.item.ItemNetwork
+import me.mervyn.indrev_unbricked.utils.energyOf
+import me.mervyn.indrev_unbricked.utils.fluidStorageOf
+import me.mervyn.indrev_unbricked.utils.itemStorageOf
+import net.minecraft.block.BlockState
+import net.minecraft.server.world.ServerWorld
+import net.minecraft.util.math.BlockPos
+import net.minecraft.util.math.Direction
+
+val ENERGY_NET_FACTORY: NetworkFactory<EnergyNetwork> = object : NetworkFactory<EnergyNetwork> {
+    override fun process(
+        network: EnergyNetwork,
+        state: NetworkState<EnergyNetwork>,
+        world: ServerWorld,
+        pos: BlockPos,
+        direction: Direction,
+        blockState: () -> BlockState
+    ): Boolean {
+        if (blockState().block is CableBlock) {
+            network.appendPipe(blockState().block, pos.toImmutable())
+
+            if ((state as EnergyNetworkState).savedEnergy.containsKey(pos)) {
+                val energy = state.savedEnergy.remove(pos)!!
+                network.energy += energy
+            }
+            return true
+        } else {
+            val energyOf = energyOf(world, pos, direction.opposite)
+            if (energyOf != null) {
+                network.appendContainer(pos, direction.opposite)
+                if (energyOf.supportsInsertion()) network.insertables.add(pos)
+            }
+        }
+        return false
+    }
+}
+
+val FLUID_NET_FACTORY: NetworkFactory<FluidNetwork> = object : NetworkFactory<FluidNetwork> {
+    override fun process(
+        network: FluidNetwork,
+        state: NetworkState<FluidNetwork>,
+        world: ServerWorld,
+        pos: BlockPos,
+        direction: Direction,
+        blockState: () -> BlockState
+    ): Boolean {
+        if (blockState().block is FluidPipeBlock) {
+            network.appendPipe(blockState().block, pos.toImmutable())
+            state.onSet(pos, network)
+            return true
+        } else if (fluidStorageOf(world, pos, direction.opposite) != null) {
+            network.appendContainer(pos, direction.opposite)
+        }
+        return false
+    }
+}
+
+val ITEM_NET_FACTORY: NetworkFactory<ItemNetwork> = object : NetworkFactory<ItemNetwork> {
+    override fun process(
+        network: ItemNetwork,
+        state: NetworkState<ItemNetwork>,
+        world: ServerWorld,
+        pos: BlockPos,
+        direction: Direction,
+        blockState: () -> BlockState
+    ): Boolean {
+        if (blockState().block is ItemPipeBlock) {
+            network.appendPipe(blockState().block, pos.toImmutable())
+            state.onSet(pos, network)
+            return true
+        } else if (itemStorageOf(world, pos, direction.opposite) != null) {
+            network.appendContainer(pos, direction.opposite)
+        }
+        return false
+    }
+}
